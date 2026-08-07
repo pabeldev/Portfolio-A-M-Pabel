@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* Electric Neon Blue & Studio Light Design System */
+:root {
+  --bg-dark: #070913;
+  --bg-card: rgba(13, 19, 36, 0.75);
+  --bg-card-hover: rgba(20, 30, 58, 0.9);
+  --border-neon: rgba(0, 243, 255, 0.25);
+  --border-neon-glow: rgba(0, 243, 255, 0.6);
+
+  --neon-cyan: #00f3ff;
+  --neon-blue: #0066ff;
+  --neon-indigo: #4f46e5;
+  --neon-purple: #a855f7;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --font-heading: 'Creato Display', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  --glow-cyan: 0 0 25px rgba(0, 243, 255, 0.35);
+  --glow-blue: 0 0 25px rgba(0, 102, 255, 0.4);
+  --glow-button: 0 0 20px rgba(0, 243, 255, 0.5), inset 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+/* Light Mode Overrides */
+html.light {
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(241, 245, 249, 0.95);
+  --border-neon: rgba(14, 165, 233, 0.3);
+  --border-neon-glow: rgba(14, 165, 233, 0.7);
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070913;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Neon Gradient Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 50%, var(--neon-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html.light .text-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 50%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-border {
+  border: 1px solid var(--border-neon);
+  box-shadow: var(--glow-cyan);
+}
+
+.neon-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-neon);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neon-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-neon-glow);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* GPU-Accelerated 60FPS Seamless Grid Motion System */
+@keyframes smoothGridMove {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-40px, -40px, 0);
+  }
+}
+
+.bg-animated-grid {
+  position: fixed;
+  top: -80px;
+  left: -80px;
+  right: -80px;
+  bottom: -80px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  will-change: transform;
+  animation: smoothGridMove 18s linear infinite;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 25%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 25%, transparent 75%);
+}
+
+html.light .bg-animated-grid {
+  background-image: 
+    linear-gradient(to right, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+}
+
+/* Continuous 360° Orbit Rotating Conic Gradient Border */
+@keyframes borderOrbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-border-wrapper {
+  position: relative;
+  border-radius: 34px;
+  padding: 2px;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.orbit-border-gradient {
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #00f3ff 60deg,
+    #4f46e5 120deg,
+    #ec4899 180deg,
+    #f59e0b 240deg,
+    transparent 300deg,
+    transparent 360deg
+  );
+  animation: borderOrbitSpin 4s linear infinite;
+  filter: drop-shadow(0 0 15px #00f3ff) drop-shadow(0 0 10px #ec4899);
+  pointer-events: none;
+}

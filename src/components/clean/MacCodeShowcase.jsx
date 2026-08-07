@@ -1,0 +1,326 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap } from 'lucide-react';
+
+const tabsData = [
+  { id: 'react', label: 'React / TS', icon: Atom },
+  { id: 'node', label: 'Node / AI', icon: FileCode },
+  { id: 'webgl', label: 'WebGL Shader', icon: Layers },
+  { id: 'python', label: 'Python Engine', icon: Cpu }
+];
+
+const codeBlocks = [
+  {
+    tabId: 'react',
+    file: 'frontend-matrix.tsx',
+    lang: 'React / TS',
+    lines: [
+      { text: '// ⚡ FRONTEND: HIGH-SPEED REACT VIBE SYNTHESIS', type: 'comment' },
+      { text: 'import React, { useState, useEffect } from "react";', type: 'import' },
+      { text: 'import { motion } from "framer-motion";', type: 'import' },
+      { text: '', type: 'blank' },
+      { text: 'export function VibeMatrixCore({ creator, status }) {', type: 'func' },
+      { text: '  const [fps, setFps] = useState(60);', type: 'state' },
+      { text: '  const [activeNodes, setActiveNodes] = useState(128);', type: 'state' },
+      { text: '', type: 'blank' },
+      { text: '  useEffect(() => {', type: 'effect' },
+      { text: '    const engine = setInterval(() => setFps(60), 500);', type: 'effect' },
+      { text: '    return () => clearInterval(engine);', type: 'effect' },
+      { text: '  }, []);', type: 'effect' },
+      { text: '', type: 'blank' },
+      { text: '  return (', type: 'jsx' },
+      { text: '    <div className="p-8 rounded-3xl bg-slate-950 border border-cyan-500/40 shadow-2xl">', type: 'jsx' },
+      { text: '      <h1 className="text-4xl font-black text-white">{creator}</h1>', type: 'jsx' },
+      { text: '      <p className="text-cyan-400 font-mono">STATUS: {status}</p>', type: 'jsx' },
+      { text: '    </div>', type: 'jsx' },
+      { text: '  );', type: 'jsx' },
+      { text: '}', type: 'func' }
+    ]
+  },
+  {
+    tabId: 'node',
+    file: 'gemini-stream.js',
+    lang: 'Node.js / Express',
+    lines: [
+      { text: '// 🤖 BACKEND: GEMINI 1.5 FLASH REAL-TIME AI STREAM', type: 'comment' },
+      { text: 'import { GoogleGenerativeAI } from "@google/generative-ai";', type: 'import' },
+      { text: 'import express from "express";', type: 'import' },
+      { text: '', type: 'blank' },
+      { text: 'const app = express();', type: 'state' },
+      { text: 'const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);', type: 'state' },
+      { text: 'const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });', type: 'state' },
+      { text: '', type: 'blank' },
+      { text: 'app.post("/api/vibe-stream", async (req, res) => {', type: 'func' },
+      { text: '  const stream = await model.generateContentStream({', type: 'effect' },
+      { text: '    contents: [{ role: "user", parts: [{ text: req.body.prompt }] }]', type: 'effect' },
+      { text: '  });', type: 'effect' },
+      { text: '  for await (const chunk of stream) {', type: 'effect' },
+      { text: '    res.write(chunk.text());', type: 'effect' },
+      { text: '  }', type: 'effect' },
+      { text: '  res.end();', type: 'func' },
+      { text: '});', type: 'func' }
+    ]
+  },
+  {
+    tabId: 'webgl',
+    file: 'octane-vortex.glsl',
+    lang: 'WebGL Shader',
+    lines: [
+      { text: '// 🌌 WEBGL: OCTANE RAY-TRACED FLUID SHADER', type: 'comment' },
+      { text: 'uniform float uTime;', type: 'import' },
+      { text: 'uniform vec2 uResolution;', type: 'import' },
+      { text: 'varying vec2 vUv;', type: 'import' },
+      { text: '', type: 'blank' },
+      { text: 'void main() {', type: 'func' },
+      { text: '  vec2 st = gl_FragCoord.xy / uResolution.xy;', type: 'effect' },
+      { text: '  float d = length(st - vec2(0.5));', type: 'effect' },
+      { text: '  vec3 color = mix(vec3(0.0, 0.95, 1.0), vec3(0.6, 0.2, 1.0), d);', type: 'effect' },
+      { text: '  gl_FragColor = vec4(color * sin(uTime * 2.0), 1.0);', type: 'jsx' },
+      { text: '}', type: 'func' }
+    ]
+  },
+  {
+    tabId: 'python',
+    file: 'neural-engine.py',
+    lang: 'Python AI Pipeline',
+    lines: [
+      { text: '# 🐍 AI PIPELINE: AUTOMATED HIGH-SPEED CODE SYNTHESIS', type: 'comment' },
+      { text: 'import os, sys, tensorflow as tf', type: 'import' },
+      { text: 'from dataclasses import dataclass', type: 'import' },
+      { text: '', type: 'blank' },
+      { text: '@dataclass', type: 'effect' },
+      { text: 'class VibeModel:', type: 'func' },
+      { text: '    creator: str = "A M Pabel"', type: 'state' },
+      { text: '    studio: str = "FramEmpire Studio"', type: 'state' },
+      { text: '    speed_multiplier: int = 10', type: 'state' },
+      { text: '', type: 'blank' },
+      { text: 'def execute_synthesis():', type: 'func' },
+      { text: '    print("[SYNC] Infinite High-Speed Stream: ACTIVE")', type: 'effect' },
+      { text: '    print("[GPU] Acceleration: 60 FPS")', type: 'effect' },
+      { text: '', type: 'blank' },
+      { text: 'execute_synthesis()', type: 'func' }
+    ]
+  }
+];
+
+export default function MacCodeShowcase() {
+  const [blockIndex, setBlockIndex] = useState(0);
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [typedLines, setTypedLines] = useState([]);
+  
+  const scrollRef = useRef(null);
+  const currentBlock = codeBlocks[blockIndex];
+
+  // High-speed real-time typing engine (~6ms per char!)
+  useEffect(() => {
+    const currentLineObj = currentBlock.lines[lineIndex];
+
+    if (!currentLineObj) {
+      const nextTimer = setTimeout(() => {
+        setTypedLines([]);
+        setLineIndex(0);
+        setCharIndex(0);
+        setBlockIndex((prev) => (prev + 1) % codeBlocks.length);
+      }, 400);
+      return () => clearTimeout(nextTimer);
+    }
+
+    const timer = setTimeout(() => {
+      if (charIndex < currentLineObj.text.length) {
+        const partialText = currentLineObj.text.substring(0, charIndex + 1);
+        setTypedLines((prev) => {
+          const updated = [...prev];
+          updated[lineIndex] = { ...currentLineObj, text: partialText };
+          return updated;
+        });
+        setCharIndex((prev) => prev + 1);
+      } else {
+        setLineIndex((prev) => prev + 1);
+        setCharIndex(0);
+      }
+    }, 6);
+
+    return () => clearTimeout(timer);
+  }, [blockIndex, lineIndex, charIndex]);
+
+  // Auto-scroll screen down to keep the active typing line pinned in view at the bottom!
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [typedLines, charIndex]);
+
+  // Syntax Highlighting Renderer
+  const renderSyntaxLine = (line) => {
+    if (!line) return null;
+    const text = line.text;
+
+    if (line.type === 'comment') {
+      return <span className="text-emerald-400 font-bold">{text}</span>;
+    }
+    if (line.type === 'import') {
+      return (
+        <span>
+          <span className="text-pink-400 font-bold">import </span>
+          <span className="text-slate-100">{text.replace('import ', '')}</span>
+        </span>
+      );
+    }
+    if (line.type === 'func') {
+      return (
+        <span>
+          <span className="text-purple-400 font-bold">function </span>
+          <span className="text-cyan-300 font-bold">{text.replace('export function ', '').replace('function ', '')}</span>
+        </span>
+      );
+    }
+    if (line.type === 'state') {
+      return (
+        <span>
+          <span className="text-purple-400 font-bold">const </span>
+          <span className="text-blue-400">{text.replace('const ', '')}</span>
+        </span>
+      );
+    }
+
+    return <span className="text-cyan-200">{text}</span>;
+  };
+
+  return (
+    <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
+      
+      {/* Background Ambient Glow Orbs */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* Header Info */}
+      <div className="text-center space-y-3 mb-14">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
+          <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
+          High-Speed Real-Time Vibe Code Stream
+        </div>
+        <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
+          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Engine</span>
+        </h2>
+        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
+          Real-time high-speed code writing with 360° continuous Google border orbit.
+        </p>
+      </div>
+
+      {/* Sleek Mac Device Outline Frame with Continuous 360° Rotating Border Orbit */}
+      <div className="relative max-w-5xl mx-auto">
+        
+        {/* Orbit Border Wrapper: Thin 2px track with continuous 360° rotating conic gradient */}
+        <div className="orbit-border-wrapper shadow-[0_0_50px_rgba(0,243,255,0.2)]">
+          
+          {/* 360° Rotating Conic Gradient Beam */}
+          <div className="orbit-border-gradient" />
+
+          {/* Mac Screen Display Inner Shell (Sits above the rotating border layer) */}
+          <div className="relative rounded-[32px] bg-[#070913] border border-slate-900 overflow-hidden flex flex-col shadow-2xl z-10 p-1">
+            
+            {/* macOS Title Bar & Icon Tabs */}
+            <div className="px-5 py-3.5 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between gap-4 rounded-t-[28px]">
+              
+              {/* Mac Traffic Light Buttons */}
+              <div className="flex items-center gap-2">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] inline-block shadow-[0_0_10px_rgba(255,95,86,0.8)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] inline-block shadow-[0_0_10px_rgba(255,189,46,0.8)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_10px_rgba(39,201,63,0.8)]" />
+              </div>
+
+              {/* Pure Technology Icon Tabs */}
+              <div className="flex items-center gap-2 bg-slate-950/90 p-1.5 rounded-2xl border border-slate-800">
+                {tabsData.map((tab, idx) => {
+                  const Icon = tab.icon;
+                  const isActive = currentBlock.tabId === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => {
+                        setBlockIndex(idx);
+                        setTypedLines([]);
+                        setLineIndex(0);
+                        setCharIndex(0);
+                      }}
+                      title={tab.label}
+                      className={`p-2 rounded-xl transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 text-slate-950 shadow-[0_0_18px_rgba(0,243,255,0.8)] scale-110'
+                          : 'text-slate-400 hover:text-cyan-300 hover:bg-slate-900'
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Live Status Indicator */}
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>360° BORDER ORBIT</span>
+              </div>
+
+            </div>
+
+            {/* Sub-header File Path */}
+            <div className="px-6 py-2.5 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="flex items-center gap-2 text-cyan-300 font-bold">
+                <Code2 className="w-4 h-4 text-cyan-400" />
+                <span>src/vibe-stream/{currentBlock.file}</span>
+              </div>
+              <span className="text-purple-400 font-semibold">{currentBlock.lang}</span>
+            </div>
+
+            {/* Code Real-Time Typing Screen (Auto-scrolls down to active typing line!) */}
+            <div
+              ref={scrollRef}
+              className="relative h-[360px] md:h-[420px] bg-slate-950/95 overflow-y-auto font-mono text-xs md:text-sm p-6 scroll-smooth"
+            >
+              
+              {/* Scanline Overlay Effect */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.3)_51%)] bg-[length:100%_4px] pointer-events-none z-20 opacity-20" />
+
+              <div className="space-y-1">
+                {typedLines.map((line, idx) => (
+                  <div key={idx} className="flex items-center gap-4 leading-6">
+                    <span className="w-6 text-right text-slate-600 select-none text-xs">{idx + 1}</span>
+                    <div className="flex-1 font-mono">
+                      {renderSyntaxLine(line)}
+                      {/* Active Cursor Block at the bottom writing line! */}
+                      {idx === lineIndex && (
+                        <span className="inline-block w-2.5 h-4 bg-cyan-400 shadow-[0_0_12px_#00f3ff] animate-pulse ml-0.5 align-middle" />
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* macOS Footer Spec Bar */}
+            <div className="px-6 py-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400 rounded-b-[28px]">
+              <div className="flex items-center gap-3">
+                <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  360° Border Orbit: Active
+                </span>
+                <span className="hidden sm:inline text-slate-700">|</span>
+                <span className="hidden sm:inline text-slate-400">Lead Vibe Coder: A M Pabel</span>
+              </div>
+              <span className="text-cyan-400 font-bold">UTF-8 • FramEmpire</span>
+            </div>
+
+          </div>
+
+          {/* Mac Base Stand Notch */}
+          <div className="w-44 h-2 bg-slate-800/90 rounded-b-2xl mx-auto shadow-md relative z-10" />
+
+        </div>
+
+      </div>
+
+    </section>
+  );
+}
