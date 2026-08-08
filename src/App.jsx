@@ -6,6 +6,7 @@ import CleanPortfolio from './components/clean/CleanPortfolio';
 import CleanVibeCode from './components/clean/CleanVibeCode';
 import MacCodeShowcase from './components/clean/MacCodeShowcase';
 import CleanContact from './components/clean/CleanContact';
+import CleanFooter from './components/clean/CleanFooter';
 
 export default function App() {
   return (
@@ -34,38 +35,8 @@ export default function App() {
         <CleanContact />
       </main>
 
-      {/* Clean Footer with FramEmpire Developer Credit */}
-      <footer className="border-t border-slate-800/80 bg-slate-950/90 py-10 px-4 md:px-8 relative z-10 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            <span className="font-bold text-white">A M PABEL</span> — Designer | Animator | Editor
-          </div>
-
-          {/* Developer Credit Hyperlink */}
-          <div className="text-slate-300 font-medium">
-            Developed by{' '}
-            <a
-              href="https://www.framempire.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-cyan-400 hover:text-cyan-300 font-bold underline underline-offset-4 transition-colors"
-            >
-              FramEmpire
-            </a>{' '}
-            Developer Team
-          </div>
-
-          <div className="flex items-center gap-5 text-slate-400 font-mono">
-            <a href="https://wa.me/8801615288259" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">
-              +880 1615-288259
-            </a>
-            <a href="mailto:info@ampabel.com" className="hover:text-cyan-400 transition-colors">
-              info@ampabel.com
-            </a>
-          </div>
-
-        </div>
-      </footer>
+      {/* Professional Agency Studio Footer */}
+      <CleanFooter />
 
     </div>
   );
