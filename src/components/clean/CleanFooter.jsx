@@ -17,7 +17,7 @@ export default function CleanFooter() {
         {/* Top Header Row: Pure Logo & Scroll to Top */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-slate-800/80">
           
-          {/* Pure Logo Image Only (No border box, no separate text name!) */}
+          {/* Pure Logo Image Only */}
           <a href="#" className="flex items-center gap-3 group shrink-0">
             <img
               src="/assets/A-M-Pabel-Logo.webp"
@@ -112,8 +112,8 @@ export default function CleanFooter() {
                 <span className="font-bold text-white group-hover:text-cyan-300">FramEmpire Studio</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400" />
               </a>
-              <a href="https://github.com/pabeldev" target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 transition-all group">
-                <span className="font-bold text-white group-hover:text-cyan-300">GitHub (pabeldev)</span>
+              <a href="https://github.com/pabeledp" target="_blank" rel="noreferrer" className="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 transition-all group">
+                <span className="font-bold text-white group-hover:text-cyan-300">GitHub (pabeledp)</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400" />
               </a>
             </div>
