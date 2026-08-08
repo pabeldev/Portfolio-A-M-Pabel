@@ -187,22 +187,22 @@ export default function MacCodeShowcase() {
   };
 
   return (
-    <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Header Info */}
-      <div className="text-center space-y-3 mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
+      <div className="text-center space-y-3 mb-10 md:mb-14">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 light:bg-white/90 border border-cyan-500/40 text-cyan-300 light:text-cyan-600 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
           High-Speed Real-Time Vibe Code Stream
         </div>
-        <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
-          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Engine</span>
+        <h2 className="text-3xl md:text-5xl font-black text-white light:text-slate-900 tracking-tight font-['Creato_Display',sans-serif]">
+          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 light:from-cyan-600 light:to-purple-600 bg-clip-text text-transparent">Engine</span>
         </h2>
-        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
+        <p className="text-slate-400 light:text-slate-600 text-sm md:text-base max-w-2xl mx-auto font-light">
           Real-time high-speed code writing with 360° continuous Google border orbit.
         </p>
       </div>
@@ -210,27 +210,27 @@ export default function MacCodeShowcase() {
       {/* Sleek Mac Device Outline Frame with Continuous 360° Rotating Border Orbit */}
       <div className="relative max-w-5xl mx-auto">
         
-        {/* Orbit Border Wrapper: Thin 2px track with continuous 360° rotating conic gradient */}
+        {/* Orbit Border Wrapper */}
         <div className="orbit-border-wrapper shadow-[0_0_50px_rgba(0,243,255,0.2)]">
           
           {/* 360° Rotating Conic Gradient Beam */}
           <div className="orbit-border-gradient" />
 
-          {/* Mac Screen Display Inner Shell (Sits above the rotating border layer) */}
+          {/* Mac Screen Display Inner Shell */}
           <div className="relative rounded-[32px] bg-[#070913] border border-slate-900 overflow-hidden flex flex-col shadow-2xl z-10 p-1">
             
             {/* macOS Title Bar & Icon Tabs */}
-            <div className="px-5 py-3.5 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between gap-4 rounded-t-[28px]">
+            <div className="px-3.5 sm:px-5 py-3 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between gap-2 sm:gap-4 rounded-t-[28px]">
               
               {/* Mac Traffic Light Buttons */}
-              <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] inline-block shadow-[0_0_10px_rgba(255,95,86,0.8)]" />
-                <span className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] inline-block shadow-[0_0_10px_rgba(255,189,46,0.8)]" />
-                <span className="w-3.5 h-3.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_10px_rgba(39,201,63,0.8)]" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#ff5f56] inline-block shadow-[0_0_8px_rgba(255,95,86,0.8)]" />
+                <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#ffbd2e] inline-block shadow-[0_0_8px_rgba(255,189,46,0.8)]" />
+                <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_8px_rgba(39,201,63,0.8)]" />
               </div>
 
               {/* Pure Technology Icon Tabs */}
-              <div className="flex items-center gap-2 bg-slate-950/90 p-1.5 rounded-2xl border border-slate-800">
+              <div className="flex items-center gap-1 sm:gap-2 bg-slate-950/90 p-1 sm:p-1.5 rounded-2xl border border-slate-800">
                 {tabsData.map((tab, idx) => {
                   const Icon = tab.icon;
                   const isActive = currentBlock.tabId === tab.id;
@@ -244,53 +244,53 @@ export default function MacCodeShowcase() {
                         setCharIndex(0);
                       }}
                       title={tab.label}
-                      className={`p-2 rounded-xl transition-all cursor-pointer ${
+                      className={`p-1.5 sm:p-2 rounded-xl transition-all cursor-pointer ${
                         isActive
-                          ? 'bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 text-slate-950 shadow-[0_0_18px_rgba(0,243,255,0.8)] scale-110'
+                          ? 'bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 text-slate-950 shadow-[0_0_18px_rgba(0,243,255,0.8)] scale-105'
                           : 'text-slate-400 hover:text-cyan-300 hover:bg-slate-900'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </button>
                   );
                 })}
               </div>
 
               {/* Live Status Indicator */}
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>360° BORDER ORBIT</span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
+                <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>360° ORBIT</span>
               </div>
 
             </div>
 
             {/* Sub-header File Path */}
-            <div className="px-6 py-2.5 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
-              <div className="flex items-center gap-2 text-cyan-300 font-bold">
-                <Code2 className="w-4 h-4 text-cyan-400" />
-                <span>src/vibe-stream/{currentBlock.file}</span>
+            <div className="px-4 sm:px-6 py-2 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
+              <div className="flex items-center gap-1.5 text-cyan-300 font-bold truncate">
+                <Code2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span className="truncate">src/vibe-stream/{currentBlock.file}</span>
               </div>
-              <span className="text-purple-400 font-semibold">{currentBlock.lang}</span>
+              <span className="text-purple-400 font-semibold shrink-0 ml-2">{currentBlock.lang}</span>
             </div>
 
-            {/* Code Real-Time Typing Screen (Auto-scrolls down to active typing line!) */}
+            {/* Code Real-Time Typing Screen */}
             <div
               ref={scrollRef}
-              className="relative h-[360px] md:h-[420px] bg-slate-950/95 overflow-y-auto font-mono text-xs md:text-sm p-6 scroll-smooth"
+              className="relative h-[280px] sm:h-[360px] md:h-[420px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
             >
               
               {/* Scanline Overlay Effect */}
               <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.3)_51%)] bg-[length:100%_4px] pointer-events-none z-20 opacity-20" />
 
-              <div className="space-y-1">
+              <div className="space-y-1 overflow-x-auto">
                 {typedLines.map((line, idx) => (
-                  <div key={idx} className="flex items-center gap-4 leading-6">
-                    <span className="w-6 text-right text-slate-600 select-none text-xs">{idx + 1}</span>
+                  <div key={idx} className="flex items-start gap-2.5 sm:gap-4 leading-6 whitespace-nowrap sm:whitespace-normal">
+                    <span className="w-5 sm:w-6 text-right text-slate-600 select-none text-xs shrink-0">{idx + 1}</span>
                     <div className="flex-1 font-mono">
                       {renderSyntaxLine(line)}
-                      {/* Active Cursor Block at the bottom writing line! */}
+                      {/* Active Cursor Block */}
                       {idx === lineIndex && (
-                        <span className="inline-block w-2.5 h-4 bg-cyan-400 shadow-[0_0_12px_#00f3ff] animate-pulse ml-0.5 align-middle" />
+                        <span className="inline-block w-2 sm:w-2.5 h-3.5 sm:h-4 bg-cyan-400 shadow-[0_0_12px_#00f3ff] animate-pulse ml-0.5 align-middle" />
                       )}
                     </div>
                   </div>
@@ -300,14 +300,14 @@ export default function MacCodeShowcase() {
             </div>
 
             {/* macOS Footer Spec Bar */}
-            <div className="px-6 py-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-400 rounded-b-[28px]">
-              <div className="flex items-center gap-3">
-                <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  360° Border Orbit: Active
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400 rounded-b-[28px]">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 flex items-center gap-1 font-bold truncate">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  360° Orbit Active
                 </span>
                 <span className="hidden sm:inline text-slate-700">|</span>
-                <span className="hidden sm:inline text-slate-400">Lead Vibe Coder: A M Pabel</span>
+                <span className="hidden sm:inline text-slate-400">A M Pabel</span>
               </div>
               <span className="text-cyan-400 font-bold">UTF-8 • FramEmpire</span>
             </div>
@@ -315,7 +315,7 @@ export default function MacCodeShowcase() {
           </div>
 
           {/* Mac Base Stand Notch */}
-          <div className="w-44 h-2 bg-slate-800/90 rounded-b-2xl mx-auto shadow-md relative z-10" />
+          <div className="w-32 sm:w-44 h-2 bg-slate-800/90 rounded-b-2xl mx-auto shadow-md relative z-10" />
 
         </div>
 
