@@ -1,75 +1,79 @@
 import React from 'react';
-import { servicesList } from '../../data/personalData';
-import { Sparkles, Film, Palette, Zap, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Film, Palette, Zap } from 'lucide-react';
 
-const iconMap = {
-  Sparkles: Sparkles,
-  Film: Film,
-  Palette: Palette,
-  Zap: Zap
-};
+const minimalServices = [
+  {
+    id: 'motion-graphics',
+    title: '3D Motion Graphics & Animation',
+    category: 'Cinema 4D • Octane Render',
+    icon: Sparkles,
+    gradient: 'from-purple-500/20 to-indigo-600/20 border-purple-500/30'
+  },
+  {
+    id: 'video-editing',
+    title: 'Commercial Video Editing & VFX',
+    category: 'DaVinci Resolve • Premiere Pro',
+    icon: Film,
+    gradient: 'from-cyan-500/20 to-blue-600/20 border-cyan-500/30'
+  },
+  {
+    id: 'graphic-design',
+    title: 'Graphic Design & Brand Systems',
+    category: '3D Emblem • Vector Systems',
+    icon: Palette,
+    gradient: 'from-amber-500/20 to-pink-600/20 border-amber-500/30'
+  },
+  {
+    id: 'vibe-coding',
+    title: 'Vibe Coding & Web Applications',
+    category: 'React • Three.js • Gemini AI',
+    icon: Zap,
+    gradient: 'from-emerald-500/20 to-cyan-600/20 border-emerald-500/30'
+  }
+];
 
 export default function CleanServices() {
   return (
-    <section id="services" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section id="services" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
       
       {/* Header */}
-      <div className="text-center space-y-3 mb-14">
-        <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-          Services & Specialties
+      <div className="text-center space-y-2 mb-10 md:mb-12">
+        <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 light:text-cyan-600 font-mono">
+          Creative Disciplines
         </span>
-        <h2 className="text-3xl md:text-5xl font-black text-white">
-          What I Create <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">For Clients</span>
+        <h2 className="text-3xl md:text-5xl font-black text-white light:text-slate-900">
+          What I Create <span className="bg-gradient-to-r from-cyan-400 to-blue-500 light:from-cyan-600 light:to-blue-600 bg-clip-text text-transparent">For Clients</span>
         </h2>
-        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
-          Dedicated personal execution backed by 5+ years of production experience in motion, design, and code.
-        </p>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {servicesList.map((service) => {
-          const IconComp = iconMap[service.icon] || Sparkles;
+      {/* Minimal 4-Card Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        {minimalServices.map((service) => {
+          const IconComp = service.icon;
           return (
             <div
               key={service.id}
-              className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/50 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 space-y-6 flex flex-col justify-between"
+              className={`p-6 rounded-3xl bg-slate-900/60 light:bg-white/90 border border-slate-800/80 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between space-y-4 group shadow-md hover:shadow-xl`}
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
-                    <IconComp className="w-6 h-6" />
-                  </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-slate-950 text-cyan-300 border border-slate-800">
-                    {service.badge}
+                <div className="p-3.5 rounded-2xl bg-cyan-500/10 light:bg-cyan-50 border border-cyan-500/30 text-cyan-400 light:text-cyan-600 w-fit group-hover:scale-110 transition-transform">
+                  <IconComp className="w-6 h-6" />
+                </div>
+
+                <div>
+                  <span className="text-[10px] font-mono text-cyan-400 light:text-cyan-600 font-bold uppercase tracking-wider block mb-1">
+                    {service.category}
                   </span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                
-                <p className="text-slate-300 text-sm leading-relaxed font-light">
-                  {service.description}
-                </p>
-
-                {/* Tools Stack */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {service.tools.map((tool, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2.5 py-1 rounded-md bg-slate-950 text-xs font-mono text-slate-300 border border-slate-800"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+                  <h3 className="text-lg font-bold text-white light:text-slate-900 group-hover:text-cyan-300 light:group-hover:text-cyan-600 transition-colors leading-snug">
+                    {service.title}
+                  </h3>
                 </div>
               </div>
 
-              {/* Deliverables Banner */}
-              <div className="pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs text-cyan-300 font-mono">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Deliverables: {service.deliverables}</span>
+              <div className="pt-3 border-t border-slate-800/80 light:border-slate-100 flex items-center justify-between text-xs text-slate-400 light:text-slate-500 font-mono">
+                <span>Core Specialty</span>
+                <span className="text-cyan-400 light:text-cyan-600 font-bold">● Active</span>
               </div>
-
             </div>
           );
         })}
