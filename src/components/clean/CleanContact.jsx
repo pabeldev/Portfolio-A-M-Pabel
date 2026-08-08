@@ -18,27 +18,27 @@ export default function CleanContact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section id="contact" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
       
-      <div className="relative rounded-3xl bg-slate-950/90 border border-cyan-500/30 p-8 md:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,243,255,0.1)]">
+      <div className="relative rounded-3xl bg-slate-950/90 light:bg-white/95 border border-cyan-500/30 light:border-slate-200 p-6 md:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,243,255,0.1)] light:shadow-xl">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
           
           {/* Left Column: Direct Info */}
           <div className="lg:col-span-5 space-y-6">
             
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 light:text-cyan-600 font-mono">
               Get In Touch
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-black text-white">
+            <h2 className="text-3xl md:text-4xl font-black text-white light:text-slate-900">
               Let's Discuss Your <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 light:from-cyan-600 light:via-blue-600 light:to-purple-600 bg-clip-text text-transparent">
                 Next Big Project
               </span>
             </h2>
 
-            <p className="text-slate-300 text-sm font-light leading-relaxed">
+            <p className="text-slate-300 light:text-slate-600 text-sm font-light leading-relaxed">
               Available for freelance projects, commercial video edits, 3D motion graphics, brand identity systems, and vibe-coded web applications.
             </p>
 
@@ -49,37 +49,37 @@ export default function CleanContact() {
                 href="https://wa.me/8801615288259"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all hover:translate-x-1 group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group"
               >
-                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 light:text-emerald-600 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-mono">Direct WhatsApp & Mobile</div>
-                  <div className="text-sm font-bold text-white font-mono">{personalProfile.contact.phone}</div>
+                  <div className="text-xs text-slate-400 light:text-slate-500 font-mono">Direct WhatsApp & Mobile</div>
+                  <div className="text-sm font-bold text-white light:text-slate-900 font-mono">{personalProfile.contact.phone}</div>
                 </div>
               </a>
 
               <a
                 href={`mailto:${personalProfile.contact.email}`}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all hover:translate-x-1 group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group"
               >
-                <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 light:text-cyan-600 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-mono">Email Address</div>
-                  <div className="text-sm font-bold text-white font-mono">{personalProfile.contact.email}</div>
+                  <div className="text-xs text-slate-400 light:text-slate-500 font-mono">Email Address</div>
+                  <div className="text-sm font-bold text-white light:text-slate-900 font-mono">{personalProfile.contact.email}</div>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200">
+                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 light:text-purple-600 shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400 font-mono">Location</div>
-                  <div className="text-sm font-bold text-white">{personalProfile.location}</div>
+                  <div className="text-xs text-slate-400 light:text-slate-500 font-mono">Location</div>
+                  <div className="text-sm font-bold text-white light:text-slate-900">{personalProfile.location}</div>
                 </div>
               </div>
 
@@ -89,53 +89,53 @@ export default function CleanContact() {
 
           {/* Right Column: Direct Message Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 md:p-8 rounded-2xl bg-slate-900 border border-slate-800 space-y-6">
+            <div className="p-6 md:p-8 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 space-y-6">
               
-              <div className="border-b border-slate-800 pb-3">
-                <h3 className="text-lg font-bold text-white">Send Pabel a Direct Message</h3>
-                <p className="text-xs text-slate-400">Opens WhatsApp chat immediately with pre-filled details</p>
+              <div className="border-b border-slate-800 light:border-slate-200 pb-3">
+                <h3 className="text-lg font-bold text-white light:text-slate-900">Send Pabel a Direct Message</h3>
+                <p className="text-xs text-slate-400 light:text-slate-500">Opens WhatsApp chat immediately with pre-filled details</p>
               </div>
 
               {formSubmitted ? (
                 <div className="p-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
-                  <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto animate-bounce" />
-                  <h4 className="text-lg font-bold text-white">Message Ready!</h4>
-                  <p className="text-xs text-slate-300">Launching WhatsApp chat with A M Pabel...</p>
+                  <CheckCircle2 className="w-12 h-12 text-emerald-400 light:text-emerald-600 mx-auto animate-bounce" />
+                  <h4 className="text-lg font-bold text-white light:text-slate-900">Message Ready!</h4>
+                  <p className="text-xs text-slate-300 light:text-slate-600">Launching WhatsApp chat with A M Pabel...</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-mono text-slate-400 block mb-1">Your Name</label>
+                      <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Your Name</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Alex Mercer"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-white light:text-slate-900 text-sm focus:border-cyan-500 focus:outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="text-xs font-mono text-slate-400 block mb-1">Your Email</label>
+                      <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Your Email</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="alex@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-white light:text-slate-900 text-sm focus:border-cyan-500 focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs font-mono text-slate-400 block mb-1">Service Needed</label>
+                    <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Service Needed</label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-cyan-300 text-sm focus:border-cyan-500 focus:outline-none font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-cyan-300 light:text-cyan-700 text-sm focus:border-cyan-500 focus:outline-none font-mono"
                     >
                       <option value="3D Motion Graphics">3D Motion Graphics & Animation</option>
                       <option value="Commercial Video Editing">Commercial Video Editing & VFX</option>
@@ -145,14 +145,14 @@ export default function CleanContact() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-mono text-slate-400 block mb-1">Message / Requirements</label>
+                    <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Message / Requirements</label>
                     <textarea
                       rows={4}
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Briefly describe your project, goals, or timeline..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:border-cyan-500 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-white light:text-slate-900 text-sm focus:border-cyan-500 focus:outline-none"
                     />
                   </div>
 

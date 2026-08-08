@@ -11,16 +11,16 @@ import CleanContact from './components/clean/CleanContact';
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#070913] light:bg-slate-50 text-slate-100 light:text-slate-900 flex flex-col font-['Plus_Jakarta_Sans'] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden transition-colors duration-300">
+      <div className="min-h-screen bg-[#070913] light:bg-white text-slate-100 light:text-slate-900 flex flex-col font-['Plus_Jakarta_Sans'] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden transition-colors duration-300">
         
-        {/* Subtle Ambient Background Gradient + Blurry Animated Fading Grid */}
-        <div className="fixed inset-0 bg-gradient-to-b from-[#070913] via-[#090e24] to-[#070913] light:from-slate-50 light:via-slate-100 light:to-slate-100 pointer-events-none z-0 transition-colors duration-300" />
-        <div className="fixed inset-0 bg-animated-grid pointer-events-none z-0 opacity-60 light:opacity-40" />
+        {/* Subtle Ambient Background Gradient + Blurry Low-Transparency Animated Grid */}
+        <div className="fixed inset-0 bg-gradient-to-b from-[#070913] via-[#090e24] to-[#070913] light:from-white light:via-slate-50/50 light:to-white pointer-events-none z-0 transition-colors duration-300" />
+        <div className="fixed inset-0 bg-animated-grid pointer-events-none z-0 opacity-60 light:opacity-70" />
 
         {/* Ambient Radial Gradient Glow Orbs */}
-        <div className="fixed top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-500/10 light:bg-cyan-500/5 blur-[160px] pointer-events-none z-0" />
-        <div className="fixed top-[40%] right-[-10%] w-[700px] h-[700px] rounded-full bg-purple-600/10 light:bg-purple-600/5 blur-[180px] pointer-events-none z-0" />
-        <div className="fixed bottom-[-10%] left-[20%] w-[600px] h-[600px] rounded-full bg-blue-600/10 light:bg-blue-600/5 blur-[160px] pointer-events-none z-0" />
+        <div className="fixed top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-500/10 light:bg-cyan-500/10 blur-[160px] pointer-events-none z-0" />
+        <div className="fixed top-[40%] right-[-10%] w-[700px] h-[700px] rounded-full bg-purple-600/10 light:bg-purple-600/10 blur-[180px] pointer-events-none z-0" />
+        <div className="fixed bottom-[-10%] left-[20%] w-[600px] h-[600px] rounded-full bg-blue-600/10 light:bg-blue-600/10 blur-[160px] pointer-events-none z-0" />
 
         {/* Clean Personal Header */}
         <CleanNavbar />

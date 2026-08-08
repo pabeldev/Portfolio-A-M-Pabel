@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Electric Neon Blue & Studio Light Design System */
+/* Electric Neon Blue & Pure White Studio Light Design System */
 :root {
   --bg-dark: #070913;
   --bg-card: rgba(13, 19, 36, 0.75);
@@ -24,13 +24,13 @@
   --glow-button: 0 0 20px rgba(0, 243, 255, 0.5), inset 0 0 10px rgba(0, 243, 255, 0.2);
 }
 
-/* Light Mode Overrides */
+/* Light Mode Overrides (Pure White #ffffff Background) */
 html.light {
-  --bg-dark: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-card-hover: rgba(241, 245, 249, 0.95);
-  --border-neon: rgba(14, 165, 233, 0.3);
-  --border-neon-glow: rgba(14, 165, 233, 0.7);
+  --bg-dark: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: rgba(248, 250, 252, 0.98);
+  --border-neon: rgba(14, 165, 233, 0.25);
+  --border-neon-glow: rgba(14, 165, 233, 0.6);
 
   --text-main: #0f172a;
   --text-muted: #475569;
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   background: #070913;
 }
 html.light ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
@@ -75,7 +75,7 @@ html.light ::-webkit-scrollbar-thumb {
   box-shadow: 0 0 10px var(--neon-cyan);
 }
 
-/* Neon Gradient Utilities */
+/* Neon & Studio Gradient Utilities */
 .text-gradient {
   background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 50%, var(--neon-blue) 100%);
   -webkit-background-clip: text;
@@ -134,10 +134,13 @@ html.light .text-gradient {
   -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 25%, transparent 75%);
 }
 
+/* Light Mode Low-Transparency Gradient Grid */
 html.light .bg-animated-grid {
   background-image: 
-    linear-gradient(to right, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(14, 165, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.07) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.95) 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.95) 30%, transparent 80%);
 }
 
 /* Continuous 360° Orbit Rotating Conic Gradient Border */
@@ -156,6 +159,10 @@ html.light .bg-animated-grid {
   padding: 2px;
   background: #0f172a;
   overflow: hidden;
+}
+
+html.light .orbit-border-wrapper {
+  background: #e2e8f0;
 }
 
 .orbit-border-gradient {
