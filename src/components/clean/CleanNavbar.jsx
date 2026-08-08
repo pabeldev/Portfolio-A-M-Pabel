@@ -6,8 +6,8 @@ export default function CleanNavbar() {
 
   return (
     <>
-      {/* Full-Width Top Glass Blur Shield Zone (Blurs anything entering the top header zone!) */}
-      <div className="fixed top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#070913]/95 via-[#070913]/80 to-transparent backdrop-blur-2xl pointer-events-none z-40" />
+      {/* Seamless Top Glass Blur Shield (Butter-smooth gradient mask fade - ZERO hard edges!) */}
+      <div className="fixed top-0 left-0 right-0 h-28 pointer-events-none z-40 top-blur-mask backdrop-blur-2xl bg-gradient-to-b from-[#070913]/90 via-[#070913]/40 to-transparent" />
 
       {/* Floating Navbar Pill Container */}
       <header className="fixed top-2 sm:top-4 left-0 right-0 z-50 px-2 sm:px-4 md:px-3 max-w-[1320px] mx-auto transition-all pointer-events-none">
