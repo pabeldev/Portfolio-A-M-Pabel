@@ -5,8 +5,8 @@ export default function CleanNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-2 sm:top-3 z-50 px-4 md:px-8 max-w-7xl mx-auto transition-all">
-      <div className="bg-[#070913]/85 backdrop-blur-xl border border-slate-800/80 rounded-2xl md:rounded-full px-4 sm:px-6 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-between gap-4">
+    <header className="sticky top-2 sm:top-3 z-50 px-2 sm:px-4 md:px-3 max-w-[1320px] mx-auto transition-all">
+      <div className="bg-[#070913]/85 backdrop-blur-xl border border-slate-800/80 rounded-2xl md:rounded-full px-5 sm:px-8 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-between gap-4">
         
         {/* Brand Logo Only (Compact height) */}
         <a href="#" className="flex items-center gap-2 group shrink-0">
