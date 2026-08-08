@@ -1,9 +1,13 @@
 # 🌌 A M Pabel — Official Personal Portfolio
 
-[![Live Site](https://img.shields.io/badge/Live_Site-portfolio.ampabel.com-00f3ff?style=for-the-badge&logo=googlechrome&logoColor=black)](https://portfolio.ampabel.com)
-[![GitHub](https://img.shields.io/badge/GitHub-pabeledp-4f46e5?style=for-the-badge&logo=github)](https://github.com/pabeledp/Portfolio-A-M-Pabel)
-[![Framework](https://img.shields.io/badge/React_18-Vite-0066ff?style=for-the-badge&logo=react)](https://react.dev)
-[![Styling](https://img.shields.io/badge/TailwindCSS_v4-00f3ff?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+<div align="left">
+
+[![Live Site](https://img.shields.io/badge/LIVE_SITE-portfolio.ampabel.com-00f3ff?style=for-the-badge&logo=googlechrome&logoColor=070913&labelColor=0f172a)](https://portfolio.ampabel.com)
+[![GitHub](https://img.shields.io/badge/GITHUB-pabeledp-00f3ff?style=for-the-badge&logo=github&logoColor=070913&labelColor=0f172a)](https://github.com/pabeledp/Portfolio-A-M-Pabel)
+[![React](https://img.shields.io/badge/REACT_18-Vite-00f3ff?style=for-the-badge&logo=react&logoColor=070913&labelColor=0f172a)](https://react.dev)
+[![Tailwind](https://img.shields.io/badge/TAILWINDCSS_v4-Cyber-00f3ff?style=for-the-badge&logo=tailwindcss&logoColor=070913&labelColor=0f172a)](https://tailwindcss.com)
+
+</div>
 
 High-impact personal portfolio website for **A M Pabel** — Lead Designer, Motion Animator, Commercial Video Editor, and AI Vibe Coder based in Bangladesh. Live production deployment at **[https://portfolio.ampabel.com](https://portfolio.ampabel.com)**.
 
