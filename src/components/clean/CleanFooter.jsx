@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Mail, Phone, MapPin, ExternalLink, ArrowUp, Sparkles, Heart } from 'lucide-react';
+import { MessageSquare, Mail, Phone, ExternalLink, ArrowUp, Heart } from 'lucide-react';
 
 export default function CleanFooter() {
   const scrollToTop = () => {
@@ -14,27 +14,17 @@ export default function CleanFooter() {
 
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         
-        {/* Top Header Row: Brand Identity & Scroll to Top */}
+        {/* Top Header Row: Pure Logo & Scroll to Top */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-slate-800/80">
           
-          {/* Brand Logo & Headline */}
-          <div className="flex items-center gap-4">
-            <div className="p-2 rounded-2xl bg-slate-900 border border-slate-800 shadow-md">
-              <img
-                src="/assets/A-M-Pabel-Logo.webp"
-                alt="A M Pabel Logo"
-                className="h-10 w-auto object-contain"
-              />
-            </div>
-            <div>
-              <h3 className="text-xl font-black text-white tracking-wider font-['Creato_Display',sans-serif]">
-                A M PABEL
-              </h3>
-              <p className="text-xs text-cyan-400 font-mono font-medium">
-                Best Video Editor in Bangladesh • Designer • Animator • Editor
-              </p>
-            </div>
-          </div>
+          {/* Pure Logo Image Only (No border box, no separate text name!) */}
+          <a href="#" className="flex items-center gap-3 group shrink-0">
+            <img
+              src="/assets/A-M-Pabel-Logo.webp"
+              alt="A M Pabel Logo"
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </a>
 
           {/* Status Badge & Scroll to Top */}
           <div className="flex items-center gap-4">
@@ -109,10 +99,6 @@ export default function CleanFooter() {
                 <Mail className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span className="font-mono font-semibold">info@ampabel.com</span>
               </a>
-              <div className="flex items-center gap-2.5 text-slate-400">
-                <MapPin className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                <span>Dhaka & Feni, Bangladesh</span>
-              </div>
             </div>
           </div>
 
@@ -138,10 +124,8 @@ export default function CleanFooter() {
         {/* Bottom Bar: Copyright & FramEmpire Developer Credit */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           
-          <div className="flex items-center gap-2">
+          <div>
             <span>© {new Date().getFullYear()} A M Pabel. All Rights Reserved.</span>
-            <span className="text-slate-700">|</span>
-            <span className="text-cyan-400 font-mono font-semibold">Best Video Editor in Bangladesh</span>
           </div>
 
           {/* Developer Credit Hyperlink */}
