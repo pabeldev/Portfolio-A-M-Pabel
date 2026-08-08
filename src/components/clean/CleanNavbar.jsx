@@ -7,13 +7,13 @@ export default function CleanNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#070913]/95 light:bg-white/95 backdrop-blur-xl border-b border-slate-800/80 light:border-slate-200 px-4 md:px-8 py-3.5 transition-all">
+    <header className="sticky top-0 z-50 bg-[#070913]/95 light:bg-white/90 backdrop-blur-xl border-b border-slate-800/80 light:border-slate-200 px-4 md:px-8 py-3.5 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Brand Logo & Name */}
         <a href="#" className="flex items-center gap-3 group">
           {/* Custom WebP Logo */}
-          <div className="h-9 w-auto flex items-center justify-center p-1 rounded-xl bg-slate-900 light:bg-slate-100 border border-slate-800 light:border-slate-200 shadow-md group-hover:border-cyan-500/50 transition-colors">
+          <div className="h-9 w-auto flex items-center justify-center p-1 rounded-xl bg-slate-900 light:bg-white border border-slate-800 light:border-slate-200 shadow-md group-hover:border-cyan-500/50 transition-colors">
             <img
               src="/assets/A-M-Pabel-Logo.webp"
               alt="A M Pabel Official Logo"
@@ -25,14 +25,14 @@ export default function CleanNavbar() {
             <span className="font-['Creato_Display',sans-serif] font-black text-lg md:text-xl tracking-wider text-white light:text-slate-900 block leading-tight">
               A M PABEL
             </span>
-            <span className="text-[10px] md:text-xs text-cyan-400 light:text-cyan-600 font-mono block">
+            <span className="text-[10px] md:text-xs text-cyan-400 light:text-cyan-700 font-mono block font-medium">
               Designer | Animator | Editor
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300 light:text-slate-600">
+        <nav className="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300 light:text-slate-700">
           <a href="#services" className="hover:text-cyan-400 light:hover:text-cyan-600 transition-colors">Services</a>
           <a href="#works" className="hover:text-cyan-400 light:hover:text-cyan-600 transition-colors">Works</a>
           <a href="#vibe-code" className="hover:text-cyan-400 light:hover:text-cyan-600 transition-colors">Vibe Coding</a>
@@ -47,17 +47,17 @@ export default function CleanNavbar() {
             onClick={toggleTheme}
             aria-label="Toggle Theme Mode"
             title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            className="p-2 rounded-xl bg-slate-900 light:bg-slate-100 border border-slate-700 light:border-slate-300 text-cyan-400 light:text-slate-700 hover:scale-105 transition-all cursor-pointer shadow-md"
+            className="p-2 rounded-xl bg-slate-900 light:bg-slate-100 border border-slate-700 light:border-slate-300 text-cyan-400 light:text-indigo-600 hover:scale-105 transition-all cursor-pointer shadow-md"
           >
             {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
           </button>
 
-          {/* WhatsApp CTA */}
+          {/* WhatsApp CTA (Emerald / Cyan Gradient in Light Mode) */}
           <a
             href="https://wa.me/8801615288259"
             target="_blank"
             rel="noreferrer"
-            className="px-3.5 py-2 md:px-4 md:py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:shadow-[0_0_30px_rgba(0,243,255,0.5)] transition-all flex items-center gap-1.5 shrink-0"
+            className="px-3.5 py-2 md:px-4 md:py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 light:from-emerald-500 light:to-teal-600 text-slate-950 light:text-white font-bold text-xs shadow-[0_0_20px_rgba(0,243,255,0.3)] light:shadow-md hover:shadow-[0_0_30px_rgba(0,243,255,0.5)] transition-all flex items-center gap-1.5 shrink-0"
           >
             <MessageSquare className="w-3.5 h-3.5 fill-current" />
             <span className="hidden sm:inline">WhatsApp Pabel</span>

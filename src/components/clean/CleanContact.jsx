@@ -20,14 +20,14 @@ export default function CleanContact() {
   return (
     <section id="contact" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
       
-      <div className="relative rounded-3xl bg-slate-950/90 light:bg-white/95 border border-cyan-500/30 light:border-slate-200 p-6 md:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,243,255,0.1)] light:shadow-xl">
+      <div className="relative rounded-3xl bg-slate-950/90 light:bg-white/90 light:backdrop-blur-2xl border border-cyan-500/30 light:border-slate-200 p-6 md:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,243,255,0.1)] light:shadow-xl">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
           
           {/* Left Column: Direct Info */}
           <div className="lg:col-span-5 space-y-6">
             
-            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 light:text-cyan-600 font-mono">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 light:text-cyan-700 font-mono font-medium">
               Get In Touch
             </span>
 
@@ -38,7 +38,7 @@ export default function CleanContact() {
               </span>
             </h2>
 
-            <p className="text-slate-300 light:text-slate-600 text-sm font-light leading-relaxed">
+            <p className="text-slate-300 light:text-slate-700 text-sm font-light leading-relaxed">
               Available for freelance projects, commercial video edits, 3D motion graphics, brand identity systems, and vibe-coded web applications.
             </p>
 
@@ -49,9 +49,9 @@ export default function CleanContact() {
                 href="https://wa.me/8801615288259"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group shadow-sm"
               >
-                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 light:text-emerald-600 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors shrink-0">
+                <div className="p-3 rounded-xl bg-emerald-500/10 light:bg-emerald-50 text-emerald-400 light:text-emerald-700 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -62,9 +62,9 @@ export default function CleanContact() {
 
               <a
                 href={`mailto:${personalProfile.contact.email}`}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group"
+                className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 hover:border-cyan-500/50 light:hover:border-cyan-500 transition-all hover:translate-x-1 group shadow-sm"
               >
-                <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 light:text-cyan-600 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
+                <div className="p-3 rounded-xl bg-cyan-500/10 light:bg-cyan-50 text-cyan-400 light:text-cyan-700 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -73,8 +73,8 @@ export default function CleanContact() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200">
-                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 light:text-purple-600 shrink-0">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 shadow-sm">
+                <div className="p-3 rounded-xl bg-purple-500/10 light:bg-purple-50 text-purple-400 light:text-purple-700 shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -89,15 +89,15 @@ export default function CleanContact() {
 
           {/* Right Column: Direct Message Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 md:p-8 rounded-2xl bg-slate-900 light:bg-slate-50 border border-slate-800 light:border-slate-200 space-y-6">
+            <div className="p-6 md:p-8 rounded-2xl bg-slate-900 light:bg-slate-50/80 border border-slate-800 light:border-slate-200 space-y-6 shadow-sm">
               
               <div className="border-b border-slate-800 light:border-slate-200 pb-3">
                 <h3 className="text-lg font-bold text-white light:text-slate-900">Send Pabel a Direct Message</h3>
-                <p className="text-xs text-slate-400 light:text-slate-500">Opens WhatsApp chat immediately with pre-filled details</p>
+                <p className="text-xs text-slate-400 light:text-slate-600">Opens WhatsApp chat immediately with pre-filled details</p>
               </div>
 
               {formSubmitted ? (
-                <div className="p-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3">
+                <div className="p-8 rounded-xl bg-emerald-500/10 light:bg-emerald-50 border border-emerald-500/30 light:border-emerald-200 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 light:text-emerald-600 mx-auto animate-bounce" />
                   <h4 className="text-lg font-bold text-white light:text-slate-900">Message Ready!</h4>
                   <p className="text-xs text-slate-300 light:text-slate-600">Launching WhatsApp chat with A M Pabel...</p>
@@ -106,7 +106,7 @@ export default function CleanContact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Your Name</label>
+                      <label className="text-xs font-mono text-slate-400 light:text-slate-700 block mb-1">Your Name</label>
                       <input
                         type="text"
                         required
@@ -118,7 +118,7 @@ export default function CleanContact() {
                     </div>
 
                     <div>
-                      <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Your Email</label>
+                      <label className="text-xs font-mono text-slate-400 light:text-slate-700 block mb-1">Your Email</label>
                       <input
                         type="email"
                         required
@@ -131,11 +131,11 @@ export default function CleanContact() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Service Needed</label>
+                    <label className="text-xs font-mono text-slate-400 light:text-slate-700 block mb-1">Service Needed</label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-cyan-300 light:text-cyan-700 text-sm focus:border-cyan-500 focus:outline-none font-mono"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950 light:bg-white border border-slate-800 light:border-slate-300 text-cyan-300 light:text-cyan-800 text-sm focus:border-cyan-500 focus:outline-none font-mono"
                     >
                       <option value="3D Motion Graphics">3D Motion Graphics & Animation</option>
                       <option value="Commercial Video Editing">Commercial Video Editing & VFX</option>
@@ -145,7 +145,7 @@ export default function CleanContact() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-mono text-slate-400 light:text-slate-600 block mb-1">Message / Requirements</label>
+                    <label className="text-xs font-mono text-slate-400 light:text-slate-700 block mb-1">Message / Requirements</label>
                     <textarea
                       rows={4}
                       required
@@ -158,7 +158,7 @@ export default function CleanContact() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-slate-950 font-bold text-sm shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:shadow-[0_0_30px_rgba(0,243,255,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 light:from-emerald-500 light:via-teal-600 light:to-cyan-600 text-slate-950 light:text-white font-bold text-sm shadow-[0_0_20px_rgba(0,243,255,0.3)] light:shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4 fill-current" />
                     Send Direct Message to Pabel

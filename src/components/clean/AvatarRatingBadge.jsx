@@ -11,7 +11,7 @@ export default function AvatarRatingBadge() {
   ];
 
   return (
-    <div className="w-full max-w-sm mx-auto mt-4 p-3 rounded-2xl bg-slate-950/90 light:bg-white/90 border border-amber-500/30 light:border-amber-500/40 shadow-[0_0_20px_rgba(245,158,11,0.12)] backdrop-blur-xl flex items-center justify-between gap-2 overflow-hidden">
+    <div className="w-full max-w-sm mx-auto mt-4 p-3 rounded-2xl bg-slate-950/90 light:bg-white/95 light:backdrop-blur-xl border border-amber-500/30 light:border-slate-200 shadow-[0_0_20px_rgba(245,158,11,0.12)] light:shadow-md backdrop-blur-xl flex items-center justify-between gap-2 overflow-hidden">
       
       {/* 5 Overlapping Client Avatars */}
       <div className="flex items-center -space-x-2 shrink-0">
@@ -27,16 +27,16 @@ export default function AvatarRatingBadge() {
 
       {/* Star Rating & Text */}
       <div className="flex flex-col items-end text-right min-w-0">
-        <div className="flex items-center gap-1 text-amber-400">
+        <div className="flex items-center gap-1 text-amber-400 light:text-amber-500">
           <div className="flex items-center gap-0.5 shrink-0">
             {[1, 2, 3, 4].map((star) => (
-              <Star key={star} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+              <Star key={star} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 light:fill-amber-500 text-amber-400 light:text-amber-500" />
             ))}
             {/* 4.5 Star Half Representation */}
             <div className="relative w-3 h-3 sm:w-3.5 sm:h-3.5">
-              <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 absolute" />
+              <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 light:text-amber-500 absolute" />
               <div className="w-1.5 h-3.5 overflow-hidden absolute">
-                <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+                <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 light:fill-amber-500 text-amber-400 light:text-amber-500" />
               </div>
             </div>
           </div>
