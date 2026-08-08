@@ -14,12 +14,22 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('ampabel_theme', theme);
     const root = document.documentElement;
+    const body = document.body;
+
     if (theme === 'light') {
       root.classList.add('light');
       root.classList.remove('dark');
+      if (body) {
+        body.classList.add('light');
+        body.classList.remove('dark');
+      }
     } else {
       root.classList.add('dark');
       root.classList.remove('light');
+      if (body) {
+        body.classList.add('dark');
+        body.classList.remove('light');
+      }
     }
   }, [theme]);
 
