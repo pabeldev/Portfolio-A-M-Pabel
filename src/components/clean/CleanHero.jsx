@@ -6,7 +6,7 @@ import { Sparkles, MessageSquare, ArrowRight } from 'lucide-react';
 
 export default function CleanHero() {
   return (
-    <section className="relative pt-16 sm:pt-20 pb-16 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative pt-28 sm:pt-36 md:pt-40 pb-16 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
