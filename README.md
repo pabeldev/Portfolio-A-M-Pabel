@@ -2,10 +2,10 @@
 
 <div align="left">
 
-[![Live Site](https://img.shields.io/badge/LIVE_SITE-portfolio.ampabel.com-00f3ff?style=for-the-badge&logo=googlechrome&logoColor=070913&labelColor=0f172a)](https://portfolio.ampabel.com)
-[![GitHub](https://img.shields.io/badge/GITHUB-pabeledp-00f3ff?style=for-the-badge&logo=github&logoColor=070913&labelColor=0f172a)](https://github.com/pabeledp/Portfolio-A-M-Pabel)
-[![React](https://img.shields.io/badge/REACT_18-Vite-00f3ff?style=for-the-badge&logo=react&logoColor=070913&labelColor=0f172a)](https://react.dev)
-[![Tailwind](https://img.shields.io/badge/TAILWINDCSS_v4-Cyber-00f3ff?style=for-the-badge&logo=tailwindcss&logoColor=070913&labelColor=0f172a)](https://tailwindcss.com)
+[![Live Site](https://img.shields.io/badge/LIVE_SITE-portfolio.ampabel.com-FFFFFF?style=for-the-badge&logo=googlechrome&logoColor=000000&labelColor=0f172a)](https://portfolio.ampabel.com)
+[![GitHub](https://img.shields.io/badge/GITHUB-pabeledp-FFFFFF?style=for-the-badge&logo=github&logoColor=000000&labelColor=0f172a)](https://github.com/pabeledp/Portfolio-A-M-Pabel)
+[![React](https://img.shields.io/badge/REACT_18-Vite-FFFFFF?style=for-the-badge&logo=react&logoColor=000000&labelColor=0f172a)](https://react.dev)
+[![Tailwind](https://img.shields.io/badge/TAILWINDCSS_v4-Cyber-FFFFFF?style=for-the-badge&logo=tailwindcss&logoColor=000000&labelColor=0f172a)](https://tailwindcss.com)
 
 </div>
 
