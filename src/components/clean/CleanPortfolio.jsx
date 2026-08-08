@@ -56,11 +56,10 @@ export default function CleanPortfolio() {
           </h2>
         </div>
 
-        {/* Filter Buttons (Responsive Horizontal Scroll on Mobile) */}
+        {/* Filter Buttons */}
         <div className="w-full md:w-auto flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none flex-nowrap">
           {[
             { id: 'all', label: 'All Works' },
-            { id: 'vibe-coding', label: 'Vibe Code Websites' },
             { id: 'video-editing', label: 'Video Edits' },
             { id: 'graphic-design', label: 'Graphic Design' },
             { id: 'motion-graphics', label: '3D Motion' }

@@ -10,13 +10,17 @@ export default function CleanNavbar() {
     <header className="sticky top-0 z-50 bg-[#070913]/95 light:bg-white/95 backdrop-blur-xl border-b border-slate-800/80 light:border-slate-200 px-4 md:px-8 py-3.5 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Brand Name */}
-        <a href="#" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 p-[1px] shadow-[0_0_15px_rgba(0,243,255,0.3)] shrink-0">
-            <div className="w-full h-full bg-[#070913] light:bg-white rounded-[11px] flex items-center justify-center font-black text-cyan-400 light:text-cyan-600 font-mono text-sm">
-              AMP
-            </div>
+        {/* Brand Logo & Name */}
+        <a href="#" className="flex items-center gap-3 group">
+          {/* Custom WebP Logo */}
+          <div className="h-9 w-auto flex items-center justify-center p-1 rounded-xl bg-slate-900 light:bg-slate-100 border border-slate-800 light:border-slate-200 shadow-md group-hover:border-cyan-500/50 transition-colors">
+            <img
+              src="/assets/A-M-Pabel-Logo.webp"
+              alt="A M Pabel Official Logo"
+              className="h-7 w-auto object-contain"
+            />
           </div>
+
           <div>
             <span className="font-['Creato_Display',sans-serif] font-black text-lg md:text-xl tracking-wider text-white light:text-slate-900 block leading-tight">
               A M PABEL
@@ -48,7 +52,7 @@ export default function CleanNavbar() {
             {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
           </button>
 
-          {/* WhatsApp CTA (Responsive label) */}
+          {/* WhatsApp CTA */}
           <a
             href="https://wa.me/8801615288259"
             target="_blank"

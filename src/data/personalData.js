@@ -6,6 +6,7 @@ export const personalProfile = {
   location: "Dhaka & Feni, Bangladesh",
   status: "Available for Projects",
   avatarUrl: "/assets/pabel_real.jpg",
+  logoUrl: "/assets/A-M-Pabel-Logo.webp",
   contact: {
     phone: "+880 1615-288259",
     whatsapp: "+880 1615-288259",
@@ -183,19 +184,9 @@ export const servicesList = [
   }
 ];
 
+// Clean Deduplicated Portfolio Projects (No Vibe Coding duplication!)
 export const portfolioProjects = [
   ...edTechVideos,
-  ...vibeCodedWebsites.map(site => ({
-    id: site.id,
-    title: site.title,
-    category: "vibe-coding",
-    thumbnail: site.thumbnail,
-    description: site.description,
-    tags: site.tags,
-    client: site.displayUrl,
-    year: "2026",
-    url: site.url
-  })),
   {
     id: "proj-1",
     title: "Octane 3D Kinetic Motion Reveal",
