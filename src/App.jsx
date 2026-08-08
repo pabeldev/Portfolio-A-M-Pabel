@@ -4,6 +4,7 @@ import CleanHero from './components/clean/CleanHero';
 import CleanServices from './components/clean/CleanServices';
 import CleanPortfolio from './components/clean/CleanPortfolio';
 import CleanVibeCode from './components/clean/CleanVibeCode';
+import ClientLogoTicker from './components/clean/ClientLogoTicker';
 import MacCodeShowcase from './components/clean/MacCodeShowcase';
 import CleanContact from './components/clean/CleanContact';
 import CleanFooter from './components/clean/CleanFooter';
@@ -30,8 +31,13 @@ export default function App() {
         <CleanServices />
         <CleanPortfolio />
         <CleanVibeCode />
+        
+        {/* Client / Partner Brand Infinite Marquee Logo Ticker */}
+        <ClientLogoTicker />
+
         {/* Infinite Mac Code Stream Visual Showcase */}
         <MacCodeShowcase />
+        
         <CleanContact />
       </main>
 
