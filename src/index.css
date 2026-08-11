@@ -61,6 +61,28 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 65%, rgba(0, 0, 0, 0) 100%);
 }
 
+/* Soft Edge Fade & Center Depth Mask for Client Ticker (Melts smoothly on 2 sides!) */
+.ticker-3d-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 12%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0.2) 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 12%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0.2) 88%,
+    transparent 100%
+  );
+}
+
 /* Infinite Marquee Animation (Right to Left loop) */
 @keyframes marqueeLeft {
   0% {
