@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   );
 }
 
-/* Infinite Marquee Animation (Right to Left loop) */
+/* Infinite Marquee Animation (Right to Left loop - Ultra Smooth Slow Speed) */
 @keyframes marqueeLeft {
   0% {
     transform: translate3d(0, 0, 0);
@@ -96,14 +96,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .animate-marquee-left {
   display: flex;
   will-change: transform;
-  animation: marqueeLeft 28s linear infinite;
+  animation: marqueeLeft 45s linear infinite;
 }
 
 .animate-marquee-left:hover {
   animation-play-state: paused;
 }
 
-/* Infinite Marquee Animation (Left to Right loop) */
+/* Infinite Marquee Animation (Left to Right loop - Ultra Smooth Slow Speed) */
 @keyframes marqueeRight {
   0% {
     transform: translate3d(-50%, 0, 0);
@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .animate-marquee-right {
   display: flex;
   will-change: transform;
-  animation: marqueeRight 32s linear infinite;
+  animation: marqueeRight 50s linear infinite;
 }
 
 .animate-marquee-right:hover {
