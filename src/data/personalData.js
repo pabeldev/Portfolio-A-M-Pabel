@@ -92,6 +92,139 @@ export const edTechVideos = [
   }
 ];
 
+export const graphicDesignProjects = [
+  {
+    id: "g-1",
+    behanceId: "253103033",
+    title: "Campus to Country Vol 01",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/253103033?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/253103033/Campus-to-Country",
+    description: "Brand identity and publication design architecture for Campus to Country — The Story.",
+    tags: ["Brand Identity", "Publication", "Graphic System"],
+    client: "Campus to Country - The Story",
+    year: "2026"
+  },
+  {
+    id: "g-2",
+    behanceId: "252254261",
+    title: "Campus to Country Vol 02",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/252254261?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/252254261/Campus-to-Country",
+    description: "Editorial layout, typography system, and visual storytelling design for Campus to Country.",
+    tags: ["Editorial Design", "Typography", "Visual System"],
+    client: "Campus to Country - The Story",
+    year: "2026"
+  },
+  {
+    id: "g-3",
+    behanceId: "248462649",
+    title: "reThink EdTech Graphic Suite 01",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/248462649?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/248462649/reThink",
+    description: "High-impact social graphics and digital promotional assets engineered for reThink EdTech.",
+    tags: ["EdTech", "Social Media Design", "Digital Ads"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
+    id: "g-4",
+    behanceId: "248708119",
+    title: "reThink Brand System 02",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/248708119?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/248708119/reThink",
+    description: "Comprehensive visual branding system, vector icons, and marketing collateral for reThink.ac.",
+    tags: ["Brand Guidelines", "Vector Assets", "EdTech"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
+    id: "g-5",
+    behanceId: "247216449",
+    title: "reThink Campaign Graphics 03",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/247216449?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/247216449/reThink",
+    description: "Course campaign visual design suite and digital banners crafted for student engagement.",
+    tags: ["Campaign Design", "Banners", "EdTech Visuals"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
+    id: "g-6",
+    behanceId: "246488915",
+    title: "Occasional Poster Series",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/246488915?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/246488915/Occasional-Posters",
+    description: "Special event poster series, holiday greetings, and campaign key visuals for Education BD & reThink.",
+    tags: ["Poster Design", "Key Visuals", "Event Graphics"],
+    client: "Education BD & reThink",
+    year: "2026"
+  },
+  {
+    id: "g-7",
+    behanceId: "245515891",
+    title: "reThink Visual Architecture 04",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/245515891?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/245515891/reThink",
+    description: "Advanced graphic design architecture, infographics, and UI marketing assets for reThink.ac.",
+    tags: ["Infographics", "UI Graphics", "EdTech"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
+    id: "g-8",
+    behanceId: "226741719",
+    title: "Worklife Canada Brand Design",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/226741719?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/226741719/Worklife-Canada",
+    description: "Official visual branding, visa campaign posters, and corporate identity for Worklife Canada Immigration.",
+    tags: ["Corporate Identity", "Poster Design", "Immigration"],
+    client: "Worklife Canada Immigration",
+    year: "2025"
+  },
+  {
+    id: "g-9",
+    behanceId: "226667791",
+    title: "Eastern Technologies Visuals",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/226667791?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/226667791/Eastern-Technologies",
+    description: "Service center branding, promotional banners, and tech graphics for Eastern Technologies.",
+    tags: ["Tech Branding", "Promotional Banners", "Graphic System"],
+    client: "Eastern Technologies",
+    year: "2025"
+  },
+  {
+    id: "g-10",
+    behanceId: "209401197",
+    title: "ShobdoMaloncho BookShop Logo",
+    category: "graphic-design",
+    thumbnail: "",
+    embedUrl: "https://www.behance.net/embed/project/209401197?ilo0=1",
+    behanceUrl: "https://www.behance.net/gallery/209401197/ShobdoMaloncho",
+    description: "Custom literary emblem logo design and brand mark architecture for ShobdoMaloncho BookShop.",
+    tags: ["Logo Design", "Literary Emblem", "Brand Mark"],
+    client: "ShobdoMaloncho",
+    year: "2024"
+  }
+];
+
 export const vibeCodedWebsites = [
   {
     id: "vibe-1",
@@ -184,7 +317,8 @@ export const servicesList = [
   }
 ];
 
-// Clean Portfolio Projects (Only items with verified video preview links!)
+// Clean Portfolio Projects (Video Edits + Behance Graphic Design Projects!)
 export const portfolioProjects = [
-  ...edTechVideos
+  ...edTechVideos,
+  ...graphicDesignProjects
 ];

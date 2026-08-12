@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { portfolioProjects } from '../../data/personalData';
 import VideoModal from './VideoModal';
 import WebPreviewModal from './WebPreviewModal';
+import BehanceModal from './BehanceModal';
 import { Sparkles, Play, ArrowUpRight, ExternalLink, Globe, Film, Palette } from 'lucide-react';
 
 export default function CleanPortfolio() {
   const [filter, setFilter] = useState('all');
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedWeb, setSelectedWeb] = useState(null);
+  const [selectedBehance, setSelectedBehance] = useState(null);
   const [failedImages, setFailedImages] = useState({});
 
   const filteredProjects = filter === 'all'
@@ -15,7 +17,9 @@ export default function CleanPortfolio() {
     : portfolioProjects.filter(p => p.category === filter);
 
   const handleProjectClick = (project) => {
-    if (project.category === 'vibe-coding' && project.url) {
+    if (project.category === 'graphic-design') {
+      setSelectedBehance(project);
+    } else if (project.category === 'vibe-coding' && project.url) {
       setSelectedWeb({
         id: project.id,
         title: project.title,
@@ -85,12 +89,17 @@ export default function CleanPortfolio() {
           const IconComp = getCategoryIcon(project.category);
           const hasValidImage = project.thumbnail && !failedImages[project.id];
           const displayTags = project.tags.slice(0, 3);
+          const isGraphic = project.category === 'graphic-design';
 
           return (
             <div
               key={project.id}
               onClick={() => handleProjectClick(project)}
-              className="group relative rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-400/60 overflow-hidden backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between h-full shadow-md hover:shadow-[0_0_30px_rgba(0,243,255,0.2)]"
+              className={`group relative rounded-2xl bg-slate-900/60 border ${
+                isGraphic ? 'hover:border-purple-400/60' : 'hover:border-cyan-400/60'
+              } border-slate-800/80 overflow-hidden backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between h-full shadow-md ${
+                isGraphic ? 'hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]' : 'hover:shadow-[0_0_30px_rgba(0,243,255,0.2)]'
+              }`}
             >
               
               {/* Top Container: Thumbnail + Card Content */}
@@ -105,14 +114,20 @@ export default function CleanPortfolio() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-105"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden group-hover:border-cyan-500/40 transition-colors">
-                      <div className="absolute inset-0 bg-[radial-gradient(#00f3ff_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+                    <div className={`w-full h-full bg-gradient-to-br ${
+                      isGraphic ? 'from-slate-900 via-slate-950 to-purple-950/40' : 'from-slate-900 to-slate-950'
+                    } border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors`}>
+                      <div className="absolute inset-0 bg-[radial-gradient(#a855f7_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
                       
-                      <div className="p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 mb-1.5 group-hover:scale-110 transition-transform">
+                      <div className={`p-3.5 rounded-2xl ${
+                        isGraphic ? 'bg-purple-500/15 border border-purple-500/30 text-purple-400' : 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400'
+                      } mb-1.5 group-hover:scale-110 transition-transform`}>
                         <IconComp className="w-6 h-6" />
                       </div>
                       
-                      <span className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                      <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                        isGraphic ? 'text-purple-300' : 'text-cyan-400'
+                      }`}>
                         {project.client}
                       </span>
                     </div>
@@ -120,8 +135,10 @@ export default function CleanPortfolio() {
 
                   {/* Subtle Hover Play / Open Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/60 backdrop-blur-xs z-10">
-                    <div className="p-3.5 rounded-full bg-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.6)] group-hover:scale-110 transition-transform">
-                      {project.category === 'vibe-coding' ? <ExternalLink className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
+                    <div className={`p-3.5 rounded-full ${
+                      isGraphic ? 'bg-purple-500 text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]' : 'bg-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.6)]'
+                    } group-hover:scale-110 transition-transform`}>
+                      {isGraphic ? <Palette className="w-5 h-5" /> : project.category === 'vibe-coding' ? <ExternalLink className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
                     </div>
                   </div>
                 </div>
@@ -129,12 +146,16 @@ export default function CleanPortfolio() {
                 {/* Card Body Info */}
                 <div className="p-5 md:p-6 space-y-2.5">
                   {/* Meta Info Layer */}
-                  <div className="text-[11px] text-cyan-400 font-mono font-semibold tracking-wide">
+                  <div className={`text-[11px] font-mono font-semibold tracking-wide ${
+                    isGraphic ? 'text-purple-400' : 'text-cyan-400'
+                  }`}>
                     {project.client} • {project.year}
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-base md:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  <h3 className={`text-base md:text-lg font-bold text-white transition-colors line-clamp-1 ${
+                    isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
+                  }`}>
                     {project.title}
                   </h3>
 
@@ -158,8 +179,10 @@ export default function CleanPortfolio() {
               </div>
 
               {/* Interactive CTA Action Footer */}
-              <div className="px-5 md:px-6 py-3.5 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
-                <span>{project.category === 'vibe-coding' ? 'Launch Live Site' : 'Play Video Preview'}</span>
+              <div className={`px-5 md:px-6 py-3.5 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold transition-colors ${
+                isGraphic ? 'text-purple-400 group-hover:text-purple-300' : 'text-cyan-400 group-hover:text-cyan-300'
+              }`}>
+                <span>{isGraphic ? 'View Behance Showcase' : project.category === 'vibe-coding' ? 'Launch Live Site' : 'Play Video Preview'}</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
 
@@ -173,6 +196,13 @@ export default function CleanPortfolio() {
         project={selectedVideo}
         isOpen={Boolean(selectedVideo)}
         onClose={() => setSelectedVideo(null)}
+      />
+
+      {/* Dynamic Behance Graphic Lightbox Modal */}
+      <BehanceModal
+        project={selectedBehance}
+        isOpen={Boolean(selectedBehance)}
+        onClose={() => setSelectedBehance(null)}
       />
 
       {/* Dynamic Web Preview Modal */}
