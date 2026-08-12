@@ -83,7 +83,7 @@ export default function CleanPortfolio() {
         </div>
       </div>
 
-      {/* Grid: Equal Card Heights & Ultra-Clean UX Structure */}
+      {/* Grid: Equal Card Heights & Live Behance Embed Previews */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
         {filteredProjects.map((project) => {
           const IconComp = getCategoryIcon(project.category);
@@ -102,11 +102,28 @@ export default function CleanPortfolio() {
               }`}
             >
               
-              {/* Top Container: Thumbnail + Card Content */}
+              {/* Top Container: Live Embed / Thumbnail + Card Content */}
               <div>
-                {/* Fixed 16:9 Clean Thumbnail Box (Zero Badges Overlaid!) */}
+                {/* Fixed 16:9 Live Preview Box */}
                 <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800/60">
-                  {hasValidImage ? (
+                  
+                  {/* Case 1: Graphic Design Behance Live Embedded Preview */}
+                  {isGraphic && project.embedUrl ? (
+                    <div className="w-full h-full relative overflow-hidden bg-slate-950">
+                      <iframe
+                        src={project.embedUrl}
+                        title={project.title}
+                        width="100%"
+                        height="100%"
+                        allowFullScreen
+                        allow="clipboard-write"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        className="w-full h-full border-0 pointer-events-none scale-100 group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors pointer-events-none" />
+                    </div>
+                  ) : hasValidImage ? (
+                    /* Case 2: Video Thumbnail Image */
                     <img
                       src={project.thumbnail}
                       alt={project.title}
@@ -114,6 +131,7 @@ export default function CleanPortfolio() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-105"
                     />
                   ) : (
+                    /* Case 3: Fallback Box */
                     <div className={`w-full h-full bg-gradient-to-br ${
                       isGraphic ? 'from-slate-900 via-slate-950 to-purple-950/40' : 'from-slate-900 to-slate-950'
                     } border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors`}>
@@ -134,7 +152,7 @@ export default function CleanPortfolio() {
                   )}
 
                   {/* Subtle Hover Play / Open Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/60 backdrop-blur-xs z-10">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/60 backdrop-blur-xs z-10 pointer-events-none">
                     <div className={`p-3.5 rounded-full ${
                       isGraphic ? 'bg-purple-500 text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]' : 'bg-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.6)]'
                     } group-hover:scale-110 transition-transform`}>
