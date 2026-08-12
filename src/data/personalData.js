@@ -2,7 +2,7 @@ export const personalProfile = {
   name: "A M Pabel",
   title: "Designer | Animator | Editor",
   tagline: "High-Impact Visual Architecture & AI Web Applications",
-  bio: "Creative Designer, Motion Animator, Commercial Video Editor, and AI Vibe Coder. Delivering 3D Octane motion graphics, DaVinci Resolve 4K color grading, vector brand systems, and AI web applications for global clients.",
+  bio: "Creative Designer, Motion Animator, Commercial Video Editor, and AI Vibe Coder. Delivering After Effects 3D motion graphics, Premiere Pro 4K commercial edits, vector brand systems, and AI web applications for global clients.",
   location: "Dhaka & Feni, Bangladesh",
   status: "Available for Projects",
   avatarUrl: "/assets/pabel_real.jpg",
@@ -25,8 +25,8 @@ export const edTechVideos = [
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS/preview",
-    description: "High-retention commercial class hook video edit featuring DaVinci Resolve color grading, kinetic typography, and audio mixing.",
-    tags: ["Class Hook", "SSC Biology", "DaVinci Resolve"],
+    description: "High-retention commercial class hook video edit featuring Premiere Pro & After Effects motion captions, kinetic typography, and audio mixing.",
+    tags: ["Class Hook", "SSC Biology", "Premiere Pro"],
     client: "reThink.ac",
     year: "2026"
   },
@@ -37,8 +37,8 @@ export const edTechVideos = [
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK/preview",
-    description: "Educational class hook video cut with custom motion captions, audio enhancement, and color grading.",
-    tags: ["Class Hook", "SSC Biology", "Promo Video"],
+    description: "Educational class hook video cut with custom After Effects motion captions, audio enhancement, and color grading.",
+    tags: ["Class Hook", "SSC Biology", "After Effects"],
     client: "reThink.ac",
     year: "2026"
   },
@@ -50,7 +50,7 @@ export const edTechVideos = [
     thumbnail: "https://drive.google.com/thumbnail?id=1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU/preview",
     description: "High-voltage live class hook video engineered for social media retention and student engagement.",
-    tags: ["Class Hook", "English Solve", "Live Hook"],
+    tags: ["Class Hook", "English Solve", "Premiere Pro"],
     client: "reThink.ac",
     year: "2026"
   },
@@ -61,8 +61,8 @@ export const edTechVideos = [
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr/preview",
-    description: "Professional course promo class hook edit with kinetic captions, sound design, and color correction.",
-    tags: ["Class Hook", "SSC Management", "Course Promo"],
+    description: "Professional course promo class hook edit with kinetic captions, sound design, and After Effects motion graphics.",
+    tags: ["Class Hook", "SSC Management", "After Effects"],
     client: "reThink.ac",
     year: "2026"
   },
@@ -73,8 +73,8 @@ export const edTechVideos = [
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=18w290JZq9ufuhQpsnDSOc5vcwAL8stb4&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/18w290JZq9ufuhQpsnDSOc5vcwAL8stb4/preview",
-    description: "Post-production educational video edit featuring CQ answer writing methodology and motion graphics overlays.",
-    tags: ["Class Hook", "CQ Writing", "Sound Design"],
+    description: "Post-production educational video edit featuring CQ answer writing methodology and Premiere Pro motion graphics overlays.",
+    tags: ["Class Hook", "CQ Writing", "Premiere Pro"],
     client: "reThink.ac",
     year: "2026"
   }
@@ -271,28 +271,28 @@ export const servicesList = [
     id: "motion-graphics",
     title: "3D Motion Graphics & Animation",
     icon: "Sparkles",
-    badge: "Octane / Redshift",
-    description: "Photorealistic 3D product renders, kinetic typography reveals, Lottie vector animations, and Cinema 4D simulations.",
-    tools: ["Cinema 4D", "Octane Render", "Redshift", "After Effects"],
-    deliverables: "3D Motion Videos • Product Renders • Lottie Assets"
+    badge: "After Effects / Cinema 4D",
+    description: "Kinetic typography reveals, After Effects 2D/3D motion animation, Lottie vector motion graphics, and Cinema 4D product renders.",
+    tools: ["After Effects", "Cinema 4D", "Premiere Pro", "Lottie"],
+    deliverables: "Motion Graphics • Product Renders • Lottie Assets"
   },
   {
     id: "video-editing",
     title: "Commercial Video Editing & VFX",
     icon: "Film",
-    badge: "DaVinci Resolve",
-    description: "High-pace commercial ad cuts, 4K HDR color grading, audio sound design, VFX compositing, and viral Reels/Shorts.",
-    tools: ["DaVinci Resolve Studio", "Premiere Pro", "Mocha Pro"],
-    deliverables: "Commercial Ads • Color Graded Edits • Social Reels"
+    badge: "Premiere Pro & After Effects",
+    description: "High-pace commercial ad cuts, Premiere Pro multi-cam editing, After Effects VFX compositing, and viral Reels/Shorts.",
+    tools: ["Adobe Premiere Pro", "After Effects", "Audition", "Photoshop"],
+    deliverables: "Commercial Ads • Motion Graphics Edits • Social Reels"
   },
   {
     id: "graphic-design",
     title: "Graphic Design & Brand Systems",
     icon: "Palette",
-    badge: "3D Branding",
+    badge: "Brand Identity",
     description: "Vector emblem architecture, 3D metallic logo systems, comprehensive brand manuals, and design system UI kits.",
     tools: ["Photoshop", "Illustrator", "Figma", "InDesign"],
-    deliverables: "3D Logo Systems • Brand Guidelines • Vector Assets"
+    deliverables: "Logo Systems • Brand Guidelines • Vector Assets"
   },
   {
     id: "vibe-coding",

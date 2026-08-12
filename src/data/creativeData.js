@@ -40,7 +40,7 @@ export const SERVICES = [
     category: "Video",
     icon: "Film",
     gradient: "from-indigo-500 to-purple-600",
-    description: "High-pace commercial video editing, DaVinci Resolve color grading, VFX compositing, sound design & hype reels.",
+    description: "High-pace commercial video editing, Premiere Pro & After Effects motion graphics, VFX compositing & sound design.",
     deliverables: ["Commercial Ad Cuts", "Color Grading & FX", "Sound Design & Mixing", "Social Reels & Shorts"],
     popularFor: "Commercials & Event Recaps",
     leadTime: "1-2 Weeks",
@@ -96,7 +96,7 @@ export const PORTFOLIO_PROJECTS = [
     image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1200&auto=format&fit=crop",
     videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-waves-of-light-in-a-dark-space-42865-large.mp4",
     year: "2025",
-    summary: "Fast-paced broadcast commercial featuring custom sound design, DaVinci HDR color grade, and 3D overlay tracking.",
+    summary: "Fast-paced broadcast commercial featuring custom sound design, After Effects motion captions, and 3D overlay tracking.",
     stats: "Broadcast TV & Super Bowl Spot",
     deliverables: ["60s Broadcast Cut", "15s Social Cutdowns", "HDR Color Grade"],
     featured: true,
@@ -168,7 +168,7 @@ export const EMPLOYEES = [
     email: "marcus@framempire.agency",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
     status: "Active - In Suite",
-    skills: ["DaVinci Resolve", "Premiere Pro", "Sound Design", "VFX"],
+    skills: ["Premiere Pro", "After Effects", "Sound Design", "VFX"],
     currentProject: "HYPERION Commercial",
     workloadPercent: 70,
     rating: 4.85,
@@ -266,7 +266,7 @@ export const CLIENT_PROJECTS_PIPELINE = [
     tasks: [
       { id: 1, title: "Offline Assembly Cut", done: true },
       { id: 2, title: "VFX Track & Compositing", done: true },
-      { id: 3, title: "DaVinci HDR Color Pass", done: false },
+      { id: 3, title: "After Effects Motion Pass", done: false },
       { id: 4, title: "Final Audio Mix", done: false }
     ]
   },

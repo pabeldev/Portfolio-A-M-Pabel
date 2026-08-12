@@ -23,7 +23,7 @@ export default function PersonalSkillsMatrix() {
           The 4 Pillars of <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Pabel's Craft</span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-base">
-          From photorealistic Cinema 4D Octane renders to DaVinci Resolve color grading, 3D brand systems, and AI Vibe Coding.
+          From photorealistic After Effects motion graphics to Premiere Pro commercial editing, 3D brand systems, and AI Vibe Coding.
         </p>
       </div>
 

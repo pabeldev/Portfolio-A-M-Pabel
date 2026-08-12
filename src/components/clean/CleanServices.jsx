@@ -5,13 +5,13 @@ const minimalServices = [
   {
     id: 'motion-graphics',
     title: '3D Motion Graphics & Animation',
-    category: 'Cinema 4D • Octane Render',
+    category: 'After Effects • Cinema 4D',
     icon: Sparkles
   },
   {
     id: 'video-editing',
     title: 'Commercial Video Editing & VFX',
-    category: 'DaVinci Resolve • Premiere Pro',
+    category: 'Premiere Pro • After Effects',
     icon: Film
   },
   {

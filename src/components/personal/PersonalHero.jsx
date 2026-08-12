@@ -121,7 +121,7 @@ export default function PersonalHero({ onExploreWorks, onOpenVibeSim, onOpenCont
                 </div>
                 <p className="text-xs text-slate-300 font-mono flex items-center gap-2">
                   <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400 animate-bounce" />
-                  Octane 3D • DaVinci 4K • React AI
+                  After Effects • Premiere Pro 4K • React AI
                 </p>
               </div>
 

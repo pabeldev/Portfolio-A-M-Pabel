@@ -51,7 +51,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
               className="px-3 py-1.5 rounded-xl bg-slate-950/80 border border-cyan-500/50 backdrop-blur-md text-xs font-mono font-bold text-cyan-300 hover:bg-cyan-500/20 transition-all flex items-center gap-2 cursor-pointer shadow-lg"
             >
               <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-              {showGraded ? 'DaVinci 4K Graded [ON]' : 'RAW Log Footage [OFF]'}
+              {showGraded ? 'Premiere 4K Mastered [ON]' : 'RAW Log Footage [OFF]'}
             </button>
           </div>
 
