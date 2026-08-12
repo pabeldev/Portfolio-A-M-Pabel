@@ -73,7 +73,7 @@ export default function CleanPortfolio() {
           <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
             Selected Work Gallery
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white font-['Creato_Display',sans-serif]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight">
             Featured <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Client Projects</span>
           </h2>
         </div>
@@ -110,7 +110,7 @@ export default function CleanPortfolio() {
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Film className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-base sm:text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   Ed-Tech Videos
                 </h3>
               </div>
@@ -133,7 +133,7 @@ export default function CleanPortfolio() {
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Palette className="w-4 h-4 text-purple-400" />
-                <h3 className="text-base sm:text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   Graphic Design & Brand Systems
                 </h3>
               </div>
@@ -284,14 +284,14 @@ export default function CleanPortfolio() {
                 {project.client}
               </span>
               {project.subjectTag && (
-                <span className="text-slate-400 text-[10px] bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/60 truncate max-w-[140px]">
+                <span className="text-slate-400 text-[10px] font-medium bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/60 truncate max-w-[140px]">
                   {project.subjectTag}
                 </span>
               )}
             </div>
 
-            {/* Clean Main Project Title */}
-            <h3 className={`text-base md:text-lg font-bold text-white transition-colors line-clamp-1 ${
+            {/* Clean Main Project Title (Hind Siliguri SemiBold for Bangla!) */}
+            <h3 className={`text-base md:text-lg font-semibold text-white transition-colors line-clamp-1 ${
               isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
             }`}>
               {project.title}
