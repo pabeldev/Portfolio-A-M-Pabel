@@ -3,7 +3,7 @@ import { portfolioProjects } from '../../data/personalData';
 import VideoModal from './VideoModal';
 import WebPreviewModal from './WebPreviewModal';
 import BehanceModal from './BehanceModal';
-import { Sparkles, Play, ArrowUpRight, ExternalLink, Globe, Film, Palette, ChevronDown, Layers } from 'lucide-react';
+import { Sparkles, Play, ArrowRight, ExternalLink, Globe, Film, Palette, ChevronDown, Layers } from 'lucide-react';
 
 export default function CleanPortfolio() {
   const [filter, setFilter] = useState('all');
@@ -22,7 +22,7 @@ export default function CleanPortfolio() {
     if (showAll) {
       filteredProjects = portfolioProjects;
     } else {
-      // Exactly 3 projects per department: 3 Video Edits + 3 Graphic Design
+      // Exactly 3 projects per department: 3 Ed-Tech Videos + 3 Graphic Design
       filteredProjects = [...videoProjects.slice(0, 3), ...graphicProjects.slice(0, 3)];
     }
   } else {
@@ -65,15 +65,15 @@ export default function CleanPortfolio() {
   };
 
   return (
-    <section id="works" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section id="works" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-10">
       
       {/* Header & Filter Controls */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-10 md:mb-12">
-        <div className="space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono font-medium">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-8 sm:mb-10 md:mb-12">
+        <div className="space-y-1.5 sm:space-y-2">
+          <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
             Selected Work Gallery
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white font-['Creato_Display',sans-serif]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white font-['Creato_Display',sans-serif]">
             Featured <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Client Projects</span>
           </h2>
         </div>
@@ -82,14 +82,14 @@ export default function CleanPortfolio() {
         <div className="w-full md:w-auto flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none flex-nowrap">
           {[
             { id: 'all', label: 'All Works' },
-            { id: 'video-editing', label: 'Video Edits' },
+            { id: 'video-editing', label: 'Ed-Tech Videos' },
             { id: 'graphic-design', label: 'Graphic Design' },
             { id: 'motion-graphics', label: '3D Motion' }
           ].map((cat) => (
             <button
               key={cat.id}
               onClick={() => handleFilterChange(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+              className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 filter === cat.id
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-[0_0_15px_rgba(0,243,255,0.3)]'
                   : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
@@ -103,56 +103,50 @@ export default function CleanPortfolio() {
 
       {/* Department Section Dividers when filter === 'all' */}
       {filter === 'all' && !showAll && (
-        <div className="space-y-12">
+        <div className="space-y-10 sm:space-y-12">
           
-          {/* Section 1: Video Edits (Top 3) */}
-          <div className="space-y-6">
+          {/* Section 1: Ed-Tech Videos (Top 3) */}
+          <div className="space-y-5 sm:space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Film className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-lg font-bold text-white font-['Creato_Display',sans-serif]">
-                  Commercial Video Edits
+                <h3 className="text-base sm:text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                  Ed-Tech Videos
                 </h3>
-                <span className="text-xs font-mono text-cyan-400 font-semibold bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
-                  3 Featured
-                </span>
               </div>
               <button
                 onClick={() => handleFilterChange('video-editing')}
-                className="text-xs font-mono text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 cursor-pointer group"
+                className="text-xs font-mono text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 cursor-pointer group"
               >
-                <span>View All Video Edits</span>
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                <span>See more</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-stretch">
               {videoProjects.slice(0, 3).map((project) => renderProjectCard(project))}
             </div>
           </div>
 
           {/* Section 2: Graphic Design (Top 3) */}
-          <div className="space-y-6 pt-4">
+          <div className="space-y-5 sm:space-y-6 pt-2">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Palette className="w-4 h-4 text-purple-400" />
-                <h3 className="text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                <h3 className="text-base sm:text-lg font-bold text-white font-['Creato_Display',sans-serif]">
                   Graphic Design & Brand Systems
                 </h3>
-                <span className="text-xs font-mono text-purple-400 font-semibold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
-                  3 Featured
-                </span>
               </div>
               <button
                 onClick={() => handleFilterChange('graphic-design')}
-                className="text-xs font-mono text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1 cursor-pointer group"
+                className="text-xs font-mono text-purple-400 hover:text-purple-300 font-medium flex items-center gap-1 cursor-pointer group"
               >
-                <span>View All Graphic Projects</span>
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                <span>See more</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-stretch">
               {graphicProjects.slice(0, 3).map((project) => renderProjectCard(project))}
             </div>
           </div>
@@ -162,17 +156,17 @@ export default function CleanPortfolio() {
 
       {/* Grid View for Filtered or Expanded View */}
       {(filter !== 'all' || showAll) && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-stretch">
           {filteredProjects.map((project) => renderProjectCard(project))}
         </div>
       )}
 
       {/* Interactive See More Button */}
       {filter === 'all' && !showAll && (
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-10 sm:pt-12">
           <button
             onClick={() => setShowAll(true)}
-            className="px-8 py-3.5 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-[0_0_25px_rgba(0,243,255,0.3)] transition-all flex items-center gap-2 cursor-pointer group"
+            className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-[0_0_25px_rgba(0,243,255,0.3)] transition-all flex items-center gap-2 cursor-pointer group"
           >
             <Layers className="w-4 h-4 text-cyan-400" />
             <span>See More Projects ({portfolioProjects.length - 6} More)</span>
@@ -283,15 +277,20 @@ export default function CleanPortfolio() {
           </div>
 
           {/* Card Body Info */}
-          <div className="p-5 md:p-6 space-y-2.5">
-            {/* Meta Info Layer */}
-            <div className={`text-[11px] font-mono font-semibold tracking-wide ${
-              isGraphic ? 'text-purple-400' : 'text-cyan-400'
-            }`}>
-              {project.client} • {project.year}
+          <div className="p-4 sm:p-5 md:p-6 space-y-2">
+            {/* Meta Info Layer: Client Name on left • Subject Tag on right */}
+            <div className="flex items-center justify-between gap-2 text-[11px] font-mono font-semibold tracking-wide">
+              <span className={isGraphic ? 'text-purple-400' : 'text-cyan-400'}>
+                {project.client}
+              </span>
+              {project.subjectTag && (
+                <span className="text-slate-400 text-[10px] bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/60 truncate max-w-[140px]">
+                  {project.subjectTag}
+                </span>
+              )}
             </div>
 
-            {/* Project Title */}
+            {/* Clean Main Project Title */}
             <h3 className={`text-base md:text-lg font-bold text-white transition-colors line-clamp-1 ${
               isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
             }`}>
@@ -304,7 +303,7 @@ export default function CleanPortfolio() {
             </p>
 
             {/* Soft Transparent Tags (Max 3) */}
-            <div className="flex flex-wrap gap-1.5 pt-2">
+            <div className="flex flex-wrap gap-1.5 pt-1.5">
               {displayTags.map((tag, idx) => (
                 <span
                   key={idx}
@@ -318,11 +317,11 @@ export default function CleanPortfolio() {
         </div>
 
         {/* Interactive CTA Action Footer */}
-        <div className={`px-5 md:px-6 py-3.5 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold transition-colors ${
+        <div className={`px-4 sm:px-5 md:px-6 py-3 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold transition-colors ${
           isGraphic ? 'text-purple-400 group-hover:text-purple-300' : 'text-cyan-400 group-hover:text-cyan-300'
         }`}>
           <span>{isGraphic ? 'View Behance Showcase' : project.category === 'vibe-coding' ? 'Launch Live Site' : 'Play Video Preview'}</span>
-          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </div>
 
       </div>

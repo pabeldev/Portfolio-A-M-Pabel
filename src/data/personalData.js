@@ -2,7 +2,7 @@ export const personalProfile = {
   name: "A M Pabel",
   title: "Designer | Animator | Editor",
   tagline: "High-Impact Visual Architecture & AI Web Applications",
-  bio: "Creative Designer, Motion Animator, Commercial Video Editor, and AI Vibe Coder. Delivering After Effects 3D motion graphics, Premiere Pro 4K commercial edits, vector brand systems, and AI web applications for global clients.",
+  bio: "Creative Designer, Motion Animator, Ed-Tech Video Editor, and AI Vibe Coder. Delivering After Effects 3D motion graphics, Premiere Pro 4K video edits, vector brand systems, and AI web applications for global clients.",
   location: "Dhaka & Feni, Bangladesh",
   status: "Available for Projects",
   avatarUrl: "/assets/pabel_real.jpg",
@@ -21,60 +21,65 @@ export const edTechVideos = [
   {
     id: "v-1",
     fileId: "1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS",
-    title: "জীবের প্রজনন (SSC Biology CH-01)",
+    title: "জীবের প্রজনন",
+    subjectTag: "SSC Biology CH-01",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS/preview",
-    description: "High-retention commercial class hook video edit featuring Premiere Pro & After Effects motion captions, kinetic typography, and audio mixing.",
-    tags: ["Class Hook", "SSC Biology", "Premiere Pro"],
+    description: "High-retention Ed-Tech class hook video edit featuring Premiere Pro & After Effects motion captions, kinetic typography, and audio mixing.",
+    tags: ["Class Hook", "SSC Biology", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-2",
     fileId: "1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK",
-    title: "(SSC Biology) Class Hook Video",
+    title: "Class Hook Video",
+    subjectTag: "SSC Biology",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK/preview",
-    description: "Educational class hook video cut with custom After Effects motion captions, audio enhancement, and color grading.",
-    tags: ["Class Hook", "SSC Biology", "After Effects"],
+    description: "Ed-Tech class hook video cut with custom After Effects motion captions, audio enhancement, and color grading.",
+    tags: ["Class Hook", "SSC Biology", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-3",
     fileId: "1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU",
-    title: "English Board Questions Solve Live Class Hook",
+    title: "English Board Questions Solve Live",
+    subjectTag: "Live Class Hook",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU/preview",
     description: "High-voltage live class hook video engineered for social media retention and student engagement.",
-    tags: ["Class Hook", "English Solve", "Premiere Pro"],
+    tags: ["Class Hook", "English Solve", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-4",
     fileId: "1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr",
-    title: "(SSC Management) ব্যবসায় পরিচিতি CH-01",
+    title: "ব্যবসায় পরিচিতি",
+    subjectTag: "SSC Management CH-01",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr/preview",
     description: "Professional course promo class hook edit with kinetic captions, sound design, and After Effects motion graphics.",
-    tags: ["Class Hook", "SSC Management", "After Effects"],
+    tags: ["Class Hook", "SSC Management", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-5",
     fileId: "18w290JZq9ufuhQpsnDSOc5vcwAL8stb4",
-    title: "(SSC Management) CQ লেখার সঠিক পদ্ধতি",
+    title: "CQ লেখার সঠিক পদ্ধতি",
+    subjectTag: "SSC Management",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=18w290JZq9ufuhQpsnDSOc5vcwAL8stb4&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/18w290JZq9ufuhQpsnDSOc5vcwAL8stb4/preview",
     description: "Post-production educational video edit featuring CQ answer writing methodology and Premiere Pro motion graphics overlays.",
-    tags: ["Class Hook", "CQ Writing", "Premiere Pro"],
+    tags: ["Class Hook", "CQ Writing", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
   }
@@ -85,6 +90,7 @@ export const graphicDesignProjects = [
     id: "g-1",
     behanceId: "253103033",
     title: "Campus to Country Vol 01",
+    subjectTag: "Brand Identity",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/253103033?ilo0=1",
@@ -98,6 +104,7 @@ export const graphicDesignProjects = [
     id: "g-2",
     behanceId: "252254261",
     title: "Campus to Country Vol 02",
+    subjectTag: "Editorial Layout",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/252254261?ilo0=1",
@@ -110,7 +117,8 @@ export const graphicDesignProjects = [
   {
     id: "g-3",
     behanceId: "248462649",
-    title: "reThink EdTech Graphic Suite 01",
+    title: "EdTech Graphic Suite 01",
+    subjectTag: "Social Graphics",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/248462649?ilo0=1",
@@ -123,7 +131,8 @@ export const graphicDesignProjects = [
   {
     id: "g-4",
     behanceId: "248708119",
-    title: "reThink Brand System 02",
+    title: "Brand System 02",
+    subjectTag: "Visual Branding",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/248708119?ilo0=1",
@@ -136,7 +145,8 @@ export const graphicDesignProjects = [
   {
     id: "g-5",
     behanceId: "247216449",
-    title: "reThink Campaign Graphics 03",
+    title: "Campaign Graphics 03",
+    subjectTag: "Course Campaign",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/247216449?ilo0=1",
@@ -150,6 +160,7 @@ export const graphicDesignProjects = [
     id: "g-6",
     behanceId: "246488915",
     title: "Occasional Poster Series",
+    subjectTag: "Poster Series",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/246488915?ilo0=1",
@@ -162,7 +173,8 @@ export const graphicDesignProjects = [
   {
     id: "g-7",
     behanceId: "245515891",
-    title: "reThink Visual Architecture 04",
+    title: "Visual Architecture 04",
+    subjectTag: "Infographics",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/245515891?ilo0=1",
@@ -175,7 +187,8 @@ export const graphicDesignProjects = [
   {
     id: "g-8",
     behanceId: "226741719",
-    title: "Worklife Canada Brand Design",
+    title: "Worklife Canada Brand",
+    subjectTag: "Corporate Identity",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/226741719?ilo0=1",
@@ -188,7 +201,8 @@ export const graphicDesignProjects = [
   {
     id: "g-9",
     behanceId: "226667791",
-    title: "Eastern Technologies Visuals",
+    title: "Eastern Tech Visuals",
+    subjectTag: "Tech Branding",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/226667791?ilo0=1",
@@ -201,7 +215,8 @@ export const graphicDesignProjects = [
   {
     id: "g-10",
     behanceId: "209401197",
-    title: "ShobdoMaloncho BookShop Logo",
+    title: "ShobdoMaloncho Logo",
+    subjectTag: "Logo Design",
     category: "graphic-design",
     thumbnail: "",
     embedUrl: "https://www.behance.net/embed/project/209401197?ilo0=1",
@@ -278,12 +293,12 @@ export const servicesList = [
   },
   {
     id: "video-editing",
-    title: "Commercial Video Editing & VFX",
+    title: "Ed-Tech Video Editing & VFX",
     icon: "Film",
     badge: "Premiere Pro & After Effects",
-    description: "High-pace commercial ad cuts, Premiere Pro multi-cam editing, After Effects VFX compositing, and viral Reels/Shorts.",
+    description: "High-retention class hook edits, Premiere Pro multi-cam editing, After Effects VFX compositing, and viral Reels/Shorts.",
     tools: ["Adobe Premiere Pro", "After Effects", "Audition", "Photoshop"],
-    deliverables: "Commercial Ads • Motion Graphics Edits • Social Reels"
+    deliverables: "Ed-Tech Class Hooks • Motion Graphics Edits • Social Reels"
   },
   {
     id: "graphic-design",
@@ -305,7 +320,7 @@ export const servicesList = [
   }
 ];
 
-// Clean Portfolio Projects (5 Verified Video Edits + 10 Behance Graphic Design Projects)
+// Clean Portfolio Projects (5 Verified Ed-Tech Video Edits + 10 Behance Graphic Design Projects)
 export const portfolioProjects = [
   ...edTechVideos,
   ...graphicDesignProjects
