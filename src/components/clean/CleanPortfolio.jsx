@@ -11,7 +11,6 @@ export default function CleanPortfolio() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedWeb, setSelectedWeb] = useState(null);
   const [selectedBehance, setSelectedBehance] = useState(null);
-  const [failedImages, setFailedImages] = useState({});
 
   const videoProjects = portfolioProjects.filter(p => p.category === 'video-editing');
   const graphicProjects = portfolioProjects.filter(p => p.category === 'graphic-design');
@@ -49,10 +48,6 @@ export default function CleanPortfolio() {
     } else {
       setSelectedVideo(project);
     }
-  };
-
-  const handleImageError = (id) => {
-    setFailedImages(prev => ({ ...prev, [id]: true }));
   };
 
   const getCategoryIcon = (category) => {
@@ -202,7 +197,6 @@ export default function CleanPortfolio() {
   // Card Renderer Function
   function renderProjectCard(project) {
     const IconComp = getCategoryIcon(project.category);
-    const hasValidImage = project.thumbnail && !failedImages[project.id];
     const displayTags = project.tags.slice(0, 3);
     const isGraphic = project.category === 'graphic-design';
 
@@ -217,36 +211,25 @@ export default function CleanPortfolio() {
         }`}
       >
         
-        {/* Top Container: Live Embed / Thumbnail + Card Content */}
+        {/* Top Container: Direct Embed Link Preview Box (No Extra Static Images!) */}
         <div>
           {/* Fixed 16:9 Live Preview Box */}
           <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800/60">
-            
-            {/* Case 1: Graphic Design Behance Live Embedded Preview */}
-            {isGraphic && project.embedUrl ? (
+            {project.embedUrl ? (
               <div className="w-full h-full relative overflow-hidden bg-slate-950">
                 <iframe
                   src={project.embedUrl}
                   title={project.title}
                   width="100%"
                   height="100%"
+                  allow="autoplay; fullscreen"
                   allowFullScreen
-                  allow="clipboard-write"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  className="w-full h-full border-0 pointer-events-none scale-100 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full border-0 pointer-events-none scale-100 group-hover:scale-105 transition-transform duration-500 bg-slate-950"
                 />
                 <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors pointer-events-none" />
               </div>
-            ) : hasValidImage ? (
-              /* Case 2: Video Thumbnail Image */
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                onError={() => handleImageError(project.id)}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-105"
-              />
             ) : (
-              /* Case 3: Fallback Box */
+              /* Fallback Box */
               <div className={`w-full h-full bg-gradient-to-br ${
                 isGraphic ? 'from-slate-900 via-slate-950 to-purple-950/40' : 'from-slate-900 to-slate-950'
               } border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors`}>
@@ -290,20 +273,15 @@ export default function CleanPortfolio() {
               )}
             </div>
 
-            {/* Clean Main Project Title (Hind Siliguri SemiBold for Bangla!) */}
+            {/* Clean Main Project Title Headline */}
             <h3 className={`text-base md:text-lg font-semibold text-white transition-colors line-clamp-1 ${
               isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
             }`}>
               {project.title}
             </h3>
 
-            {/* Description (Strict 2-Line Limit) */}
-            <p className="text-slate-400 text-xs font-normal leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-
             {/* Soft Transparent Tags (Max 3) */}
-            <div className="flex flex-wrap gap-1.5 pt-1.5">
+            <div className="flex flex-wrap gap-1.5 pt-1">
               {displayTags.map((tag, idx) => (
                 <span
                   key={idx}

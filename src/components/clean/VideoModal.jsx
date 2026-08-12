@@ -8,15 +8,15 @@ export default function VideoModal({ project, isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-fade-in overflow-y-auto">
       <div className="relative w-full max-w-[94vw] sm:max-w-4xl rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto">
         
-        {/* Compact Header Bar */}
+        {/* Header Bar: Prominent Video Title Headline */}
         <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-2.5 overflow-hidden">
             <div className="p-1.5 sm:p-2 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
               <Film className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="truncate">
-              <h3 className="text-xs sm:text-base font-semibold text-white truncate">{project.title}</h3>
-              <p className="text-[10px] sm:text-xs text-slate-400 font-mono truncate">
+              <h3 className="text-sm sm:text-base font-bold text-white truncate">{project.title}</h3>
+              <p className="text-[10px] sm:text-xs text-cyan-400 font-mono truncate">
                 {project.client} {project.subjectTag ? `• ${project.subjectTag}` : ''} • {project.year}
               </p>
             </div>
@@ -31,7 +31,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
           </button>
         </div>
 
-        {/* 100% Video-First Aspect-Video Container (Zero Cropping/Half-Cutting!) */}
+        {/* 100% Video-First Aspect-Video Container */}
         <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
           <iframe
             src={project.embedUrl}
@@ -44,7 +44,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
           />
         </div>
 
-        {/* Streamlined Minimal Action Footer (Zero Clutter!) */}
+        {/* Streamlined Minimal Action Footer */}
         <div className="px-4 py-3 sm:px-6 sm:py-4 bg-slate-950 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2.5 shrink-0">
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag, idx) => (
