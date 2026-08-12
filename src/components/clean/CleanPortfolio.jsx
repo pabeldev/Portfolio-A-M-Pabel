@@ -21,7 +21,7 @@ export default function CleanPortfolio() {
     if (showAll) {
       filteredProjects = portfolioProjects;
     } else {
-      // Exactly 3 projects per department: 3 Ed-Tech Videos + 3 Graphic Design
+      // Exactly 3 projects per department: 3 Video Editing + 3 Graphic Design
       filteredProjects = [...videoProjects.slice(0, 3), ...graphicProjects.slice(0, 3)];
     }
   } else {
@@ -73,11 +73,11 @@ export default function CleanPortfolio() {
           </h2>
         </div>
 
-        {/* Filter Buttons */}
+        {/* Top Main Category Filter Buttons */}
         <div className="w-full md:w-auto flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none flex-nowrap">
           {[
             { id: 'all', label: 'All Works' },
-            { id: 'video-editing', label: 'Ed-Tech Videos' },
+            { id: 'video-editing', label: 'Video Editing' },
             { id: 'graphic-design', label: 'Graphic Design' },
             { id: 'motion-graphics', label: '3D Motion' }
           ].map((cat) => (
@@ -100,13 +100,13 @@ export default function CleanPortfolio() {
       {filter === 'all' && !showAll && (
         <div className="space-y-10 sm:space-y-12">
           
-          {/* Section 1: Ed-Tech Videos (Top 3) */}
+          {/* Section 1: Video Editing (Top 3) */}
           <div className="space-y-5 sm:space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Film className="w-4 h-4 text-cyan-400" />
                 <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                  Ed-Tech Videos
+                  Video Editing
                 </h3>
               </div>
               <button
@@ -249,7 +249,7 @@ export default function CleanPortfolio() {
 
           {/* Card Body Info */}
           <div className="p-4 sm:p-5 md:p-6 space-y-2">
-            {/* Meta Info Layer: Client Name on left • Subject Tag on right */}
+            {/* Meta Info Layer: Client Name on left • Subject/Subcategory Tag on right */}
             <div className="flex items-center justify-between gap-2 text-[11px] font-mono font-semibold tracking-wide">
               <span className="text-cyan-400">
                 {project.client}
@@ -266,7 +266,7 @@ export default function CleanPortfolio() {
               {project.title}
             </h3>
 
-            {/* Soft Transparent Tags (Max 3) */}
+            {/* Subcategory / Soft Transparent Tags (Max 3) */}
             <div className="flex flex-wrap gap-1.5 pt-1">
               {displayTags.map((tag, idx) => (
                 <span
