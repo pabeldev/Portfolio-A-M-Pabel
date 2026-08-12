@@ -8,8 +8,8 @@ export default function BehanceModal({ project, isOpen, onClose }) {
   const iframeSrc = project.embedUrl || `https://www.behance.net/embed/project/${project.behanceId}?ilo0=1`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-fade-in">
-      <div className="relative w-full max-w-4xl max-h-[82vh] rounded-3xl bg-slate-950 border border-purple-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-slate-950/85 backdrop-blur-xl animate-fade-in">
+      <div className="relative w-full max-w-4xl max-h-[70vh] rounded-3xl bg-slate-950 border border-purple-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto">
         
         {/* Web Browser Style Top Header Bar */}
         <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between gap-3 shrink-0">
@@ -53,8 +53,8 @@ export default function BehanceModal({ project, isOpen, onClose }) {
 
         </div>
 
-        {/* Standard Balanced Viewport Height */}
-        <div className="relative flex-1 min-h-[380px] max-h-[55vh] bg-slate-950 overflow-hidden">
+        {/* Compact Viewport Height (-100px reduced overall height) */}
+        <div className="relative flex-1 h-[360px] sm:h-[420px] bg-slate-950 overflow-hidden">
           <iframe
             src={iframeSrc}
             title={project.title}
