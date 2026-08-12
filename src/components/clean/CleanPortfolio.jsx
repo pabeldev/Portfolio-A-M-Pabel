@@ -3,18 +3,36 @@ import { portfolioProjects } from '../../data/personalData';
 import VideoModal from './VideoModal';
 import WebPreviewModal from './WebPreviewModal';
 import BehanceModal from './BehanceModal';
-import { Sparkles, Play, ArrowUpRight, ExternalLink, Globe, Film, Palette } from 'lucide-react';
+import { Sparkles, Play, ArrowUpRight, ExternalLink, Globe, Film, Palette, ChevronDown, Layers } from 'lucide-react';
 
 export default function CleanPortfolio() {
   const [filter, setFilter] = useState('all');
+  const [showAll, setShowAll] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedWeb, setSelectedWeb] = useState(null);
   const [selectedBehance, setSelectedBehance] = useState(null);
   const [failedImages, setFailedImages] = useState({});
 
-  const filteredProjects = filter === 'all'
-    ? portfolioProjects
-    : portfolioProjects.filter(p => p.category === filter);
+  const videoProjects = portfolioProjects.filter(p => p.category === 'video-editing');
+  const graphicProjects = portfolioProjects.filter(p => p.category === 'graphic-design');
+
+  // Compute displayed projects
+  let filteredProjects = [];
+  if (filter === 'all') {
+    if (showAll) {
+      filteredProjects = portfolioProjects;
+    } else {
+      // Exactly 3 projects per department: 3 Video Edits + 3 Graphic Design
+      filteredProjects = [...videoProjects.slice(0, 3), ...graphicProjects.slice(0, 3)];
+    }
+  } else {
+    filteredProjects = portfolioProjects.filter(p => p.category === filter);
+  }
+
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+    setShowAll(false);
+  };
 
   const handleProjectClick = (project) => {
     if (project.category === 'graphic-design') {
@@ -70,7 +88,7 @@ export default function CleanPortfolio() {
           ].map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setFilter(cat.id)}
+              onClick={() => handleFilterChange(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 filter === cat.id
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-[0_0_15px_rgba(0,243,255,0.3)]'
@@ -83,131 +101,85 @@ export default function CleanPortfolio() {
         </div>
       </div>
 
-      {/* Grid: Equal Card Heights & Live Behance Embed Previews */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
-        {filteredProjects.map((project) => {
-          const IconComp = getCategoryIcon(project.category);
-          const hasValidImage = project.thumbnail && !failedImages[project.id];
-          const displayTags = project.tags.slice(0, 3);
-          const isGraphic = project.category === 'graphic-design';
-
-          return (
-            <div
-              key={project.id}
-              onClick={() => handleProjectClick(project)}
-              className={`group relative rounded-2xl bg-slate-900/60 border ${
-                isGraphic ? 'hover:border-purple-400/60' : 'hover:border-cyan-400/60'
-              } border-slate-800/80 overflow-hidden backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between h-full shadow-md ${
-                isGraphic ? 'hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]' : 'hover:shadow-[0_0_30px_rgba(0,243,255,0.2)]'
-              }`}
-            >
-              
-              {/* Top Container: Live Embed / Thumbnail + Card Content */}
-              <div>
-                {/* Fixed 16:9 Live Preview Box */}
-                <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800/60">
-                  
-                  {/* Case 1: Graphic Design Behance Live Embedded Preview */}
-                  {isGraphic && project.embedUrl ? (
-                    <div className="w-full h-full relative overflow-hidden bg-slate-950">
-                      <iframe
-                        src={project.embedUrl}
-                        title={project.title}
-                        width="100%"
-                        height="100%"
-                        allowFullScreen
-                        allow="clipboard-write"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        className="w-full h-full border-0 pointer-events-none scale-100 group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors pointer-events-none" />
-                    </div>
-                  ) : hasValidImage ? (
-                    /* Case 2: Video Thumbnail Image */
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      onError={() => handleImageError(project.id)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-105"
-                    />
-                  ) : (
-                    /* Case 3: Fallback Box */
-                    <div className={`w-full h-full bg-gradient-to-br ${
-                      isGraphic ? 'from-slate-900 via-slate-950 to-purple-950/40' : 'from-slate-900 to-slate-950'
-                    } border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors`}>
-                      <div className="absolute inset-0 bg-[radial-gradient(#a855f7_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
-                      
-                      <div className={`p-3.5 rounded-2xl ${
-                        isGraphic ? 'bg-purple-500/15 border border-purple-500/30 text-purple-400' : 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400'
-                      } mb-1.5 group-hover:scale-110 transition-transform`}>
-                        <IconComp className="w-6 h-6" />
-                      </div>
-                      
-                      <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-                        isGraphic ? 'text-purple-300' : 'text-cyan-400'
-                      }`}>
-                        {project.client}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Subtle Hover Play / Open Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/60 backdrop-blur-xs z-10 pointer-events-none">
-                    <div className={`p-3.5 rounded-full ${
-                      isGraphic ? 'bg-purple-500 text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]' : 'bg-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.6)]'
-                    } group-hover:scale-110 transition-transform`}>
-                      {isGraphic ? <Palette className="w-5 h-5" /> : project.category === 'vibe-coding' ? <ExternalLink className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Body Info */}
-                <div className="p-5 md:p-6 space-y-2.5">
-                  {/* Meta Info Layer */}
-                  <div className={`text-[11px] font-mono font-semibold tracking-wide ${
-                    isGraphic ? 'text-purple-400' : 'text-cyan-400'
-                  }`}>
-                    {project.client} • {project.year}
-                  </div>
-
-                  {/* Project Title */}
-                  <h3 className={`text-base md:text-lg font-bold text-white transition-colors line-clamp-1 ${
-                    isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
-                  }`}>
-                    {project.title}
-                  </h3>
-
-                  {/* Description (Strict 2-Line Limit) */}
-                  <p className="text-slate-400 text-xs font-normal leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  {/* Soft Transparent Tags (Max 3) */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {displayTags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 border border-white/10 text-slate-300"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+      {/* Department Section Dividers when filter === 'all' */}
+      {filter === 'all' && !showAll && (
+        <div className="space-y-12">
+          
+          {/* Section 1: Video Edits (Top 3) */}
+          <div className="space-y-6">
+            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+              <div className="flex items-center gap-2">
+                <Film className="w-4 h-4 text-cyan-400" />
+                <h3 className="text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                  Commercial Video Edits
+                </h3>
+                <span className="text-xs font-mono text-cyan-400 font-semibold bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                  3 Featured
+                </span>
               </div>
-
-              {/* Interactive CTA Action Footer */}
-              <div className={`px-5 md:px-6 py-3.5 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold transition-colors ${
-                isGraphic ? 'text-purple-400 group-hover:text-purple-300' : 'text-cyan-400 group-hover:text-cyan-300'
-              }`}>
-                <span>{isGraphic ? 'View Behance Showcase' : project.category === 'vibe-coding' ? 'Launch Live Site' : 'Play Video Preview'}</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-
+              <button
+                onClick={() => handleFilterChange('video-editing')}
+                className="text-xs font-mono text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 cursor-pointer group"
+              >
+                <span>View All Video Edits</span>
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
             </div>
-          );
-        })}
-      </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+              {videoProjects.slice(0, 3).map((project) => renderProjectCard(project))}
+            </div>
+          </div>
+
+          {/* Section 2: Graphic Design (Top 3) */}
+          <div className="space-y-6 pt-4">
+            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+              <div className="flex items-center gap-2">
+                <Palette className="w-4 h-4 text-purple-400" />
+                <h3 className="text-lg font-bold text-white font-['Creato_Display',sans-serif]">
+                  Graphic Design & Brand Systems
+                </h3>
+                <span className="text-xs font-mono text-purple-400 font-semibold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
+                  3 Featured
+                </span>
+              </div>
+              <button
+                onClick={() => handleFilterChange('graphic-design')}
+                className="text-xs font-mono text-purple-400 hover:text-purple-300 font-semibold flex items-center gap-1 cursor-pointer group"
+              >
+                <span>View All Graphic Projects</span>
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+              {graphicProjects.slice(0, 3).map((project) => renderProjectCard(project))}
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      {/* Grid View for Filtered or Expanded View */}
+      {(filter !== 'all' || showAll) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          {filteredProjects.map((project) => renderProjectCard(project))}
+        </div>
+      )}
+
+      {/* Interactive See More Button */}
+      {filter === 'all' && !showAll && (
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12">
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-8 py-3.5 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-[0_0_25px_rgba(0,243,255,0.3)] transition-all flex items-center gap-2 cursor-pointer group"
+          >
+            <Layers className="w-4 h-4 text-cyan-400" />
+            <span>See More Projects ({portfolioProjects.length - 6} More)</span>
+            <ChevronDown className="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform" />
+          </button>
+        </div>
+      )}
 
       {/* Dynamic Video Lightbox Modal */}
       <VideoModal
@@ -232,4 +204,128 @@ export default function CleanPortfolio() {
 
     </section>
   );
+
+  // Card Renderer Function
+  function renderProjectCard(project) {
+    const IconComp = getCategoryIcon(project.category);
+    const hasValidImage = project.thumbnail && !failedImages[project.id];
+    const displayTags = project.tags.slice(0, 3);
+    const isGraphic = project.category === 'graphic-design';
+
+    return (
+      <div
+        key={project.id}
+        onClick={() => handleProjectClick(project)}
+        className={`group relative rounded-2xl bg-slate-900/60 border ${
+          isGraphic ? 'hover:border-purple-400/60' : 'hover:border-cyan-400/60'
+        } border-slate-800/80 overflow-hidden backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between h-full shadow-md ${
+          isGraphic ? 'hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]' : 'hover:shadow-[0_0_30px_rgba(0,243,255,0.2)]'
+        }`}
+      >
+        
+        {/* Top Container: Live Embed / Thumbnail + Card Content */}
+        <div>
+          {/* Fixed 16:9 Live Preview Box */}
+          <div className="relative aspect-video w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-slate-800/60">
+            
+            {/* Case 1: Graphic Design Behance Live Embedded Preview */}
+            {isGraphic && project.embedUrl ? (
+              <div className="w-full h-full relative overflow-hidden bg-slate-950">
+                <iframe
+                  src={project.embedUrl}
+                  title={project.title}
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                  allow="clipboard-write"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="w-full h-full border-0 pointer-events-none scale-100 group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors pointer-events-none" />
+              </div>
+            ) : hasValidImage ? (
+              /* Case 2: Video Thumbnail Image */
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                onError={() => handleImageError(project.id)}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-105"
+              />
+            ) : (
+              /* Case 3: Fallback Box */
+              <div className={`w-full h-full bg-gradient-to-br ${
+                isGraphic ? 'from-slate-900 via-slate-950 to-purple-950/40' : 'from-slate-900 to-slate-950'
+              } border border-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden transition-colors`}>
+                <div className="absolute inset-0 bg-[radial-gradient(#a855f7_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+                
+                <div className={`p-3.5 rounded-2xl ${
+                  isGraphic ? 'bg-purple-500/15 border border-purple-500/30 text-purple-400' : 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400'
+                } mb-1.5 group-hover:scale-110 transition-transform`}>
+                  <IconComp className="w-6 h-6" />
+                </div>
+                
+                <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                  isGraphic ? 'text-purple-300' : 'text-cyan-400'
+                }`}>
+                  {project.client}
+                </span>
+              </div>
+            )}
+
+            {/* Subtle Hover Play / Open Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-slate-950/60 backdrop-blur-xs z-10 pointer-events-none">
+              <div className={`p-3.5 rounded-full ${
+                isGraphic ? 'bg-purple-500 text-white shadow-[0_0_25px_rgba(168,85,247,0.6)]' : 'bg-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.6)]'
+              } group-hover:scale-110 transition-transform`}>
+                {isGraphic ? <Palette className="w-5 h-5" /> : project.category === 'vibe-coding' ? <ExternalLink className="w-5 h-5" /> : <Play className="w-5 h-5 fill-current ml-0.5" />}
+              </div>
+            </div>
+          </div>
+
+          {/* Card Body Info */}
+          <div className="p-5 md:p-6 space-y-2.5">
+            {/* Meta Info Layer */}
+            <div className={`text-[11px] font-mono font-semibold tracking-wide ${
+              isGraphic ? 'text-purple-400' : 'text-cyan-400'
+            }`}>
+              {project.client} • {project.year}
+            </div>
+
+            {/* Project Title */}
+            <h3 className={`text-base md:text-lg font-bold text-white transition-colors line-clamp-1 ${
+              isGraphic ? 'group-hover:text-purple-300' : 'group-hover:text-cyan-300'
+            }`}>
+              {project.title}
+            </h3>
+
+            {/* Description (Strict 2-Line Limit) */}
+            <p className="text-slate-400 text-xs font-normal leading-relaxed line-clamp-2">
+              {project.description}
+            </p>
+
+            {/* Soft Transparent Tags (Max 3) */}
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              {displayTags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 border border-white/10 text-slate-300"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Interactive CTA Action Footer */}
+        <div className={`px-5 md:px-6 py-3.5 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold transition-colors ${
+          isGraphic ? 'text-purple-400 group-hover:text-purple-300' : 'text-cyan-400 group-hover:text-cyan-300'
+        }`}>
+          <span>{isGraphic ? 'View Behance Showcase' : project.category === 'vibe-coding' ? 'Launch Live Site' : 'Play Video Preview'}</span>
+          <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </div>
+
+      </div>
+    );
+  }
 }
