@@ -8,8 +8,8 @@ export default function BehanceModal({ project, isOpen, onClose }) {
   const iframeSrc = project.embedUrl || `https://www.behance.net/embed/project/${project.behanceId}?ilo0=1`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-slate-950/85 backdrop-blur-xl animate-fade-in">
-      <div className="relative w-full max-w-4xl max-h-[70vh] rounded-3xl bg-slate-950 border border-purple-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-fade-in">
+      <div className="relative w-full max-w-4xl max-h-[82vh] rounded-3xl bg-slate-950 border border-purple-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto">
         
         {/* Web Browser Style Top Header Bar */}
         <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between gap-3 shrink-0">
@@ -38,7 +38,7 @@ export default function BehanceModal({ project, isOpen, onClose }) {
               rel="noreferrer"
               className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold text-xs shadow-md hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
             >
-              <span>Launch Behance Page</span>
+              <span>Open in Behance</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 
@@ -53,11 +53,14 @@ export default function BehanceModal({ project, isOpen, onClose }) {
 
         </div>
 
-        {/* Compact Viewport Height (-100px reduced overall height) */}
-        <div className="relative flex-1 h-[360px] sm:h-[420px] bg-slate-950 overflow-hidden">
+        {/* Scrollable Viewport Inside Modal (Scroll top-to-bottom inside popup!) */}
+        <div className="relative flex-1 min-h-[380px] max-h-[60vh] bg-slate-950 overflow-y-auto">
           <iframe
             src={iframeSrc}
             title={project.title}
+            width="100%"
+            height="100%"
+            scrolling="yes"
             className="w-full h-full border-0 bg-slate-950"
             allowFullScreen
             allow="clipboard-write"
