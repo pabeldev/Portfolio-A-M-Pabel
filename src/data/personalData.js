@@ -27,7 +27,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS/preview",
     description: "High-retention commercial video edit featuring DaVinci Resolve color grading, motion captions, and audio mixing.",
     tags: ["DaVinci Resolve", "Ed-Tech", "Commercial Edit"],
-    client: "Education BD",
+    client: "reThink.ac",
     year: "2026"
   },
   {
@@ -39,7 +39,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK/preview",
     description: "Educational promo video cut with custom kinetic typography overlays and anamorphic color grading.",
     tags: ["DaVinci Resolve", "Promo Video", "Motion Captions"],
-    client: "10 Minute School",
+    client: "reThink.ac",
     year: "2026"
   },
   {
@@ -51,7 +51,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU/preview",
     description: "High-voltage educational ad cut engineered for social media retention and audience engagement.",
     tags: ["Video Editing", "VFX Compositing", "Social Ad"],
-    client: "reThink EdTech",
+    client: "reThink.ac",
     year: "2026"
   },
   {
@@ -63,7 +63,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr/preview",
     description: "Professional course promo cut with kinetic typography, audio enhancement, and color correction.",
     tags: ["Premiere Pro", "DaVinci", "Course Promo"],
-    client: "Banglay IELTS",
+    client: "reThink.ac",
     year: "2026"
   },
   {
@@ -75,7 +75,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/18w290JZq9ufuhQpsnDSOc5vcwAL8stb4/preview",
     description: "Full post-production video edit with sound design, color grade, and animated visual effects.",
     tags: ["Post-Production", "VFX", "Sound Design"],
-    client: "Banglay IELTS & Immigration",
+    client: "reThink.ac",
     year: "2026"
   },
   {
@@ -87,7 +87,7 @@ export const edTechVideos = [
     embedUrl: "https://drive.google.com/file/d/1lsHJhYYgb_Kx1B2pwkTM_2f_0ARNfHG2/preview",
     description: "High-impact educational video commercial with custom motion graphics overlays and sound mixing.",
     tags: ["Motion Graphics", "Commercial Edit", "DaVinci Resolve"],
-    client: "Global Pathways Immigration",
+    client: "reThink.ac",
     year: "2026"
   }
 ];
@@ -184,27 +184,7 @@ export const servicesList = [
   }
 ];
 
-// Clean Deduplicated Portfolio Projects (No Vibe Coding duplication!)
+// Clean Portfolio Projects (Only items with verified video preview links!)
 export const portfolioProjects = [
-  ...edTechVideos,
-  {
-    id: "proj-1",
-    title: "Octane 3D Kinetic Motion Reveal",
-    category: "motion-graphics",
-    thumbnail: "",
-    description: "Full 3D motion graphics reveal featuring Octane ray-traced glass textures, kinetic typography, and fluid neon lighting.",
-    tags: ["Cinema 4D", "Octane Render", "3D Motion"],
-    client: "FramEmpire Studio",
-    year: "2026"
-  },
-  {
-    id: "proj-4",
-    title: "3D Metallic Logo & Brand Guidelines",
-    category: "graphic-design",
-    thumbnail: "",
-    description: "Custom 3D emblem design, vector typography hierarchy, and complete 40-page brand guidelines kit.",
-    tags: ["Illustrator", "Photoshop", "Brand System"],
-    client: "Vortex Studio",
-    year: "2025"
-  }
+  ...edTechVideos
 ];
