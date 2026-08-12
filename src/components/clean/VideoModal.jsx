@@ -31,8 +31,8 @@ export default function VideoModal({ project, isOpen, onClose }) {
           </button>
         </div>
 
-        {/* 100% Full-Width Widescreen 16:9 Aspect Video Container (No padding, no cropping!) */}
-        <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
+        {/* Mobile & Desktop Viewport Player Container (h-[52vh] on mobile so Drive preview is 100% fully visible!) */}
+        <div className="relative w-full h-[52vh] sm:h-auto sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
           <iframe
             src={project.embedUrl}
             title={project.title}
