@@ -21,72 +21,60 @@ export const edTechVideos = [
   {
     id: "v-1",
     fileId: "1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS",
-    title: "SSC Biology 4K Campaign Edit",
+    title: "জীবের প্রজনন (SSC Biology CH-01)",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS/preview",
-    description: "High-retention commercial video edit featuring DaVinci Resolve color grading, motion captions, and audio mixing.",
-    tags: ["DaVinci Resolve", "Ed-Tech", "Commercial Edit"],
+    description: "High-retention commercial class hook video edit featuring DaVinci Resolve color grading, kinetic typography, and audio mixing.",
+    tags: ["Class Hook", "SSC Biology", "DaVinci Resolve"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-2",
     fileId: "1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK",
-    title: "High-Retention Ed-Tech Promo",
+    title: "(SSC Biology) Class Hook Video",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1tXGuiuhme53TCA9IGBGPHe3z70Y5wnEK/preview",
-    description: "Educational promo video cut with custom kinetic typography overlays and anamorphic color grading.",
-    tags: ["DaVinci Resolve", "Promo Video", "Motion Captions"],
+    description: "Educational class hook video cut with custom motion captions, audio enhancement, and color grading.",
+    tags: ["Class Hook", "SSC Biology", "Promo Video"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-3",
     fileId: "1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU",
-    title: "HSC Physics Masterclass Cut",
+    title: "English Board Questions Solve Live Class Hook",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1DMRSSeaaqxCdJ6-PLTELyvgQ7sgc-TXU/preview",
-    description: "High-voltage educational ad cut engineered for social media retention and audience engagement.",
-    tags: ["Video Editing", "VFX Compositing", "Social Ad"],
+    description: "High-voltage live class hook video engineered for social media retention and student engagement.",
+    tags: ["Class Hook", "English Solve", "Live Hook"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-4",
     fileId: "1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr",
-    title: "Admission Test Crash Course Promo",
+    title: "(SSC Management) ব্যবসায় পরিচিতি CH-01",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1cQJdpl0857gXbtLYl9ypE6mALt9XJtEr/preview",
-    description: "Professional course promo cut with kinetic typography, audio enhancement, and color correction.",
-    tags: ["Premiere Pro", "DaVinci", "Course Promo"],
+    description: "Professional course promo class hook edit with kinetic captions, sound design, and color correction.",
+    tags: ["Class Hook", "SSC Management", "Course Promo"],
     client: "reThink.ac",
     year: "2026"
   },
   {
     id: "v-5",
     fileId: "18w290JZq9ufuhQpsnDSOc5vcwAL8stb4",
-    title: "IELTS Speaking Master Series",
+    title: "(SSC Management) CQ লেখার সঠিক পদ্ধতি",
     category: "video-editing",
     thumbnail: "https://drive.google.com/thumbnail?id=18w290JZq9ufuhQpsnDSOc5vcwAL8stb4&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/18w290JZq9ufuhQpsnDSOc5vcwAL8stb4/preview",
-    description: "Full post-production video edit with sound design, color grade, and animated visual effects.",
-    tags: ["Post-Production", "VFX", "Sound Design"],
-    client: "reThink.ac",
-    year: "2026"
-  },
-  {
-    id: "v-6",
-    fileId: "1lsHJhYYgb_Kx1B2pwkTM_2f_0ARNfHG2",
-    title: "Study Abroad Canada Commercial",
-    category: "video-editing",
-    thumbnail: "https://drive.google.com/thumbnail?id=1lsHJhYYgb_Kx1B2pwkTM_2f_0ARNfHG2&sz=w1000",
-    embedUrl: "https://drive.google.com/file/d/1lsHJhYYgb_Kx1B2pwkTM_2f_0ARNfHG2/preview",
-    description: "High-impact educational video commercial with custom motion graphics overlays and sound mixing.",
-    tags: ["Motion Graphics", "Commercial Edit", "DaVinci Resolve"],
+    description: "Post-production educational video edit featuring CQ answer writing methodology and motion graphics overlays.",
+    tags: ["Class Hook", "CQ Writing", "Sound Design"],
     client: "reThink.ac",
     year: "2026"
   }
@@ -317,7 +305,7 @@ export const servicesList = [
   }
 ];
 
-// Clean Portfolio Projects (Video Edits + Behance Graphic Design Projects!)
+// Clean Portfolio Projects (5 Verified Video Edits + 10 Behance Graphic Design Projects)
 export const portfolioProjects = [
   ...edTechVideos,
   ...graphicDesignProjects
