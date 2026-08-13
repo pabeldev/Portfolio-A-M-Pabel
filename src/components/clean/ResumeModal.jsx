@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, FileText, Download, Briefcase, Award, GraduationCap, Wrench, Mail, Phone, MapPin, Globe, Linkedin, CheckCircle2, BookOpen, Sparkles, Building2 } from 'lucide-react';
+import { X, FileText, Briefcase, Award, GraduationCap, Wrench, Mail, Phone, MapPin, Globe, Linkedin, CheckCircle2, Sparkles, Building2 } from 'lucide-react';
 import { personalProfile } from '../../data/personalData';
 
 export default function ResumeModal({ isOpen, onClose }) {
@@ -101,7 +101,7 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Card 2: Complete Work Experience (6 Roles) */}
+          {/* Card 2: Work Experience (Unified Company Entry for BIIC & reThink) */}
           <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-5">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2 text-cyan-400">
@@ -110,59 +110,83 @@ export default function ResumeModal({ isOpen, onClose }) {
                   💼 Work Experience
                 </h5>
               </div>
-              <span className="text-xs font-mono text-slate-400">6 Professional Roles</span>
+              <span className="text-xs font-mono text-slate-400">Professional Roles</span>
             </div>
 
             <div className="space-y-6">
               
-              {/* Role 1: reThink */}
-              <div className="space-y-1.5 relative pl-4 border-l-2 border-cyan-500">
-                <div className="flex flex-wrap justify-between items-start gap-1">
-                  <h6 className="text-sm font-bold text-white">Executive Video Editor</h6>
-                  <span className="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-mono font-bold">
-                    03/2026 – Present
+              {/* Role 1: Unified Banglay IELTS & Immigration Center (including reThink department) */}
+              <div className="space-y-3 relative pl-4 border-l-2 border-cyan-500 bg-slate-950/40 p-3.5 rounded-r-2xl border-y border-r border-slate-800/80">
+                
+                {/* Unified Parent Company Header */}
+                <div className="flex flex-wrap justify-between items-start gap-1 pb-2 border-b border-slate-800/80">
+                  <div>
+                    <h6 className="text-sm sm:text-base font-bold text-white flex items-center gap-1.5">
+                      <Building2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                      <span>Banglay IELTS & Immigration Center</span>
+                    </h6>
+                    <span className="text-[11px] font-mono text-cyan-400 font-semibold block mt-0.5">
+                      Executive Video Editor
+                    </span>
+                  </div>
+                  <span className="px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] sm:text-xs font-mono font-bold">
+                    12/2025 – Present
                   </span>
                 </div>
-                <p className="text-xs font-semibold text-cyan-300 flex items-center gap-1.5">
-                  <span>reThink</span>
-                  <span className="text-[10px] font-normal text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                    Sister Concern of Banglay IELTS & Immigration Center
-                  </span>
-                </p>
-                <ul className="space-y-1 text-xs text-slate-300 font-light pt-1">
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400">•</span>
-                    <span>Managing video editing pipeline and visual content strategy for reThink media operations.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400">•</span>
-                    <span>Creating high-converting promotional content, social media reels, and brand assets.</span>
-                  </li>
-                </ul>
-              </div>
 
-              {/* Role 2: Banglay IELTS */}
-              <div className="space-y-1.5 relative pl-4 border-l-2 border-blue-500">
-                <div className="flex flex-wrap justify-between items-start gap-1">
-                  <h6 className="text-sm font-bold text-white">Executive Video Editor</h6>
-                  <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/30 text-blue-400 text-[10px] font-mono font-bold">
-                    12/2025 – 03/2026
-                  </span>
+                {/* Internal Department Progression */}
+                <div className="space-y-3 pt-1">
+                  
+                  {/* Current Dept: reThink */}
+                  <div className="space-y-1.5 bg-slate-900/90 p-3 rounded-xl border border-cyan-500/30">
+                    <div className="flex flex-wrap justify-between items-center gap-1 text-xs">
+                      <span className="font-bold text-cyan-300 flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                        reThink (Sister Concern / Specialized Media Department)
+                      </span>
+                      <span className="text-[10px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                        03/2026 – Present
+                      </span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-slate-300 font-light pt-1">
+                      <li className="flex items-start gap-2">
+                        <span className="text-cyan-400">•</span>
+                        <span>Managing video editing pipeline and visual content strategy for reThink media wing.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-cyan-400">•</span>
+                        <span>Creating high-converting promotional content, social media reels, and brand assets.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Previous Dept: BIIC Core */}
+                  <div className="space-y-1.5 bg-slate-900/40 p-3 rounded-xl border border-slate-800/80">
+                    <div className="flex flex-wrap justify-between items-center gap-1 text-xs">
+                      <span className="font-medium text-slate-300">
+                        Banglay IELTS Core Media Division
+                      </span>
+                      <span className="text-[10px] font-mono text-slate-400 font-medium">
+                        12/2025 – 03/2026
+                      </span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-slate-300 font-light pt-1">
+                      <li className="flex items-start gap-2">
+                        <span className="text-slate-400">•</span>
+                        <span>Produced informative video content, reels, and study-abroad promotional media.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-slate-400">•</span>
+                        <span>Transitioned into its sister concern department (reThink) for specialized media operations.</span>
+                      </li>
+                    </ul>
+                  </div>
+
                 </div>
-                <p className="text-xs font-semibold text-blue-300">Banglay IELTS & Immigration Center</p>
-                <ul className="space-y-1 text-xs text-slate-300 font-light pt-1">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-400">•</span>
-                    <span>Produced informative video content, reels, and study-abroad promotional media.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-400">•</span>
-                    <span>Transitioned into its sister concern department (reThink) for specialized media operations.</span>
-                  </li>
-                </ul>
+
               </div>
 
-              {/* Role 3: Education BD */}
+              {/* Role 2: Education BD */}
               <div className="space-y-1.5 relative pl-4 border-l-2 border-slate-700">
                 <div className="flex flex-wrap justify-between items-start gap-1">
                   <h6 className="text-sm font-bold text-white">Designer & Video Editor</h6>
@@ -183,7 +207,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 </ul>
               </div>
 
-              {/* Role 4: Pi-Infotech */}
+              {/* Role 3: Pi-Infotech */}
               <div className="space-y-1.5 relative pl-4 border-l-2 border-slate-700">
                 <div className="flex flex-wrap justify-between items-start gap-1">
                   <h6 className="text-sm font-bold text-white">Project Manager | Visualizer</h6>
@@ -204,7 +228,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 </ul>
               </div>
 
-              {/* Role 5: Ma'hadul Uloom */}
+              {/* Role 4: Ma'hadul Uloom */}
               <div className="space-y-1.5 relative pl-4 border-l-2 border-slate-700">
                 <div className="flex flex-wrap justify-between items-start gap-1">
                   <h6 className="text-sm font-bold text-white">Instructor (Graphic Design)</h6>
@@ -225,7 +249,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 </ul>
               </div>
 
-              {/* Role 6: The Quarterly Parampara */}
+              {/* Role 5: The Quarterly Parampara */}
               <div className="space-y-1.5 relative pl-4 border-l-2 border-slate-700">
                 <div className="flex flex-wrap justify-between items-start gap-1">
                   <h6 className="text-sm font-bold text-white">Senior Graphic Designer & Verse/Rhyme Editor</h6>
