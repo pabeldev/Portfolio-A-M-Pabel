@@ -38,7 +38,7 @@ export default function CleanHero() {
               <div className="absolute bottom-5 left-5 right-5 p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 backdrop-blur-md flex items-center justify-between shadow-lg">
                 <div>
                   <h4 className="text-sm font-bold text-white">A M Pabel</h4>
-                  <p className="text-xs text-cyan-400 font-mono">Graphic Designer & Motion Artist</p>
+                  <p className="text-xs text-cyan-400 font-mono">Designer | Animator | Editor</p>
                 </div>
                 <span className="flex h-3 w-3 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -88,7 +88,7 @@ export default function CleanHero() {
               className="flex-1 py-3 px-3 sm:px-6 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 text-center shadow-sm cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
-              <span className="truncate">View Resume (/resume)</span>
+              <span className="truncate">View Resume</span>
             </a>
           </div>
 
