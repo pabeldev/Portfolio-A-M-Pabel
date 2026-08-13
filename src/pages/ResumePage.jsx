@@ -24,7 +24,7 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070913] text-slate-100 flex flex-col font-['Plus_Jakarta_Sans'] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#070913] text-slate-100 flex flex-col font-[#Plus_Jakarta_Sans] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
       
       {/* Background Ambient Glow & Grid */}
       <div className="fixed inset-0 bg-gradient-to-b from-[#070913] via-[#090e24] to-[#070913] pointer-events-none z-0" />
@@ -73,14 +73,11 @@ export default function ResumePage() {
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="space-y-1">
-              <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">
-                Official Curriculum Vitae
-              </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white font-['Creato_Display',sans-serif]">
                 A M Pabel
               </h1>
-              <p className="text-sm text-cyan-300 font-mono font-medium">
-                Graphic Designer & Motion Artist
+              <p className="text-sm sm:text-base text-cyan-300 font-mono font-bold tracking-wide">
+                Designer | Animator | Editor
               </p>
             </div>
 

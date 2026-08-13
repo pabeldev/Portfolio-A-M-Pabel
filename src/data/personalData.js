@@ -1,6 +1,6 @@
 export const personalProfile = {
   name: "A M Pabel",
-  title: "Graphic Designer & Motion Artist",
+  title: "Designer | Animator | Editor",
   tagline: "High-Impact Visual Branding, Motion Graphics & Visual Storytelling",
   bio: "Versatile Graphic Designer & Motion Artist skilled in branding, motion graphics, and visual storytelling. Dedicated to transforming ideas into dynamic designs that engage audiences and shape modern digital communication.",
   location: "Uttara-08, Dhaka, Bangladesh",
