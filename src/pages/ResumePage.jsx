@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Sparkles, Film, PenTool, Image, Zap, Cpu, Building2, MapPin, Phone, Mail, Globe, Linkedin, ArrowLeft, Award, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Film, PenTool, Image, Zap, Cpu, Building2, MapPin, Phone, Mail, Globe, Linkedin, ArrowLeft, Award, GraduationCap, Trophy } from 'lucide-react';
 import CleanFooter from '../components/clean/CleanFooter';
 
 const expertTools = [
@@ -69,8 +69,8 @@ export default function ResumePage() {
       {/* Main Resume Content */}
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 pt-24 sm:pt-32 pb-16 relative z-10 space-y-6">
         
-        {/* Header Profile Card */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg">
+        {/* Header Profile Card with Minimal Smooth Hover Glow */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="space-y-1">
               <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">
@@ -119,8 +119,8 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Tools I Expert In Section (Software Only Grid) */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-5 backdrop-blur-xl shadow-lg">
+        {/* Tools I Expert In Section (Software Only Grid) with Smooth Minimal Hover */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-5 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="text-center space-y-1">
             <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
               Production Software Stack
@@ -136,7 +136,7 @@ export default function ResumePage() {
               return (
                 <div
                   key={tool.id}
-                  className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-cyan-400/60 transition-all duration-300 flex flex-col items-center text-center space-y-2 group shadow-sm"
+                  className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-cyan-400/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,243,255,0.15)] flex flex-col items-center text-center space-y-2 group shadow-sm"
                 >
                   <div className="relative">
                     <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform">
@@ -161,8 +161,8 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Work Experience Card */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-6 backdrop-blur-xl shadow-lg">
+        {/* Work Experience Card with Smooth Minimal Hover */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-6 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <h2 className="text-lg font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2">
               <Building2 className="w-5 h-5" />
@@ -174,7 +174,7 @@ export default function ResumePage() {
           <div className="space-y-5">
             
             {/* Unified Company Entry: Banglay IELTS & reThink */}
-            <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-3">
+            <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 hover:border-cyan-500/30 transition-all space-y-3">
               <div className="flex flex-wrap justify-between items-start gap-1 pb-2 border-b border-slate-800/80">
                 <div>
                   <h3 className="text-base font-bold text-white">Banglay IELTS & Immigration Center</h3>
@@ -240,7 +240,7 @@ export default function ResumePage() {
                 desc: 'Led design team for magazine formatting, layout branding, and editorial proofreading.'
               }
             ].map((exp, idx) => (
-              <div key={idx} className="p-3.5 rounded-2xl bg-slate-950/40 border border-slate-800/80 flex flex-wrap justify-between items-start gap-2">
+              <div key={idx} className="p-3.5 rounded-2xl bg-slate-950/40 border border-slate-800/80 hover:border-cyan-500/30 transition-all flex flex-wrap justify-between items-start gap-2">
                 <div>
                   <h3 className="text-sm font-bold text-white">{exp.title}</h3>
                   <span className="text-xs font-mono text-slate-400">{exp.company}</span>
@@ -255,18 +255,18 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Education, Certifications & Achievements Grid */}
+        {/* 2-Column Grid: Certifications & Education */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Training & Certifications */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg">
+          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
             <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2 border-b border-slate-800 pb-2.5">
               <Award className="w-4 h-4" />
               <span>Training & Certifications</span>
             </h2>
 
             <div className="space-y-2.5 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-start gap-2">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-start gap-2">
                 <div>
                   <span className="font-bold text-white block">Diploma in Graphic Design & Motion Graphics</span>
                   <span className="text-[11px] text-slate-400 font-mono">Creative IT Institute</span>
@@ -274,7 +274,7 @@ export default function ResumePage() {
                 <span className="text-[10px] font-mono text-cyan-400 shrink-0">13/01/2024 – 21/05/2025</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-start gap-2">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-start gap-2">
                 <div>
                   <span className="font-bold text-white block">WordPress Website Design</span>
                   <span className="text-[11px] text-slate-400 font-mono">Ostad</span>
@@ -285,14 +285,14 @@ export default function ResumePage() {
           </div>
 
           {/* Education */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg">
+          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
             <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2 border-b border-slate-800 pb-2.5">
               <GraduationCap className="w-4 h-4" />
               <span>Educational Qualification</span>
             </h2>
 
             <div className="space-y-2.5 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-start gap-2">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-start gap-2">
                 <div>
                   <span className="font-bold text-white block">Languages & Literature (Honors Level)</span>
                   <span className="text-[11px] text-slate-400 font-mono">Qawmi Madrasa • Ma'hadul Uloom Al-Islamia</span>
@@ -300,7 +300,7 @@ export default function ResumePage() {
                 <span className="text-[10px] font-mono text-cyan-400 shrink-0">2020 – 2023</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-start gap-2">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-start gap-2">
                 <div>
                   <span className="font-bold text-white block">Hifzul Quran</span>
                   <span className="text-[11px] text-slate-400 font-mono">Jameya Arabia Siloniya, Feni</span>
@@ -312,41 +312,84 @@ export default function ResumePage() {
 
         </div>
 
-        {/* Achievements & Languages */}
+        {/* 2-Column Grid: Clean Achievements & Languages */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          {/* Achievements */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-3 backdrop-blur-xl shadow-lg">
-            <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2 border-b border-slate-800 pb-2.5">
-              <Sparkles className="w-4 h-4" />
-              <span>Achievements & Extra-Curriculum</span>
-            </h2>
+          {/* Achievements & Recognition (Clean Structured Mini Cards) */}
+          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+              <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2">
+                <Trophy className="w-4 h-4" />
+                <span>Achievements & Recognition</span>
+              </h2>
+              <span className="text-xs font-mono text-slate-400">3 Honors</span>
+            </div>
 
-            <ul className="space-y-2 text-xs text-slate-300 font-light">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                <span><strong className="text-white">Award for Poetry Writing:</strong> Recognized for the published poetry collection "Chilekothar Ghor".</span>
-              </li>
-              <li className="flex items-start gap-2 pt-1 border-t border-slate-800/60">
-                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                <span><strong className="text-white">Principal Of The Day (03/06/2023):</strong> Managed administrative operations at Ma'hadul Uloom Al-Islamia Dhaka.</span>
-              </li>
-            </ul>
+            <div className="space-y-3">
+              
+              {/* Award 1: Most Dedicated Ambassador 2025 */}
+              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/30 transition-all space-y-1">
+                <div className="flex flex-wrap justify-between items-start gap-1">
+                  <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+                    <Trophy className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>Most Dedicated Ambassador 2025</span>
+                  </h3>
+                  <span className="text-[10px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                    2025
+                  </span>
+                </div>
+                <p className="text-[11px] font-mono text-slate-400">Creative IT Institute</p>
+                <p className="text-xs text-slate-300 font-light pt-0.5">
+                  Honored for outstanding creative leadership, design excellence, and student ambassadorship.
+                </p>
+              </div>
+
+              {/* Award 2: Poetry Writing */}
+              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/30 transition-all space-y-1">
+                <div className="flex flex-wrap justify-between items-start gap-1">
+                  <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>Award for Poetry Writing</span>
+                  </h3>
+                  <span className="text-[10px] font-mono text-slate-400">Published Author</span>
+                </div>
+                <p className="text-[11px] font-mono text-slate-400">Literary Recognition</p>
+                <p className="text-xs text-slate-300 font-light pt-0.5">
+                  Recognized for the published poetry collection <strong className="text-white">"Chilekothar Ghor"</strong>.
+                </p>
+              </div>
+
+              {/* Award 3: Principal Of The Day */}
+              <div className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/30 transition-all space-y-1">
+                <div className="flex flex-wrap justify-between items-start gap-1">
+                  <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>Principal Of The Day</span>
+                  </h3>
+                  <span className="text-[10px] font-mono text-slate-400">03/06/2023</span>
+                </div>
+                <p className="text-[11px] font-mono text-slate-400">Ma'hadul Uloom Al-Islamia Dhaka</p>
+                <p className="text-xs text-slate-300 font-light pt-0.5">
+                  Selected to manage day-to-day administrative & academic operations for the institution.
+                </p>
+              </div>
+
+            </div>
           </div>
 
           {/* Languages */}
-          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-3 backdrop-blur-xl shadow-lg">
+          <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-3 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
             <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2 border-b border-slate-800 pb-2.5">
               <Globe className="w-4 h-4" />
               <span>Languages</span>
             </h2>
 
             <div className="space-y-2 text-xs">
-              <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-center">
                 <span className="font-bold text-white">Bangla</span>
                 <span className="text-cyan-400 font-mono font-semibold">Native (Reading, Writing, Speaking)</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/30 transition-all flex justify-between items-center">
                 <span className="font-bold text-white">English</span>
                 <span className="text-blue-400 font-mono font-semibold">Intermediate (Reading, Writing, Speaking)</span>
               </div>
