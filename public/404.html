@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A M Pabel | 404 Page Not Found</title>
+    <script>
+      // Single Page Apps SPA redirect for direct URLs
+      var path = window.location.pathname;
+      if (path === '/resume' || path === '/resume/') {
+        window.location.replace('/#' + path);
+      } else {
+        window.location.replace('/');
+      }
+    </script>
+  </head>
+  <body style="background-color: #070913; color: #ffffff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <div style="text-align: center;">
+      <h1 style="color: #00f3ff; font-size: 36px;">404 — Signal Path Lost</h1>
+      <p style="color: #94a3b8;">Redirecting to A M Pabel Portfolio...</p>
+    </div>
+  </body>
+</html>

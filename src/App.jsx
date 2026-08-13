@@ -9,21 +9,39 @@ import MacCodeShowcase from './components/clean/MacCodeShowcase';
 import CleanContact from './components/clean/CleanContact';
 import CleanFooter from './components/clean/CleanFooter';
 import ResumePage from './pages/ResumePage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
 
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
+      setCurrentHash(window.location.hash);
     };
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  if (currentPath === '/resume') {
+  const isResumeRoute = 
+    currentPath === '/resume' || 
+    currentPath === '/resume/' || 
+    currentHash === '#/resume' || 
+    currentHash === '#resume';
+
+  const isHomeRoute = 
+    currentPath === '/' || 
+    currentPath === '' || 
+    currentPath === '/index.html';
+
+  if (isResumeRoute) {
     return <ResumePage />;
+  }
+
+  if (!isHomeRoute && !isResumeRoute) {
+    return <NotFoundPage />;
   }
 
   return (
