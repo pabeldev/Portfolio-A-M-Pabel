@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Sparkles, Film, PenTool, Image, Zap, Cpu, Building2, MapPin, Phone, Mail, Globe, Linkedin, ArrowLeft, Award, GraduationCap, Trophy } from 'lucide-react';
+import { Sparkles, Film, PenTool, Image, Zap, Cpu, Building2, MapPin, Phone, Mail, Globe, Linkedin, Award, GraduationCap, Trophy } from 'lucide-react';
 import CleanFooter from '../components/clean/CleanFooter';
 
 const expertTools = [
@@ -24,7 +24,7 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070913] text-slate-100 flex flex-col font-[#Plus_Jakarta_Sans] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#070913] text-slate-100 flex flex-col font-['Plus_Jakarta_Sans'] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
       
       {/* Background Ambient Glow & Grid */}
       <div className="fixed inset-0 bg-gradient-to-b from-[#070913] via-[#090e24] to-[#070913] pointer-events-none z-0" />
@@ -46,14 +46,6 @@ export default function ResumePage() {
 
           {/* Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={navigateToHome}
-              className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-900 border border-slate-800 hover:border-cyan-500/50 text-slate-300 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Back to Home</span>
-            </button>
-
             <a
               href="mailto:info@ampabel.com?subject=Hiring%20Inquiry%20-%20A%20M%20Pabel"
               className="px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:scale-105 transition-all flex items-center gap-1.5"
