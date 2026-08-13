@@ -1,9 +1,9 @@
 export const personalProfile = {
   name: "A M Pabel",
-  title: "Designer | Animator | Editor",
-  tagline: "High-Impact Visual Architecture & AI Web Applications",
-  bio: "Creative Designer, Motion Animator, Ed-Tech Video Editor, and AI Vibe Coder. Delivering After Effects 3D motion graphics, Premiere Pro 4K video edits, vector brand systems, and AI web applications for global clients.",
-  location: "Dhaka & Feni, Bangladesh",
+  title: "Graphic Designer & Motion Artist",
+  tagline: "High-Impact Visual Branding, Motion Graphics & Visual Storytelling",
+  bio: "Versatile Graphic Designer & Motion Artist skilled in branding, motion graphics, and visual storytelling. Dedicated to transforming ideas into dynamic designs that engage audiences and shape modern digital communication.",
+  location: "Uttara-08, Dhaka, Bangladesh",
   status: "Available for Projects",
   avatarUrl: "/assets/pabel_real.jpg",
   logoUrl: "/assets/A-M-Pabel-Logo.webp",
@@ -12,7 +12,8 @@ export const personalProfile = {
     whatsapp: "+880 1615-288259",
     email: "info@ampabel.com",
     studio: "FramEmpire Studio",
-    website: "https://www.framempire.com"
+    website: "https://ampabel.com",
+    linkedin: "https://bd.linkedin.com/in/pabeledp"
   },
   stats: []
 };
