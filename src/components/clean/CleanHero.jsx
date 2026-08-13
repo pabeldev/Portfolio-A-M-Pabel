@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { personalProfile } from '../../data/personalData';
 import AvatarRatingBadge from './AvatarRatingBadge';
 import PremiereTimelineAnimation from './PremiereTimelineAnimation';
-import { Sparkles, MessageSquare, ArrowRight } from 'lucide-react';
+import ResumeModal from './ResumeModal';
+import { Sparkles, FileText, ArrowRight } from 'lucide-react';
 
 export default function CleanHero() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <section className="relative pt-28 sm:pt-36 md:pt-40 pb-16 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
       
@@ -76,15 +79,13 @@ export default function CleanHero() {
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </a>
 
-            <a
-              href="https://wa.me/8801615288259"
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 py-3 px-3 sm:px-6 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 text-center shadow-sm"
+            <button
+              onClick={() => setIsResumeOpen(true)}
+              className="flex-1 py-3 px-3 sm:px-6 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 text-center shadow-sm cursor-pointer"
             >
-              <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
-              <span className="truncate">Direct WhatsApp</span>
-            </a>
+              <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+              <span className="truncate">Interactive Resume</span>
+            </button>
           </div>
 
           {/* Premiere Pro Live Video Timeline Animation Widget */}
@@ -93,6 +94,12 @@ export default function CleanHero() {
         </div>
 
       </div>
+
+      {/* Interactive Resume Modal */}
+      <ResumeModal
+        isOpen={isResumeOpen}
+        onClose={() => setIsResumeOpen(false)}
+      />
 
     </section>
   );
