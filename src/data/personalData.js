@@ -20,6 +20,19 @@ export const personalProfile = {
 
 export const edTechVideos = [
   {
+    id: "v-0",
+    fileId: "19MA2UKfcAHYnhmPFdPKclq7BdQLe8Weg",
+    title: "States of Matter and Pressure",
+    subjectTag: "SSC 28 Physics",
+    category: "video-editing",
+    thumbnail: "https://drive.google.com/thumbnail?id=19MA2UKfcAHYnhmPFdPKclq7BdQLe8Weg&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/19MA2UKfcAHYnhmPFdPKclq7BdQLe8Weg/preview",
+    description: "High-retention Ed-Tech Physics class hook video edit for SSC 28 featuring Premiere Pro motion captions, kinetic typography, and audio mixing.",
+    tags: ["Class Hook", "SSC 28 Physics", "Ed-Tech"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
     id: "v-1",
     fileId: "1Bwbvp2p91xBTqzDiPlxTaaN36xWay3yS",
     title: "জীবের প্রজনন",
