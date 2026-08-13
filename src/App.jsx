@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CleanNavbar from './components/clean/CleanNavbar';
 import CleanHero from './components/clean/CleanHero';
 import CleanServices from './components/clean/CleanServices';
@@ -8,8 +8,24 @@ import ClientLogoTicker from './components/clean/ClientLogoTicker';
 import MacCodeShowcase from './components/clean/MacCodeShowcase';
 import CleanContact from './components/clean/CleanContact';
 import CleanFooter from './components/clean/CleanFooter';
+import ResumePage from './pages/ResumePage';
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  if (currentPath === '/resume') {
+    return <ResumePage />;
+  }
+
   return (
     <div className="min-h-screen bg-[#070913] text-slate-100 flex flex-col font-['Plus_Jakarta_Sans'] selection:bg-cyan-500 selection:text-slate-950 relative overflow-x-hidden">
       

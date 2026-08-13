@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { personalProfile } from '../../data/personalData';
 import AvatarRatingBadge from './AvatarRatingBadge';
 import PremiereTimelineAnimation from './PremiereTimelineAnimation';
-import ResumeModal from './ResumeModal';
 import { Sparkles, FileText, ArrowRight } from 'lucide-react';
 
 export default function CleanHero() {
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const navigateToResume = (e) => {
+    e.preventDefault();
+    window.history.pushState(null, '', '/resume');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
 
   return (
     <section className="relative pt-28 sm:pt-36 md:pt-40 pb-16 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
@@ -35,7 +38,7 @@ export default function CleanHero() {
               <div className="absolute bottom-5 left-5 right-5 p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 backdrop-blur-md flex items-center justify-between shadow-lg">
                 <div>
                   <h4 className="text-sm font-bold text-white">A M Pabel</h4>
-                  <p className="text-xs text-cyan-400 font-mono">Designer | Animator | Editor</p>
+                  <p className="text-xs text-cyan-400 font-mono">Graphic Designer & Motion Artist</p>
                 </div>
                 <span className="flex h-3 w-3 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -55,7 +58,7 @@ export default function CleanHero() {
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Designer • Animator • Editor • Vibe Coder
+            Graphic Designer • Motion Artist • Visual Storyteller
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-['Creato_Display',sans-serif]">
@@ -79,13 +82,14 @@ export default function CleanHero() {
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </a>
 
-            <button
-              onClick={() => setIsResumeOpen(true)}
+            <a
+              href="/resume"
+              onClick={navigateToResume}
               className="flex-1 py-3 px-3 sm:px-6 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 text-center shadow-sm cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
-              <span className="truncate">Interactive Resume</span>
-            </button>
+              <span className="truncate">View Resume (/resume)</span>
+            </a>
           </div>
 
           {/* Premiere Pro Live Video Timeline Animation Widget */}
@@ -94,12 +98,6 @@ export default function CleanHero() {
         </div>
 
       </div>
-
-      {/* Interactive Resume Modal */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
 
     </section>
   );
