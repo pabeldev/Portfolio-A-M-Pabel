@@ -69,7 +69,7 @@ export default function ResumePage() {
       {/* Main Resume Content */}
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 pt-24 sm:pt-32 pb-16 relative z-10 space-y-6">
         
-        {/* Header Profile Card with Minimal Smooth Hover Glow */}
+        {/* Header Profile Card */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="space-y-1">
@@ -119,7 +119,7 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Tools I Expert In Section (Software Only Grid) with Smooth Minimal Hover */}
+        {/* Tools I Expert In Section (Software Only Grid) */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-5 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
           <div className="text-center space-y-1">
             <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
@@ -161,14 +161,19 @@ export default function ResumePage() {
           </div>
         </div>
 
-        {/* Work Experience Card with Smooth Minimal Hover */}
+        {/* Work Experience Card with 3+ Years Total Experience Badge */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-6 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
             <h2 className="text-lg font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2">
               <Building2 className="w-5 h-5" />
               <span>Work Experience</span>
             </h2>
-            <span className="text-xs font-mono text-slate-400">Professional History</span>
+            
+            {/* Total Experience Year Badge */}
+            <span className="px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+              3+ Years Experience (2023 – Present)
+            </span>
           </div>
 
           <div className="space-y-5">
@@ -312,10 +317,10 @@ export default function ResumePage() {
 
         </div>
 
-        {/* 2-Column Grid: Clean Achievements & Languages */}
+        {/* 2-Column Grid: Achievements & Languages */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          {/* Achievements & Recognition (Clean Structured Mini Cards) */}
+          {/* Achievements & Recognition */}
           <div className="p-6 rounded-3xl bg-slate-900/60 border border-slate-800/80 space-y-4 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,243,255,0.12)]">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
               <h2 className="text-base font-bold text-white uppercase tracking-wider font-mono text-cyan-400 flex items-center gap-2">
