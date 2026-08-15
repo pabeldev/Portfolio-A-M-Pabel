@@ -1,52 +1,82 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap, Play, Mail, CheckCircle2 } from 'lucide-react';
 
-const interactiveCodeBlocks = {
-  portfolio: {
-    file: 'renderPortfolioGallery.tsx',
-    lang: 'React 18 / Tailwind',
+const tabsData = [
+  { id: 'interactive', label: 'Interactive AI Stream', icon: Zap },
+  { id: 'react', label: 'React / TS', icon: Atom },
+  { id: 'node', label: 'Node / AI', icon: FileCode },
+  { id: 'webgl', label: 'WebGL Shader', icon: Layers }
+];
+
+const codeBlocks = [
+  {
+    tabId: 'interactive',
+    file: 'InteractiveCodeGenerator.tsx',
+    lang: 'React 18 / Tailwind Synthesis',
     lines: [
-      { text: '// ⚡ INTERACTIVE GENERATOR: RENDERING FEATURED PORTFOLIO GALLERY...', type: 'comment' },
-      { text: 'import React from "react";', type: 'import' },
+      { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM (5ms)', type: 'comment' },
+      { text: 'import React, { useState } from "react";', type: 'import' },
       { text: 'import { portfolioProjects } from "../data/personalData";', type: 'import' },
       { text: '', type: 'blank' },
-      { text: 'export function renderPortfolioGallery() {', type: 'func' },
+      { text: 'export function VibeCodeSynthesisEngine() {', type: 'func' },
+      { text: '  const [status] = useState("SYNTHESIS_COMPLETE_READY_FOR_SELECTION");', type: 'state' },
       { text: '  return (', type: 'jsx' },
-      { text: '    <PortfolioGrid items={portfolioProjects} mode="3D_MOTION_EDITS" />', type: 'jsx' },
+      { text: '    <TerminalInterface status={status}>', type: 'jsx' },
+      { text: '      /* Interactive UI Choice Buttons Loading Below... */', type: 'comment' },
+      { text: '    </TerminalInterface>', type: 'jsx' },
       { text: '  );', type: 'jsx' },
       { text: '}', type: 'func' }
     ]
   },
-  contact: {
-    file: 'renderContactSection.tsx',
-    lang: 'React 18 / WhatsApp Stream',
+  {
+    tabId: 'react',
+    file: 'frontend-matrix.tsx',
+    lang: 'React / TS',
     lines: [
-      { text: '// 📬 INTERACTIVE GENERATOR: RENDERING DIRECT CONTACT SECTION...', type: 'comment' },
-      { text: 'import React from "react";', type: 'import' },
-      { text: 'import { Phone, Mail, Send } from "lucide-react";', type: 'import' },
-      { text: '', type: 'blank' },
-      { text: 'export function renderContactSection() {', type: 'func' },
-      { text: '  return (', type: 'jsx' },
-      { text: '    <ContactDirect phone="+8801615288259" email="info@ampabel.com" />', type: 'jsx' },
-      { text: '  );', type: 'jsx' },
+      { text: '// ⚡ FRONTEND: HIGH-SPEED REACT VIBE SYNTHESIS', type: 'comment' },
+      { text: 'import React, { useState } from "react";', type: 'import' },
+      { text: 'export function VibeMatrixCore({ creator }) {', type: 'func' },
+      { text: '  return <div className="p-8 rounded-3xl bg-slate-950">{creator}</div>;', type: 'jsx' },
       { text: '}', type: 'func' }
     ]
+  },
+  {
+    tabId: 'node',
+    file: 'gemini-stream.js',
+    lang: 'Node.js / Express',
+    lines: [
+      { text: '// 🤖 BACKEND: GEMINI 1.5 FLASH AI STREAM', type: 'comment' },
+      { text: 'import { GoogleGenerativeAI } from "@google/generative-ai";', type: 'import' },
+      { text: 'const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);', type: 'state' },
+      { text: 'const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });', type: 'state' }
+    ]
+  },
+  {
+    tabId: 'webgl',
+    file: 'octane-vortex.glsl',
+    lang: 'WebGL Shader',
+    lines: [
+      { text: '// 🌌 WEBGL: OCTANE RAY-TRACED FLUID SHADER', type: 'comment' },
+      { text: 'uniform float uTime; uniform vec2 uResolution;', type: 'import' },
+      { text: 'void main() { gl_FragColor = vec4(1.0); }', type: 'func' }
+    ]
   }
-};
+];
 
 export default function MacCodeShowcase({ onSelectChoice }) {
-  const [activeChoice, setActiveChoice] = useState('portfolio'); // 'portfolio' | 'contact'
+  const [blockIndex, setBlockIndex] = useState(0);
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [typedLines, setTypedLines] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
-  const [hasTriggeredInitial, setHasTriggeredInitial] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [buttonsRevealed, setButtonsRevealed] = useState(false);
+  const [clickedChoice, setClickedChoice] = useState(null);
   
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
-  const currentBlock = interactiveCodeBlocks[activeChoice];
+  const currentBlock = codeBlocks[blockIndex];
 
-  // Trigger initial typing sequence when scrolled into view
+  // 1. Trigger on Scroll (IntersectionObserver)
   useEffect(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
@@ -54,9 +84,8 @@ export default function MacCodeShowcase({ onSelectChoice }) {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting && !hasTriggeredInitial) {
-          setHasTriggeredInitial(true);
-          triggerTypingSequence('portfolio');
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
           observer.disconnect();
         }
       },
@@ -65,47 +94,21 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
     observer.observe(sectionEl);
     return () => observer.disconnect();
-  }, [hasTriggeredInitial]);
+  }, [hasStarted]);
 
-  // Execute 0.5-second (500ms) high-speed typing sequence for a choice
-  const triggerTypingSequence = (choiceKey) => {
-    setActiveChoice(choiceKey);
-    setTypedLines([]);
-    setLineIndex(0);
-    setCharIndex(0);
-    setIsTyping(true);
-  };
-
-  // High-speed 500ms character streaming loop
+  // 2. High-Speed 5ms Code Typing Stream
   useEffect(() => {
-    if (!isTyping) return;
+    if (!hasStarted) return;
 
     const currentLineObj = currentBlock.lines[lineIndex];
 
-    // Finished typing all lines in 0.5s!
+    // Finished typing current block lines
     if (!currentLineObj) {
-      setIsTyping(false);
-      
-      // Perform 0.5s reveal callback and smooth scroll
-      if (onSelectChoice) {
-        onSelectChoice(activeChoice);
+      if (!buttonsRevealed) {
+        setButtonsRevealed(true); // Reveal the 2 buttons inside Mac interface at the bottom!
       }
-
-      // Smooth scroll to section after 500ms reveal
-      setTimeout(() => {
-        const targetId = activeChoice === 'portfolio' ? 'works' : 'contact';
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-
       return;
     }
-
-    // Total characters calculation for exact 500ms timing
-    const totalChars = currentBlock.lines.reduce((acc, l) => acc + l.text.length, 0);
-    const msPerChar = Math.max(2, Math.floor(450 / (totalChars || 1)));
 
     const timer = setTimeout(() => {
       if (charIndex < currentLineObj.text.length) {
@@ -120,17 +123,42 @@ export default function MacCodeShowcase({ onSelectChoice }) {
         setLineIndex((prev) => prev + 1);
         setCharIndex(0);
       }
-    }, msPerChar);
+    }, 5); // 5 milliseconds ultra-fast typing!
 
     return () => clearTimeout(timer);
-  }, [isTyping, activeChoice, lineIndex, charIndex, currentBlock, onSelectChoice]);
+  }, [hasStarted, blockIndex, lineIndex, charIndex, currentBlock, buttonsRevealed]);
 
-  // Auto-scroll screen down inside terminal
+  // Auto-scroll terminal screen
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [typedLines, charIndex]);
+
+  // Handle Button Click Event inside Mac Interface
+  const handleButtonClick = (choiceKey) => {
+    setClickedChoice(choiceKey);
+
+    // Append choice execution code line into terminal
+    const choiceLine = choiceKey === 'portfolio' 
+      ? { text: '// ⚡ EXECUTE: renderPortfolioGallery() -> REVEALING PORTFOLIO...', type: 'comment' }
+      : { text: '// 📬 EXECUTE: renderContactSection() -> REVEALING CONTACT...', type: 'comment' };
+
+    setTypedLines((prev) => [...prev, choiceLine]);
+
+    if (onSelectChoice) {
+      onSelectChoice(choiceKey);
+    }
+
+    // Smooth scroll to section after click
+    setTimeout(() => {
+      const targetId = choiceKey === 'portfolio' ? 'works' : 'contact';
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 150);
+  };
 
   // Syntax Highlighting Renderer
   const renderSyntaxLine = (line) => {
@@ -179,48 +207,16 @@ export default function MacCodeShowcase({ onSelectChoice }) {
       <div className="text-center space-y-3 mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
-          Interactive Multi-Option Code Generator
+          5ms High-Speed Code Stream & Interactive Mac Buttons
         </div>
         
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
-          Choose Code & <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Reveal UI (0.5s)</span>
+          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Terminal</span>
         </h2>
         
         <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
-          Click an interactive option below to simulate live 0.5s high-speed code generation that dynamically reveals your selected section!
+          Watch code stream at 5ms, then select an interactive option button inside the Mac terminal below to reveal your target section.
         </p>
-
-        {/* 2 Dynamic Interactive Option Buttons: [View Portfolio] and [Contact Me] */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4">
-          
-          <button
-            disabled={isTyping}
-            onClick={() => triggerTypingSequence('portfolio')}
-            className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
-              activeChoice === 'portfolio'
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.4)] scale-105'
-                : 'bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-cyan-500/50'
-            } ${isTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
-          >
-            <Play className="w-4 h-4 fill-current shrink-0" />
-            <span>[⚡ View Portfolio Gallery]</span>
-          </button>
-
-          <button
-            disabled={isTyping}
-            onClick={() => triggerTypingSequence('contact')}
-            className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
-              activeChoice === 'contact'
-                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(168,85,247,0.4)] scale-105'
-                : 'bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-purple-500/50'
-            } ${isTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
-          >
-            <Mail className="w-4 h-4 shrink-0" />
-            <span>[📬 Direct Contact Me]</span>
-          </button>
-
-        </div>
-
       </div>
 
       {/* Mac Terminal IDE Container */}
@@ -254,7 +250,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               {/* Live Speed Indicator */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
                 <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>{isTyping ? 'SYNTHESIZING 0.5s...' : '0.5s READY'}</span>
+                <span>5ms HIGH SPEED STREAM</span>
               </div>
 
             </div>
@@ -262,7 +258,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
             {/* Code Real-Time Typing Screen */}
             <div
               ref={scrollRef}
-              className="relative h-[260px] sm:h-[300px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
+              className="relative h-[250px] sm:h-[280px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
             >
               
               {/* Scanline Overlay Effect */}
@@ -285,17 +281,48 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
             </div>
 
+            {/* Dynamic Buttons revealed INSIDE Mac Interface at the bottom AFTER code stream finishes */}
+            {buttonsRevealed && (
+              <div className="px-4 py-3 bg-slate-900/90 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-3 sm:gap-4 transition-all duration-500 z-20 backdrop-blur-md">
+                
+                <button
+                  onClick={() => handleButtonClick('portfolio')}
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+                    clickedChoice === 'portfolio'
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105 ring-2 ring-cyan-400'
+                      : 'bg-slate-950 border border-cyan-500/40 text-cyan-300 hover:text-white hover:bg-cyan-500/20'
+                  }`}
+                >
+                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
+                  <span>[⚡ View Portfolio Gallery]</span>
+                </button>
+
+                <button
+                  onClick={() => handleButtonClick('contact')}
+                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+                    clickedChoice === 'contact'
+                      ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(168,85,247,0.6)] scale-105 ring-2 ring-purple-400'
+                      : 'bg-slate-950 border border-purple-500/40 text-purple-300 hover:text-white hover:bg-purple-500/20'
+                  }`}
+                >
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                  <span>[📬 Direct Contact Me]</span>
+                </button>
+
+              </div>
+            )}
+
             {/* macOS Footer Spec Bar */}
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400 rounded-b-[28px]">
+            <div className="px-4 sm:px-6 py-2 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400 rounded-b-[28px]">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400 flex items-center gap-1 font-bold truncate">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  0.5s Code-to-UI Active
+                  5ms Code Stream Active
                 </span>
                 <span className="hidden sm:inline text-slate-700">|</span>
                 <span className="hidden sm:inline text-slate-400">A M Pabel</span>
               </div>
-              <span className="text-cyan-400 font-bold">500ms Reveal Engine</span>
+              <span className="text-cyan-400 font-bold">5ms Stream • FramEmpire</span>
             </div>
 
           </div>

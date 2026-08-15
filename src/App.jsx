@@ -73,10 +73,10 @@ export default function App() {
         {/* Client / Partner Brand Infinite Marquee Logo Ticker */}
         <ClientLogoTicker />
 
-        {/* Interactive Mac Code Generator with 0.5s Reveal Callback */}
+        {/* 5ms Code Stream Terminal with Interactive Buttons Inside Mac Interface */}
         <MacCodeShowcase onSelectChoice={(choice) => setActiveRevealedSection(choice)} />
         
-        {/* Contact Section Dynamically Revealed in 0.5 Seconds */}
+        {/* Contact Section Reveal */}
         <CleanContact isRevealed={activeRevealedSection === 'both' || activeRevealedSection === 'contact'} />
       </main>
 
