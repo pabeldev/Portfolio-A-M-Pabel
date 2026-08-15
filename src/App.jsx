@@ -14,7 +14,7 @@ import NotFoundPage from './pages/NotFoundPage';
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [currentHash, setCurrentHash] = useState(window.location.hash);
-  const [isContactRevealed, setIsContactRevealed] = useState(false);
+  const [activeRevealedSection, setActiveRevealedSection] = useState('both');
 
   useEffect(() => {
     const handlePopState = () => {
@@ -64,17 +64,20 @@ export default function App() {
       <main className="flex-1 relative z-10">
         <CleanHero />
         <CleanServices />
-        <CleanPortfolio />
+        
+        {/* Portfolio Section */}
+        <CleanPortfolio isRevealed={activeRevealedSection === 'both' || activeRevealedSection === 'portfolio'} />
+        
         <CleanVibeCode />
         
         {/* Client / Partner Brand Infinite Marquee Logo Ticker */}
         <ClientLogoTicker />
 
-        {/* Infinite Mac Code Stream Visual Showcase with 2s Reveal Callback */}
-        <MacCodeShowcase onRevealContact={() => setIsContactRevealed(true)} />
+        {/* Interactive Mac Code Generator with 0.5s Reveal Callback */}
+        <MacCodeShowcase onSelectChoice={(choice) => setActiveRevealedSection(choice)} />
         
-        {/* Contact Section Dynamically Revealed in 2 Seconds */}
-        <CleanContact isRevealed={isContactRevealed} />
+        {/* Contact Section Dynamically Revealed in 0.5 Seconds */}
+        <CleanContact isRevealed={activeRevealedSection === 'both' || activeRevealedSection === 'contact'} />
       </main>
 
       {/* Professional Agency Studio Footer */}

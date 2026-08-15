@@ -1,106 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap } from 'lucide-react';
+import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap, Play, Mail, CheckCircle2 } from 'lucide-react';
 
-const tabsData = [
-  { id: 'contact-synthesis', label: 'Contact UI Stream', icon: Zap },
-  { id: 'react', label: 'React / TS', icon: Atom },
-  { id: 'node', label: 'Node / AI', icon: FileCode },
-  { id: 'webgl', label: 'WebGL Shader', icon: Layers }
-];
-
-const codeBlocks = [
-  {
-    tabId: 'contact-synthesis',
-    file: 'CleanContactSynthesis.jsx',
-    lang: 'React 18 / Tailwind CSS',
+const interactiveCodeBlocks = {
+  portfolio: {
+    file: 'renderPortfolioGallery.tsx',
+    lang: 'React 18 / Tailwind',
     lines: [
-      { text: '// ⚡ LIVE AI SYNTHESIS: GENERATING CONTACT COMPONENT IN 2s...', type: 'comment' },
-      { text: 'import React, { useState } from "react";', type: 'import' },
-      { text: 'import { Phone, Mail, Send, CheckCircle } from "lucide-react";', type: 'import' },
+      { text: '// ⚡ INTERACTIVE GENERATOR: RENDERING FEATURED PORTFOLIO GALLERY...', type: 'comment' },
+      { text: 'import React from "react";', type: 'import' },
+      { text: 'import { portfolioProjects } from "../data/personalData";', type: 'import' },
       { text: '', type: 'blank' },
-      { text: 'export function CleanContactUI({ status = "AVAILABLE" }) {', type: 'func' },
-      { text: '  const [phone] = useState("+880 1615-288259");', type: 'state' },
-      { text: '  const [email] = useState("info@ampabel.com");', type: 'state' },
-      { text: '', type: 'blank' },
+      { text: 'export function renderPortfolioGallery() {', type: 'func' },
       { text: '  return (', type: 'jsx' },
-      { text: '    <section className="p-8 bg-slate-950 border border-cyan-500 rounded-3xl">', type: 'jsx' },
-      { text: '      <h2 className="text-4xl font-black text-white">Let\'s Build Your Project</h2>', type: 'jsx' },
-      { text: '      <a href={`https://wa.me/${phone}`}>Direct WhatsApp Chat</a>', type: 'jsx' },
-      { text: '    </section>', type: 'jsx' },
+      { text: '    <PortfolioGrid items={portfolioProjects} mode="3D_MOTION_EDITS" />', type: 'jsx' },
       { text: '  );', type: 'jsx' },
       { text: '}', type: 'func' }
     ]
   },
-  {
-    tabId: 'react',
-    file: 'frontend-matrix.tsx',
-    lang: 'React / TS',
+  contact: {
+    file: 'renderContactSection.tsx',
+    lang: 'React 18 / WhatsApp Stream',
     lines: [
-      { text: '// ⚡ FRONTEND: HIGH-SPEED REACT VIBE SYNTHESIS', type: 'comment' },
-      { text: 'import React, { useState, useEffect } from "react";', type: 'import' },
-      { text: 'import { motion } from "framer-motion";', type: 'import' },
+      { text: '// 📬 INTERACTIVE GENERATOR: RENDERING DIRECT CONTACT SECTION...', type: 'comment' },
+      { text: 'import React from "react";', type: 'import' },
+      { text: 'import { Phone, Mail, Send } from "lucide-react";', type: 'import' },
       { text: '', type: 'blank' },
-      { text: 'export function VibeMatrixCore({ creator, status }) {', type: 'func' },
-      { text: '  const [fps, setFps] = useState(60);', type: 'state' },
-      { text: '  const [activeNodes, setActiveNodes] = useState(128);', type: 'state' },
-      { text: '', type: 'blank' },
+      { text: 'export function renderContactSection() {', type: 'func' },
       { text: '  return (', type: 'jsx' },
-      { text: '    <div className="p-8 rounded-3xl bg-slate-950 border border-cyan-500">', type: 'jsx' },
-      { text: '      <h1 className="text-4xl font-black text-white">{creator}</h1>', type: 'jsx' },
-      { text: '    </div>', type: 'jsx' },
+      { text: '    <ContactDirect phone="+8801615288259" email="info@ampabel.com" />', type: 'jsx' },
       { text: '  );', type: 'jsx' },
-      { text: '}', type: 'func' }
-    ]
-  },
-  {
-    tabId: 'node',
-    file: 'gemini-stream.js',
-    lang: 'Node.js / Express',
-    lines: [
-      { text: '// 🤖 BACKEND: GEMINI 1.5 FLASH REAL-TIME AI STREAM', type: 'comment' },
-      { text: 'import { GoogleGenerativeAI } from "@google/generative-ai";', type: 'import' },
-      { text: 'import express from "express";', type: 'import' },
-      { text: '', type: 'blank' },
-      { text: 'const app = express();', type: 'state' },
-      { text: 'const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);', type: 'state' },
-      { text: 'const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });', type: 'state' },
-      { text: '', type: 'blank' },
-      { text: 'app.post("/api/vibe-stream", async (req, res) => {', type: 'func' },
-      { text: '  const stream = await model.generateContentStream({ prompt: req.body });', type: 'effect' },
-      { text: '  res.end();', type: 'func' },
-      { text: '});', type: 'func' }
-    ]
-  },
-  {
-    tabId: 'webgl',
-    file: 'octane-vortex.glsl',
-    lang: 'WebGL Shader',
-    lines: [
-      { text: '// 🌌 WEBGL: OCTANE RAY-TRACED FLUID SHADER', type: 'comment' },
-      { text: 'uniform float uTime;', type: 'import' },
-      { text: 'uniform vec2 uResolution;', type: 'import' },
-      { text: '', type: 'blank' },
-      { text: 'void main() {', type: 'func' },
-      { text: '  vec2 st = gl_FragCoord.xy / uResolution.xy;', type: 'effect' },
-      { text: '  vec3 color = mix(vec3(0.0, 0.95, 1.0), vec3(0.6, 0.2, 1.0), st.x);', type: 'effect' },
-      { text: '  gl_FragColor = vec4(color * sin(uTime * 2.0), 1.0);', type: 'jsx' },
       { text: '}', type: 'func' }
     ]
   }
-];
+};
 
-export default function MacCodeShowcase({ onRevealContact }) {
-  const [blockIndex, setBlockIndex] = useState(0);
+export default function MacCodeShowcase({ onSelectChoice }) {
+  const [activeChoice, setActiveChoice] = useState('portfolio'); // 'portfolio' | 'contact'
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [typedLines, setTypedLines] = useState([]);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [hasTriggeredInitial, setHasTriggeredInitial] = useState(false);
   
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
-  const currentBlock = codeBlocks[blockIndex];
+  const currentBlock = interactiveCodeBlocks[activeChoice];
 
-  // 1. Trigger on Scroll using IntersectionObserver (Runs ONCE)
+  // Trigger initial typing sequence when scrolled into view
   useEffect(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
@@ -108,9 +54,10 @@ export default function MacCodeShowcase({ onRevealContact }) {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting) {
-          setHasStarted(true);
-          observer.disconnect(); // Disconnect after triggering once!
+        if (entry.isIntersecting && !hasTriggeredInitial) {
+          setHasTriggeredInitial(true);
+          triggerTypingSequence('portfolio');
+          observer.disconnect();
         }
       },
       { threshold: 0.2 }
@@ -118,32 +65,47 @@ export default function MacCodeShowcase({ onRevealContact }) {
 
     observer.observe(sectionEl);
     return () => observer.disconnect();
-  }, []);
+  }, [hasTriggeredInitial]);
 
-  // 2. Real-time Typing Engine: Completes current block in exactly 2 seconds (2000ms)!
+  // Execute 0.5-second (500ms) high-speed typing sequence for a choice
+  const triggerTypingSequence = (choiceKey) => {
+    setActiveChoice(choiceKey);
+    setTypedLines([]);
+    setLineIndex(0);
+    setCharIndex(0);
+    setIsTyping(true);
+  };
+
+  // High-speed 500ms character streaming loop
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!isTyping) return;
 
     const currentLineObj = currentBlock.lines[lineIndex];
 
-    // If finished typing all lines in current block
+    // Finished typing all lines in 0.5s!
     if (!currentLineObj) {
-      if (blockIndex === 0 && onRevealContact) {
-        onRevealContact(); // Trigger 2-second UI reveal!
+      setIsTyping(false);
+      
+      // Perform 0.5s reveal callback and smooth scroll
+      if (onSelectChoice) {
+        onSelectChoice(activeChoice);
       }
 
-      const nextTimer = setTimeout(() => {
-        setTypedLines([]);
-        setLineIndex(0);
-        setCharIndex(0);
-        setBlockIndex((prev) => (prev + 1) % codeBlocks.length);
-      }, 500);
-      return () => clearTimeout(nextTimer);
+      // Smooth scroll to section after 500ms reveal
+      setTimeout(() => {
+        const targetId = activeChoice === 'portfolio' ? 'works' : 'contact';
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+
+      return;
     }
 
-    // Total characters in this block for 2.0s timing calculation
+    // Total characters calculation for exact 500ms timing
     const totalChars = currentBlock.lines.reduce((acc, l) => acc + l.text.length, 0);
-    const msPerChar = Math.max(3, Math.floor(2000 / (totalChars || 1)));
+    const msPerChar = Math.max(2, Math.floor(450 / (totalChars || 1)));
 
     const timer = setTimeout(() => {
       if (charIndex < currentLineObj.text.length) {
@@ -161,9 +123,9 @@ export default function MacCodeShowcase({ onRevealContact }) {
     }, msPerChar);
 
     return () => clearTimeout(timer);
-  }, [hasStarted, blockIndex, lineIndex, charIndex, onRevealContact]);
+  }, [isTyping, activeChoice, lineIndex, charIndex, currentBlock, onSelectChoice]);
 
-  // Auto-scroll screen down to keep active typing line pinned in view
+  // Auto-scroll screen down inside terminal
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -214,20 +176,54 @@ export default function MacCodeShowcase({ onRevealContact }) {
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-purple-600/15 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Header Info */}
-      <div className="text-center space-y-3 mb-10 md:mb-14">
+      <div className="text-center space-y-3 mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
-          Real-Time Code-to-UI Synthesis Engine
+          Interactive Multi-Option Code Generator
         </div>
+        
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
-          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Engine</span>
+          Choose Code & <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Reveal UI (0.5s)</span>
         </h2>
+        
         <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
-          Simulating real-time high-speed code generation that dynamically reveals the Contact Section in 2 seconds.
+          Click an interactive option below to simulate live 0.5s high-speed code generation that dynamically reveals your selected section!
         </p>
+
+        {/* 2 Dynamic Interactive Option Buttons: [View Portfolio] and [Contact Me] */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4">
+          
+          <button
+            disabled={isTyping}
+            onClick={() => triggerTypingSequence('portfolio')}
+            className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+              activeChoice === 'portfolio'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_25px_rgba(0,243,255,0.4)] scale-105'
+                : 'bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-cyan-500/50'
+            } ${isTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            <Play className="w-4 h-4 fill-current shrink-0" />
+            <span>[⚡ View Portfolio Gallery]</span>
+          </button>
+
+          <button
+            disabled={isTyping}
+            onClick={() => triggerTypingSequence('contact')}
+            className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-2xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+              activeChoice === 'contact'
+                ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-slate-950 shadow-[0_0_25px_rgba(168,85,247,0.4)] scale-105'
+                : 'bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-purple-500/50'
+            } ${isTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            <Mail className="w-4 h-4 shrink-0" />
+            <span>[📬 Direct Contact Me]</span>
+          </button>
+
+        </div>
+
       </div>
 
-      {/* Sleek Mac Device Outline Frame with 360° Rotating Orbit */}
+      {/* Mac Terminal IDE Container */}
       <div className="relative max-w-5xl mx-auto">
         
         {/* Orbit Border Wrapper */}
@@ -239,7 +235,7 @@ export default function MacCodeShowcase({ onRevealContact }) {
           {/* Mac Screen Display Inner Shell */}
           <div className="relative rounded-[32px] bg-[#070913] border border-slate-900 overflow-hidden flex flex-col shadow-2xl z-10 p-1">
             
-            {/* macOS Title Bar & Icon Tabs */}
+            {/* macOS Title Bar */}
             <div className="px-3.5 sm:px-5 py-3 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between gap-2 sm:gap-4 rounded-t-[28px]">
               
               {/* Mac Traffic Light Buttons */}
@@ -249,54 +245,24 @@ export default function MacCodeShowcase({ onRevealContact }) {
                 <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_8px_rgba(39,201,63,0.8)]" />
               </div>
 
-              {/* Technology Icon Tabs */}
-              <div className="flex items-center gap-1 sm:gap-2 bg-slate-950/90 p-1 sm:p-1.5 rounded-2xl border border-slate-800">
-                {tabsData.map((tab, idx) => {
-                  const Icon = tab.icon;
-                  const isActive = currentBlock.tabId === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => {
-                        setBlockIndex(idx);
-                        setTypedLines([]);
-                        setLineIndex(0);
-                        setCharIndex(0);
-                      }}
-                      title={tab.label}
-                      className={`p-1.5 sm:p-2 rounded-xl transition-all cursor-pointer ${
-                        isActive
-                          ? 'bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 text-slate-950 shadow-[0_0_18px_rgba(0,243,255,0.8)] scale-105'
-                          : 'text-slate-400 hover:text-cyan-300 hover:bg-slate-900'
-                      }`}
-                    >
-                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </button>
-                  );
-                })}
+              {/* Status Header */}
+              <div className="text-xs font-mono text-cyan-300 font-bold flex items-center gap-1.5">
+                <Code2 className="w-4 h-4 text-cyan-400" />
+                <span>{currentBlock.file}</span>
               </div>
 
-              {/* Live Status Indicator */}
+              {/* Live Speed Indicator */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
                 <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>2s LIVE CODE REVEAL</span>
+                <span>{isTyping ? 'SYNTHESIZING 0.5s...' : '0.5s READY'}</span>
               </div>
 
-            </div>
-
-            {/* Sub-header File Path */}
-            <div className="px-4 sm:px-6 py-2 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
-              <div className="flex items-center gap-1.5 text-cyan-300 font-bold truncate">
-                <Code2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                <span className="truncate">src/components/{currentBlock.file}</span>
-              </div>
-              <span className="text-purple-400 font-semibold shrink-0 ml-2">{currentBlock.lang}</span>
             </div>
 
             {/* Code Real-Time Typing Screen */}
             <div
               ref={scrollRef}
-              className="relative h-[280px] sm:h-[340px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
+              className="relative h-[260px] sm:h-[300px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
             >
               
               {/* Scanline Overlay Effect */}
@@ -324,12 +290,12 @@ export default function MacCodeShowcase({ onRevealContact }) {
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400 flex items-center gap-1 font-bold truncate">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  Code-to-UI Stream Active
+                  0.5s Code-to-UI Active
                 </span>
                 <span className="hidden sm:inline text-slate-700">|</span>
                 <span className="hidden sm:inline text-slate-400">A M Pabel</span>
               </div>
-              <span className="text-cyan-400 font-bold">2.0s Synthesis • FramEmpire</span>
+              <span className="text-cyan-400 font-bold">500ms Reveal Engine</span>
             </div>
 
           </div>

@@ -5,7 +5,7 @@ import WebPreviewModal from './WebPreviewModal';
 import BehanceModal from './BehanceModal';
 import { Sparkles, Play, ArrowRight, ExternalLink, Globe, Film, Palette, ChevronDown, Layers } from 'lucide-react';
 
-export default function CleanPortfolio() {
+export default function CleanPortfolio({ isRevealed = true }) {
   const [filter, setFilter] = useState('all');
   const [showAll, setShowAll] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -140,7 +140,14 @@ export default function CleanPortfolio() {
   };
 
   return (
-    <section id="works" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section 
+      id="works" 
+      className={`py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-10 transition-all duration-700 ease-out transform ${
+        isRevealed 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-30 translate-y-6 pointer-events-none'
+      }`}
+    >
       
       {/* Header & Filter Controls */}
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-8 sm:mb-10 md:mb-12">
