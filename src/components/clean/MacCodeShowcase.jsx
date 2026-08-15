@@ -8,75 +8,72 @@ const tabsData = [
   { id: 'webgl', label: 'WebGL Shader', icon: Layers }
 ];
 
-const codeBlocks = [
-  {
-    tabId: 'interactive',
-    file: 'InteractiveCodeGenerator.tsx',
-    lang: 'React 18 / Tailwind Synthesis',
-    lines: [
-      { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM', type: 'comment' },
-      { text: 'import React, { useState } from "react";', type: 'import' },
-      { text: 'import { portfolioProjects } from "../data/personalData";', type: 'import' },
-      { text: '', type: 'blank' },
-      { text: 'export function VibeCodeSynthesisEngine() {', type: 'func' },
-      { text: '  const [status] = useState("SYNTHESIS_COMPLETE_READY_FOR_SELECTION");', type: 'state' },
-      { text: '  return (', type: 'jsx' },
-      { text: '    <TerminalInterface status={status}>', type: 'jsx' },
-      { text: '      /* Interactive UI Choice Buttons Loading Below... */', type: 'comment' },
-      { text: '    </TerminalInterface>', type: 'jsx' },
-      { text: '  );', type: 'jsx' },
-      { text: '}', type: 'func' }
-    ]
-  },
-  {
-    tabId: 'react',
-    file: 'frontend-matrix.tsx',
-    lang: 'React / TS',
-    lines: [
-      { text: '// ⚡ FRONTEND: HIGH-SPEED REACT VIBE SYNTHESIS', type: 'comment' },
-      { text: 'import React, { useState } from "react";', type: 'import' },
-      { text: 'export function VibeMatrixCore({ creator }) {', type: 'func' },
-      { text: '  return <div className="p-8 rounded-3xl bg-slate-950">{creator}</div>;', type: 'jsx' },
-      { text: '}', type: 'func' }
-    ]
-  },
-  {
-    tabId: 'node',
-    file: 'gemini-stream.js',
-    lang: 'Node.js / Express',
-    lines: [
-      { text: '// 🤖 BACKEND: GEMINI 1.5 FLASH AI STREAM', type: 'comment' },
-      { text: 'import { GoogleGenerativeAI } from "@google/generative-ai";', type: 'import' },
-      { text: 'const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);', type: 'state' },
-      { text: 'const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });', type: 'state' }
-    ]
-  },
-  {
-    tabId: 'webgl',
-    file: 'octane-vortex.glsl',
-    lang: 'WebGL Shader',
-    lines: [
-      { text: '// 🌌 WEBGL: OCTANE RAY-TRACED FLUID SHADER', type: 'comment' },
-      { text: 'uniform float uTime; uniform vec2 uResolution;', type: 'import' },
-      { text: 'void main() { gl_FragColor = vec4(1.0); }', type: 'func' }
-    ]
-  }
-];
+const initialCodeBlock = {
+  tabId: 'interactive',
+  file: 'InteractiveCodeGenerator.tsx',
+  lang: 'React 18 / Tailwind Synthesis',
+  lines: [
+    { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM', type: 'comment' },
+    { text: 'import React, { useState } from "react";', type: 'import' },
+    { text: 'import { portfolioProjects } from "../data/personalData";', type: 'import' },
+    { text: '', type: 'blank' },
+    { text: 'export function VibeCodeSynthesisEngine() {', type: 'func' },
+    { text: '  const [status] = useState("SYNTHESIS_READY");', type: 'state' },
+    { text: '  return (', type: 'jsx' },
+    { text: '    <TerminalInterface status={status}>', type: 'jsx' },
+    { text: '      /* Select an interactive action button below */', type: 'comment' },
+    { text: '    </TerminalInterface>', type: 'jsx' },
+    { text: '  );', type: 'jsx' },
+    { text: '}', type: 'func' }
+  ]
+};
+
+const actionCodeSnippets = {
+  portfolio: [
+    { text: '', type: 'blank' },
+    { text: '// ⚡ REAL-TIME EXECUTION: RENDERING PORTFOLIO GALLERY MATRIX', type: 'comment' },
+    { text: 'import { edTechVideos, graphicProjects } from "../data/personalData";', type: 'import' },
+    { text: 'export function renderPortfolioGrid() {', type: 'func' },
+    { text: '  const activeWorkItems = [...edTechVideos, ...graphicProjects];', type: 'state' },
+    { text: '  return <PortfolioGallery items={activeWorkItems} filter="ALL_WORKS" />;', type: 'jsx' },
+    { text: '}', type: 'func' }
+  ],
+  resume: [
+    { text: '', type: 'blank' },
+    { text: '// 📄 REAL-TIME EXECUTION: RENDERING OFFICIAL RESUME DOCUMENT', type: 'comment' },
+    { text: 'import { personalProfile, expertTools } from "../data/personalData";', type: 'import' },
+    { text: 'export function renderResumePage() {', type: 'func' },
+    { text: '  const resumeSpecs = { profile: personalProfile, tools: expertTools };', type: 'state' },
+    { text: '  return <ResumeDocument data={resumeSpecs} route="/resume" />;', type: 'jsx' },
+    { text: '}', type: 'func' }
+  ],
+  contact: [
+    { text: '', type: 'blank' },
+    { text: '// 📬 REAL-TIME EXECUTION: RENDERING DIRECT WHATSAPP CONTACT FORM', type: 'comment' },
+    { text: 'import { Phone, Mail, Send } from "lucide-react";', type: 'import' },
+    { text: 'export function renderContactForm() {', type: 'func' },
+    { text: '  const directChannel = { phone: "+8801615288259", email: "info@ampabel.com" };', type: 'state' },
+    { text: '  return <WhatsAppDirect channel={directChannel} status="ONLINE" />;', type: 'jsx' },
+    { text: '}', type: 'func' }
+  ]
+};
 
 export default function MacCodeShowcase({ onSelectChoice }) {
-  const [blockIndex, setBlockIndex] = useState(0);
+  const [typedLines, setTypedLines] = useState([]);
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [typedLines, setTypedLines] = useState([]);
   const [hasStarted, setHasStarted] = useState(false);
   const [buttonsRevealed, setButtonsRevealed] = useState(false);
+  const [isExecutingAction, setIsExecutingAction] = useState(false);
   const [clickedChoice, setClickedChoice] = useState(null);
+
+  // Active code lines buffer being streamed
+  const [activeCodeQueue, setActiveCodeQueue] = useState(initialCodeBlock.lines);
   
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
-  const currentBlock = codeBlocks[blockIndex];
 
-  // 1. Trigger on Scroll (IntersectionObserver)
+  // 1. Trigger initial stream on Scroll (IntersectionObserver)
   useEffect(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
@@ -96,16 +93,16 @@ export default function MacCodeShowcase({ onSelectChoice }) {
     return () => observer.disconnect();
   }, [hasStarted]);
 
-  // 2. High-Speed Code Typing Stream
+  // 2. Real-time High-Speed Code Character Typing Loop
   useEffect(() => {
     if (!hasStarted) return;
 
-    const currentLineObj = currentBlock.lines[lineIndex];
+    const currentLineObj = activeCodeQueue[lineIndex];
 
-    // Finished typing current block lines
+    // Finished typing current code queue
     if (!currentLineObj) {
       if (!buttonsRevealed) {
-        setButtonsRevealed(true); // Reveal the 3 buttons inside Mac interface at the bottom!
+        setButtonsRevealed(true);
       }
       return;
     }
@@ -123,10 +120,10 @@ export default function MacCodeShowcase({ onSelectChoice }) {
         setLineIndex((prev) => prev + 1);
         setCharIndex(0);
       }
-    }, 5);
+    }, 4); // High-speed typing!
 
     return () => clearTimeout(timer);
-  }, [hasStarted, blockIndex, lineIndex, charIndex, currentBlock, buttonsRevealed]);
+  }, [hasStarted, lineIndex, charIndex, activeCodeQueue, buttonsRevealed]);
 
   // Auto-scroll terminal screen
   useEffect(() => {
@@ -135,41 +132,45 @@ export default function MacCodeShowcase({ onSelectChoice }) {
     }
   }, [typedLines, charIndex]);
 
-  // Handle Button Click Event inside Mac Interface
+  // 3. Handle Button Click Event: Stream REAL code snippet FIRST, then perform navigation/reveal!
   const handleButtonClick = (choiceKey) => {
+    if (isExecutingAction) return;
+
+    setIsExecutingAction(true);
     setClickedChoice(choiceKey);
 
-    let choiceLine = { text: '// ⚡ EXECUTE: ACTION TRIGGERED', type: 'comment' };
-    if (choiceKey === 'portfolio') {
-      choiceLine = { text: '// ⚡ EXECUTE: renderPortfolioGallery() -> REVEALING PORTFOLIO...', type: 'comment' };
-    } else if (choiceKey === 'resume') {
-      choiceLine = { text: '// 📄 EXECUTE: navigateToResume() -> LOADING /resume ROUTE...', type: 'comment' };
-    } else if (choiceKey === 'contact') {
-      choiceLine = { text: '// 📬 EXECUTE: renderContactSection() -> REVEALING CONTACT...', type: 'comment' };
-    }
+    const snippet = actionCodeSnippets[choiceKey];
+    const newQueue = [...typedLines, ...snippet];
+    
+    const startLineIndex = typedLines.length;
+    setActiveCodeQueue(newQueue);
+    setLineIndex(startLineIndex);
+    setCharIndex(0);
 
-    setTypedLines((prev) => [...prev, choiceLine]);
+    // Calculate total characters in snippet to complete real code stream before revealing
+    const snippetChars = snippet.reduce((acc, l) => acc + l.text.length, 0);
+    const streamDurationMs = snippetChars * 4 + 200;
 
-    if (choiceKey === 'resume') {
-      setTimeout(() => {
+    setTimeout(() => {
+      setIsExecutingAction(false);
+
+      if (choiceKey === 'resume') {
         window.history.pushState(null, '', '/resume');
         window.dispatchEvent(new PopStateEvent('popstate'));
-      }, 150);
-      return;
-    }
+        return;
+      }
 
-    if (onSelectChoice) {
-      onSelectChoice(choiceKey);
-    }
+      if (onSelectChoice) {
+        onSelectChoice(choiceKey);
+      }
 
-    // Smooth scroll to section after click
-    setTimeout(() => {
+      // Smooth scroll to target section after real code completes
       const targetId = choiceKey === 'portfolio' ? 'works' : 'contact';
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 150);
+    }, streamDurationMs);
   };
 
   // Syntax Highlighting Renderer
@@ -256,7 +257,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               {/* Status Header */}
               <div className="text-xs font-mono text-cyan-300 font-bold flex items-center gap-1.5">
                 <Code2 className="w-4 h-4 text-cyan-400" />
-                <span>{currentBlock.file}</span>
+                <span>InteractiveCodeGenerator.tsx</span>
               </div>
 
               {/* Live Speed Indicator */}
@@ -293,18 +294,19 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
             </div>
 
-            {/* 3 Clean Buttons revealed INSIDE Mac Interface at the bottom AFTER code stream finishes */}
+            {/* 3 Clean Buttons revealed INSIDE Mac Interface at the bottom AFTER initial stream finishes */}
             {buttonsRevealed && (
               <div className="px-4 py-3 bg-slate-900/95 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 transition-all duration-500 z-20 backdrop-blur-md">
                 
                 {/* Button 1: View Portfolio */}
                 <button
+                  disabled={isExecutingAction}
                   onClick={() => handleButtonClick('portfolio')}
                   className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
                     clickedChoice === 'portfolio'
                       ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
                       : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
-                  }`}
+                  } ${isExecutingAction ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
                   <span>View Portfolio</span>
@@ -312,12 +314,13 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
                 {/* Button 2: View Resume */}
                 <button
+                  disabled={isExecutingAction}
                   onClick={() => handleButtonClick('resume')}
                   className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
                     clickedChoice === 'resume'
                       ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
                       : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
-                  }`}
+                  } ${isExecutingAction ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
                   <span>View Resume</span>
@@ -325,12 +328,13 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
                 {/* Button 3: Contact Me */}
                 <button
+                  disabled={isExecutingAction}
                   onClick={() => handleButtonClick('contact')}
                   className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
                     clickedChoice === 'contact'
                       ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
                       : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
-                  }`}
+                  } ${isExecutingAction ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
                   <span>Contact Me</span>
