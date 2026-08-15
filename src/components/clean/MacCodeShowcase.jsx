@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap, Play, Mail, CheckCircle2 } from 'lucide-react';
+import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap, Play, Mail, FileText, CheckCircle2 } from 'lucide-react';
 
 const tabsData = [
   { id: 'interactive', label: 'Interactive AI Stream', icon: Zap },
@@ -105,7 +105,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
     // Finished typing current block lines
     if (!currentLineObj) {
       if (!buttonsRevealed) {
-        setButtonsRevealed(true); // Reveal the 2 buttons inside Mac interface at the bottom!
+        setButtonsRevealed(true); // Reveal the 3 buttons inside Mac interface at the bottom!
       }
       return;
     }
@@ -139,12 +139,24 @@ export default function MacCodeShowcase({ onSelectChoice }) {
   const handleButtonClick = (choiceKey) => {
     setClickedChoice(choiceKey);
 
-    // Append choice execution code line into terminal
-    const choiceLine = choiceKey === 'portfolio' 
-      ? { text: '// ⚡ EXECUTE: renderPortfolioGallery() -> REVEALING PORTFOLIO...', type: 'comment' }
-      : { text: '// 📬 EXECUTE: renderContactSection() -> REVEALING CONTACT...', type: 'comment' };
+    let choiceLine = { text: '// ⚡ EXECUTE: ACTION TRIGGERED', type: 'comment' };
+    if (choiceKey === 'portfolio') {
+      choiceLine = { text: '// ⚡ EXECUTE: renderPortfolioGallery() -> REVEALING PORTFOLIO...', type: 'comment' };
+    } else if (choiceKey === 'resume') {
+      choiceLine = { text: '// 📄 EXECUTE: navigateToResume() -> LOADING /resume ROUTE...', type: 'comment' };
+    } else if (choiceKey === 'contact') {
+      choiceLine = { text: '// 📬 EXECUTE: renderContactSection() -> REVEALING CONTACT...', type: 'comment' };
+    }
 
     setTypedLines((prev) => [...prev, choiceLine]);
+
+    if (choiceKey === 'resume') {
+      setTimeout(() => {
+        window.history.pushState(null, '', '/resume');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }, 150);
+      return;
+    }
 
     if (onSelectChoice) {
       onSelectChoice(choiceKey);
@@ -197,7 +209,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden font-sans">
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none" />
@@ -207,7 +219,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
       <div className="text-center space-y-3 mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
-          5ms High-Speed Code Stream & Interactive Mac Buttons
+          5ms High-Speed Code Stream & Interactive Terminal
         </div>
         
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
@@ -250,15 +262,15 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               {/* Live Speed Indicator */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
                 <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>5ms HIGH SPEED STREAM</span>
+                <span>5ms STREAM</span>
               </div>
 
             </div>
 
-            {/* Code Real-Time Typing Screen */}
+            {/* Code Real-Time Typing Screen (Taller Height: 300px sm:340px) */}
             <div
               ref={scrollRef}
-              className="relative h-[250px] sm:h-[280px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
+              className="relative h-[300px] sm:h-[340px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
             >
               
               {/* Scanline Overlay Effect */}
@@ -281,32 +293,47 @@ export default function MacCodeShowcase({ onSelectChoice }) {
 
             </div>
 
-            {/* Dynamic Buttons revealed INSIDE Mac Interface at the bottom AFTER code stream finishes */}
+            {/* 3 Clean Buttons revealed INSIDE Mac Interface at the bottom AFTER code stream finishes */}
             {buttonsRevealed && (
-              <div className="px-4 py-3 bg-slate-900/90 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-3 sm:gap-4 transition-all duration-500 z-20 backdrop-blur-md">
+              <div className="px-4 py-3 bg-slate-900/95 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 transition-all duration-500 z-20 backdrop-blur-md">
                 
+                {/* Button 1: View Portfolio */}
                 <button
                   onClick={() => handleButtonClick('portfolio')}
-                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+                  className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
                     clickedChoice === 'portfolio'
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105 ring-2 ring-cyan-400'
-                      : 'bg-slate-950 border border-cyan-500/40 text-cyan-300 hover:text-white hover:bg-cyan-500/20'
+                      ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
+                      : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
                   }`}
                 >
-                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
-                  <span>[⚡ View Portfolio Gallery]</span>
+                  <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+                  <span>View Portfolio</span>
                 </button>
 
+                {/* Button 2: View Resume */}
                 <button
-                  onClick={() => handleButtonClick('contact')}
-                  className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
-                    clickedChoice === 'contact'
-                      ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(168,85,247,0.6)] scale-105 ring-2 ring-purple-400'
-                      : 'bg-slate-950 border border-purple-500/40 text-purple-300 hover:text-white hover:bg-purple-500/20'
+                  onClick={() => handleButtonClick('resume')}
+                  className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
+                    clickedChoice === 'resume'
+                      ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
+                      : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
                   }`}
                 >
-                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                  <span>[📬 Direct Contact Me]</span>
+                  <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+                  <span>View Resume</span>
+                </button>
+
+                {/* Button 3: Contact Me */}
+                <button
+                  onClick={() => handleButtonClick('contact')}
+                  className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md ${
+                    clickedChoice === 'contact'
+                      ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(0,243,255,0.6)] scale-105'
+                      : 'bg-slate-950 border border-slate-800 text-slate-200 hover:text-white hover:border-cyan-500/50'
+                  }`}
+                >
+                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+                  <span>Contact Me</span>
                 </button>
 
               </div>
