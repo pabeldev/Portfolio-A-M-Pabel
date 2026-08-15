@@ -205,13 +205,13 @@ export default function CleanPortfolio() {
             </div>
           )}
 
-          {/* Section 2: Video Editing (Ed-Tech) */}
+          {/* Section 2: Video Editing */}
           <div className="space-y-5 sm:space-y-6 pt-2">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Film className="w-4 h-4 text-cyan-400" />
                 <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                  Video Editing & Ed-Tech Hooks
+                  Video Editing
                 </h3>
               </div>
               <button
