@@ -334,8 +334,26 @@ export const servicesList = [
   }
 ];
 
-// Clean Portfolio Projects (5 Verified Ed-Tech Video Edits + 10 Behance Graphic Design Projects)
+export const motionGraphicsVideos = [
+  {
+    id: "m-1",
+    fileId: "1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX",
+    title: "SSC Target A+ CQ MCQ Live Class Motion-01",
+    subjectTag: "reThink.ac • SSC Motion",
+    category: "motion-graphics",
+    thumbnail: "https://drive.google.com/thumbnail?id=1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX/preview",
+    description: "High-impact Motion Graphics animation engineered for reThink.ac SSC Target A+ CQ MCQ Live Class.",
+    tags: ["3D Motion", "After Effects", "Ed-Tech"],
+    client: "reThink.ac",
+    year: "2026"
+  }
+];
+
+// Clean Portfolio Projects (3D Motion + Ed-Tech Videos + Behance Graphic Design Projects)
 export const portfolioProjects = [
+  ...motionGraphicsVideos,
   ...edTechVideos,
   ...graphicDesignProjects
 ];
+
