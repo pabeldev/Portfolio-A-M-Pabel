@@ -63,7 +63,7 @@ export default function CleanPortfolio() {
       <div
         key={project.id}
         onClick={() => handleProjectClick(project)}
-        className="group relative rounded-2xl sm:rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-400/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl hover:shadow-[0_0_30px_rgba(0,243,255,0.15)] flex flex-col justify-between overflow-hidden cursor-pointer backdrop-blur-xl"
+        className="group relative rounded-2xl sm:rounded-3xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-[0_0_20px_rgba(0,243,255,0.12)] flex flex-col justify-between overflow-hidden cursor-pointer backdrop-blur-xl"
       >
         {/* Media Container / Live Embed Preview */}
         <div className="relative w-full aspect-video bg-slate-950 overflow-hidden border-b border-slate-800/80">
