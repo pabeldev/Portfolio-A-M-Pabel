@@ -10,7 +10,7 @@ const tabsData = [
 
 const initialCodeBlock = {
   tabId: 'interactive',
-  file: 'PipelineMenu.tsx',
+  file: 'InteractiveCodeGenerator.tsx',
   lang: 'React 18 / Tailwind Synthesis',
   lines: [
     { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM', type: 'comment' },
