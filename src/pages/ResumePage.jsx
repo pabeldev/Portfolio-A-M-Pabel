@@ -14,7 +14,7 @@ const expertTools = [
 export default function ResumePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "A M Pabel | Official Resume";
+    document.title = "Resume | A M Pabel | Designer & Video Editor";
   }, []);
 
   const navigateToHome = (e) => {
