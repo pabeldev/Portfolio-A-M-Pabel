@@ -14,7 +14,7 @@ const codeBlocks = [
     file: 'InteractiveCodeGenerator.tsx',
     lang: 'React 18 / Tailwind Synthesis',
     lines: [
-      { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM (5ms)', type: 'comment' },
+      { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM', type: 'comment' },
       { text: 'import React, { useState } from "react";', type: 'import' },
       { text: 'import { portfolioProjects } from "../data/personalData";', type: 'import' },
       { text: '', type: 'blank' },
@@ -96,7 +96,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
     return () => observer.disconnect();
   }, [hasStarted]);
 
-  // 2. High-Speed 5ms Code Typing Stream
+  // 2. High-Speed Code Typing Stream
   useEffect(() => {
     if (!hasStarted) return;
 
@@ -123,7 +123,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
         setLineIndex((prev) => prev + 1);
         setCharIndex(0);
       }
-    }, 5); // 5 milliseconds ultra-fast typing!
+    }, 5);
 
     return () => clearTimeout(timer);
   }, [hasStarted, blockIndex, lineIndex, charIndex, currentBlock, buttonsRevealed]);
@@ -219,15 +219,15 @@ export default function MacCodeShowcase({ onSelectChoice }) {
       <div className="text-center space-y-3 mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
-          5ms High-Speed Code Stream & Interactive Terminal
+          High-Speed Interactive Terminal
         </div>
         
         <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
           Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Terminal</span>
         </h2>
         
-        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
-          Watch code stream at 5ms, then select an interactive option button inside the Mac terminal below to reveal your target section.
+        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed">
+          Select an interactive option inside the terminal below to explore projects or get in touch.
         </p>
       </div>
 
@@ -262,7 +262,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               {/* Live Speed Indicator */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
                 <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>5ms STREAM</span>
+                <span>AI STREAM</span>
               </div>
 
             </div>
@@ -344,12 +344,12 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400 flex items-center gap-1 font-bold truncate">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  5ms Code Stream Active
+                  Code Stream Active
                 </span>
                 <span className="hidden sm:inline text-slate-700">|</span>
                 <span className="hidden sm:inline text-slate-400">A M Pabel</span>
               </div>
-              <span className="text-cyan-400 font-bold">5ms Stream • FramEmpire</span>
+              <span className="text-cyan-400 font-bold">FramEmpire Studio</span>
             </div>
 
           </div>
