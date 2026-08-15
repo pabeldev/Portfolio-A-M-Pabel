@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { personalProfile } from '../../data/personalData';
 import { Phone, Mail, MessageSquare, Send, CheckCircle2, MapPin } from 'lucide-react';
 
-export default function CleanContact() {
+export default function CleanContact({ isRevealed = true }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', service: '3D Motion Graphics', message: '' });
 
@@ -18,7 +18,14 @@ export default function CleanContact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
+    <section 
+      id="contact" 
+      className={`py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto relative z-10 transition-all duration-1000 ease-out transform ${
+        isRevealed 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-12 pointer-events-none'
+      }`}
+    >
       
       <div className="relative rounded-3xl bg-slate-950/90 border border-cyan-500/30 p-6 md:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,243,255,0.1)]">
         

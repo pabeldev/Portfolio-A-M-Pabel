@@ -2,13 +2,35 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Cpu, Sparkles, Code2, ShieldCheck, Layers, FileCode, Atom, Zap } from 'lucide-react';
 
 const tabsData = [
+  { id: 'contact-synthesis', label: 'Contact UI Stream', icon: Zap },
   { id: 'react', label: 'React / TS', icon: Atom },
   { id: 'node', label: 'Node / AI', icon: FileCode },
-  { id: 'webgl', label: 'WebGL Shader', icon: Layers },
-  { id: 'python', label: 'Python Engine', icon: Cpu }
+  { id: 'webgl', label: 'WebGL Shader', icon: Layers }
 ];
 
 const codeBlocks = [
+  {
+    tabId: 'contact-synthesis',
+    file: 'CleanContactSynthesis.jsx',
+    lang: 'React 18 / Tailwind CSS',
+    lines: [
+      { text: '// ⚡ LIVE AI SYNTHESIS: GENERATING CONTACT COMPONENT IN 2s...', type: 'comment' },
+      { text: 'import React, { useState } from "react";', type: 'import' },
+      { text: 'import { Phone, Mail, Send, CheckCircle } from "lucide-react";', type: 'import' },
+      { text: '', type: 'blank' },
+      { text: 'export function CleanContactUI({ status = "AVAILABLE" }) {', type: 'func' },
+      { text: '  const [phone] = useState("+880 1615-288259");', type: 'state' },
+      { text: '  const [email] = useState("info@ampabel.com");', type: 'state' },
+      { text: '', type: 'blank' },
+      { text: '  return (', type: 'jsx' },
+      { text: '    <section className="p-8 bg-slate-950 border border-cyan-500 rounded-3xl">', type: 'jsx' },
+      { text: '      <h2 className="text-4xl font-black text-white">Let\'s Build Your Project</h2>', type: 'jsx' },
+      { text: '      <a href={`https://wa.me/${phone}`}>Direct WhatsApp Chat</a>', type: 'jsx' },
+      { text: '    </section>', type: 'jsx' },
+      { text: '  );', type: 'jsx' },
+      { text: '}', type: 'func' }
+    ]
+  },
   {
     tabId: 'react',
     file: 'frontend-matrix.tsx',
@@ -22,15 +44,9 @@ const codeBlocks = [
       { text: '  const [fps, setFps] = useState(60);', type: 'state' },
       { text: '  const [activeNodes, setActiveNodes] = useState(128);', type: 'state' },
       { text: '', type: 'blank' },
-      { text: '  useEffect(() => {', type: 'effect' },
-      { text: '    const engine = setInterval(() => setFps(60), 500);', type: 'effect' },
-      { text: '    return () => clearInterval(engine);', type: 'effect' },
-      { text: '  }, []);', type: 'effect' },
-      { text: '', type: 'blank' },
       { text: '  return (', type: 'jsx' },
-      { text: '    <div className="p-8 rounded-3xl bg-slate-950 border border-cyan-500/40 shadow-2xl">', type: 'jsx' },
+      { text: '    <div className="p-8 rounded-3xl bg-slate-950 border border-cyan-500">', type: 'jsx' },
       { text: '      <h1 className="text-4xl font-black text-white">{creator}</h1>', type: 'jsx' },
-      { text: '      <p className="text-cyan-400 font-mono">STATUS: {status}</p>', type: 'jsx' },
       { text: '    </div>', type: 'jsx' },
       { text: '  );', type: 'jsx' },
       { text: '}', type: 'func' }
@@ -50,12 +66,7 @@ const codeBlocks = [
       { text: 'const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });', type: 'state' },
       { text: '', type: 'blank' },
       { text: 'app.post("/api/vibe-stream", async (req, res) => {', type: 'func' },
-      { text: '  const stream = await model.generateContentStream({', type: 'effect' },
-      { text: '    contents: [{ role: "user", parts: [{ text: req.body.prompt }] }]', type: 'effect' },
-      { text: '  });', type: 'effect' },
-      { text: '  for await (const chunk of stream) {', type: 'effect' },
-      { text: '    res.write(chunk.text());', type: 'effect' },
-      { text: '  }', type: 'effect' },
+      { text: '  const stream = await model.generateContentStream({ prompt: req.body });', type: 'effect' },
       { text: '  res.end();', type: 'func' },
       { text: '});', type: 'func' }
     ]
@@ -68,62 +79,71 @@ const codeBlocks = [
       { text: '// 🌌 WEBGL: OCTANE RAY-TRACED FLUID SHADER', type: 'comment' },
       { text: 'uniform float uTime;', type: 'import' },
       { text: 'uniform vec2 uResolution;', type: 'import' },
-      { text: 'varying vec2 vUv;', type: 'import' },
       { text: '', type: 'blank' },
       { text: 'void main() {', type: 'func' },
       { text: '  vec2 st = gl_FragCoord.xy / uResolution.xy;', type: 'effect' },
-      { text: '  float d = length(st - vec2(0.5));', type: 'effect' },
-      { text: '  vec3 color = mix(vec3(0.0, 0.95, 1.0), vec3(0.6, 0.2, 1.0), d);', type: 'effect' },
+      { text: '  vec3 color = mix(vec3(0.0, 0.95, 1.0), vec3(0.6, 0.2, 1.0), st.x);', type: 'effect' },
       { text: '  gl_FragColor = vec4(color * sin(uTime * 2.0), 1.0);', type: 'jsx' },
       { text: '}', type: 'func' }
-    ]
-  },
-  {
-    tabId: 'python',
-    file: 'neural-engine.py',
-    lang: 'Python AI Pipeline',
-    lines: [
-      { text: '# 🐍 AI PIPELINE: AUTOMATED HIGH-SPEED CODE SYNTHESIS', type: 'comment' },
-      { text: 'import os, sys, tensorflow as tf', type: 'import' },
-      { text: 'from dataclasses import dataclass', type: 'import' },
-      { text: '', type: 'blank' },
-      { text: '@dataclass', type: 'effect' },
-      { text: 'class VibeModel:', type: 'func' },
-      { text: '    creator: str = "A M Pabel"', type: 'state' },
-      { text: '    studio: str = "FramEmpire Studio"', type: 'state' },
-      { text: '    speed_multiplier: int = 10', type: 'state' },
-      { text: '', type: 'blank' },
-      { text: 'def execute_synthesis():', type: 'func' },
-      { text: '    print("[SYNC] Infinite High-Speed Stream: ACTIVE")', type: 'effect' },
-      { text: '    print("[GPU] Acceleration: 60 FPS")', type: 'effect' },
-      { text: '', type: 'blank' },
-      { text: 'execute_synthesis()', type: 'func' }
     ]
   }
 ];
 
-export default function MacCodeShowcase() {
+export default function MacCodeShowcase({ onRevealContact }) {
   const [blockIndex, setBlockIndex] = useState(0);
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [typedLines, setTypedLines] = useState([]);
+  const [hasStarted, setHasStarted] = useState(false);
   
+  const sectionRef = useRef(null);
   const scrollRef = useRef(null);
   const currentBlock = codeBlocks[blockIndex];
 
-  // High-speed real-time typing engine (~6ms per char!)
+  // 1. Trigger on Scroll using IntersectionObserver (Runs ONCE)
   useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect(); // Disconnect after triggering once!
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(sectionEl);
+    return () => observer.disconnect();
+  }, []);
+
+  // 2. Real-time Typing Engine: Completes current block in exactly 2 seconds (2000ms)!
+  useEffect(() => {
+    if (!hasStarted) return;
+
     const currentLineObj = currentBlock.lines[lineIndex];
 
+    // If finished typing all lines in current block
     if (!currentLineObj) {
+      if (blockIndex === 0 && onRevealContact) {
+        onRevealContact(); // Trigger 2-second UI reveal!
+      }
+
       const nextTimer = setTimeout(() => {
         setTypedLines([]);
         setLineIndex(0);
         setCharIndex(0);
         setBlockIndex((prev) => (prev + 1) % codeBlocks.length);
-      }, 400);
+      }, 500);
       return () => clearTimeout(nextTimer);
     }
+
+    // Total characters in this block for 2.0s timing calculation
+    const totalChars = currentBlock.lines.reduce((acc, l) => acc + l.text.length, 0);
+    const msPerChar = Math.max(3, Math.floor(2000 / (totalChars || 1)));
 
     const timer = setTimeout(() => {
       if (charIndex < currentLineObj.text.length) {
@@ -138,12 +158,12 @@ export default function MacCodeShowcase() {
         setLineIndex((prev) => prev + 1);
         setCharIndex(0);
       }
-    }, 6);
+    }, msPerChar);
 
     return () => clearTimeout(timer);
-  }, [blockIndex, lineIndex, charIndex]);
+  }, [hasStarted, blockIndex, lineIndex, charIndex, onRevealContact]);
 
-  // Auto-scroll screen down to keep the active typing line pinned in view at the bottom!
+  // Auto-scroll screen down to keep active typing line pinned in view
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -187,7 +207,7 @@ export default function MacCodeShowcase() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none" />
@@ -195,19 +215,19 @@ export default function MacCodeShowcase() {
 
       {/* Header Info */}
       <div className="text-center space-y-3 mb-10 md:mb-14">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 light:bg-white/90 border border-cyan-500/40 text-cyan-300 light:text-cyan-600 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-[0_0_20px_rgba(0,243,255,0.2)]">
           <Zap className="w-4 h-4 text-cyan-400 animate-bounce" />
-          High-Speed Real-Time Vibe Code Stream
+          Real-Time Code-to-UI Synthesis Engine
         </div>
-        <h2 className="text-3xl md:text-5xl font-black text-white light:text-slate-900 tracking-tight font-['Creato_Display',sans-serif]">
-          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 light:from-cyan-600 light:to-purple-600 bg-clip-text text-transparent">Engine</span>
+        <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
+          Live AI Synthesis <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-amber-400 bg-clip-text text-transparent">Engine</span>
         </h2>
-        <p className="text-slate-400 light:text-slate-600 text-sm md:text-base max-w-2xl mx-auto font-light">
-          Real-time high-speed code writing with 360° continuous Google border orbit.
+        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-light">
+          Simulating real-time high-speed code generation that dynamically reveals the Contact Section in 2 seconds.
         </p>
       </div>
 
-      {/* Sleek Mac Device Outline Frame with Continuous 360° Rotating Border Orbit */}
+      {/* Sleek Mac Device Outline Frame with 360° Rotating Orbit */}
       <div className="relative max-w-5xl mx-auto">
         
         {/* Orbit Border Wrapper */}
@@ -229,7 +249,7 @@ export default function MacCodeShowcase() {
                 <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_8px_rgba(39,201,63,0.8)]" />
               </div>
 
-              {/* Pure Technology Icon Tabs */}
+              {/* Technology Icon Tabs */}
               <div className="flex items-center gap-1 sm:gap-2 bg-slate-950/90 p-1 sm:p-1.5 rounded-2xl border border-slate-800">
                 {tabsData.map((tab, idx) => {
                   const Icon = tab.icon;
@@ -259,7 +279,7 @@ export default function MacCodeShowcase() {
               {/* Live Status Indicator */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold shrink-0">
                 <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>360° ORBIT</span>
+                <span>2s LIVE CODE REVEAL</span>
               </div>
 
             </div>
@@ -268,7 +288,7 @@ export default function MacCodeShowcase() {
             <div className="px-4 sm:px-6 py-2 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
               <div className="flex items-center gap-1.5 text-cyan-300 font-bold truncate">
                 <Code2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                <span className="truncate">src/vibe-stream/{currentBlock.file}</span>
+                <span className="truncate">src/components/{currentBlock.file}</span>
               </div>
               <span className="text-purple-400 font-semibold shrink-0 ml-2">{currentBlock.lang}</span>
             </div>
@@ -276,7 +296,7 @@ export default function MacCodeShowcase() {
             {/* Code Real-Time Typing Screen */}
             <div
               ref={scrollRef}
-              className="relative h-[280px] sm:h-[360px] md:h-[420px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
+              className="relative h-[280px] sm:h-[340px] bg-slate-950/95 overflow-y-auto font-mono text-xs sm:text-sm p-3 sm:p-6 scroll-smooth"
             >
               
               {/* Scanline Overlay Effect */}
@@ -304,12 +324,12 @@ export default function MacCodeShowcase() {
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400 flex items-center gap-1 font-bold truncate">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  360° Orbit Active
+                  Code-to-UI Stream Active
                 </span>
                 <span className="hidden sm:inline text-slate-700">|</span>
                 <span className="hidden sm:inline text-slate-400">A M Pabel</span>
               </div>
-              <span className="text-cyan-400 font-bold">UTF-8 • FramEmpire</span>
+              <span className="text-cyan-400 font-bold">2.0s Synthesis • FramEmpire</span>
             </div>
 
           </div>

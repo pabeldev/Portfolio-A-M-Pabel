@@ -14,6 +14,7 @@ import NotFoundPage from './pages/NotFoundPage';
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [currentHash, setCurrentHash] = useState(window.location.hash);
+  const [isContactRevealed, setIsContactRevealed] = useState(false);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -69,10 +70,11 @@ export default function App() {
         {/* Client / Partner Brand Infinite Marquee Logo Ticker */}
         <ClientLogoTicker />
 
-        {/* Infinite Mac Code Stream Visual Showcase */}
-        <MacCodeShowcase />
+        {/* Infinite Mac Code Stream Visual Showcase with 2s Reveal Callback */}
+        <MacCodeShowcase onRevealContact={() => setIsContactRevealed(true)} />
         
-        <CleanContact />
+        {/* Contact Section Dynamically Revealed in 2 Seconds */}
+        <CleanContact isRevealed={isContactRevealed} />
       </main>
 
       {/* Professional Agency Studio Footer */}
