@@ -10,7 +10,7 @@ const tabsData = [
 
 const initialCodeBlock = {
   tabId: 'interactive',
-  file: 'InteractiveCodeGenerator.tsx',
+  file: 'PipelineMenu.tsx',
   lang: 'React 18 / Tailwind Synthesis',
   lines: [
     { text: '// ⚡ HIGH-SPEED VIBE CODE GENERATOR STREAM', type: 'comment' },
@@ -257,7 +257,7 @@ export default function MacCodeShowcase({ onSelectChoice }) {
               {/* Status Header */}
               <div className="text-xs font-mono text-cyan-300 font-bold flex items-center gap-1.5">
                 <Code2 className="w-4 h-4 text-cyan-400" />
-                <span>InteractiveCodeGenerator.tsx</span>
+                <span>PipelineMenu.tsx</span>
               </div>
 
               {/* Live Speed Indicator */}
