@@ -54,33 +54,36 @@ export default function VideoModal({ project, isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Video Player Container - 100% Centered & Full Viewport Alignment */}
-        <div className="relative w-full bg-black flex items-center justify-center overflow-hidden flex-1">
-          {isShortForm ? (
-            <div className="w-full h-[58vh] sm:h-[65vh] aspect-[9/16] mx-auto bg-black flex items-center justify-center">
-              <iframe
-                src={project.embedUrl}
-                title={project.title}
-                width="100%"
-                height="100%"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0 bg-black"
-              />
-            </div>
-          ) : (
-            <div className="w-full h-[32vh] sm:h-[45vh] md:aspect-video bg-black flex items-center justify-center">
-              <iframe
-                src={project.embedUrl}
-                title={project.title}
-                width="100%"
-                height="100%"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0 bg-black"
-              />
-            </div>
-          )}
+        {/* Video Wrapper Container - Targeted Alignment Fix ONLY */}
+        <div 
+          className="flex items-center justify-center w-full overflow-hidden flex-1 bg-black"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            overflow: 'hidden',
+            margin: '0 auto',
+            padding: 0
+          }}
+        >
+          <iframe
+            src={project.embedUrl}
+            title={project.title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="w-full bg-black border-0"
+            style={{
+              width: '100%',
+              height: isShortForm ? '58vh' : 'auto',
+              maxHeight: '100%',
+              aspectRatio: isShortForm ? '9/16' : '16/9',
+              objectFit: 'contain',
+              margin: 0,
+              padding: 0,
+              transform: 'none'
+            }}
+          />
         </div>
 
         {/* Modal Footer */}

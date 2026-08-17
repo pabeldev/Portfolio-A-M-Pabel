@@ -58,7 +58,7 @@ export default function CleanHero() {
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
-            Graphic Designer • Motion Artist • Visual Storyteller
+            Designer | Animator | Editor
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-['Creato_Display',sans-serif]">
