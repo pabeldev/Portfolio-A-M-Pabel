@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Film, ExternalLink } from 'lucide-react';
 
 export default function VideoModal({ project, isOpen, onClose }) {
@@ -16,10 +17,10 @@ export default function VideoModal({ project, isOpen, onClose }) {
 
   if (!isOpen || !project) return null;
 
-  return (
+  return createPortal(
     <div 
       onClick={onClose}
-      className="fixed inset-0 z-[9999] grid place-items-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
@@ -50,7 +51,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
         </div>
 
         {/* Video Player Container */}
-        <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[320px] sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
+        <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[340px] sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
           <iframe
             src={project.embedUrl}
             title={project.title}
@@ -86,6 +87,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

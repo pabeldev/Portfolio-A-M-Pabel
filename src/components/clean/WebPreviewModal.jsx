@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ExternalLink, Globe, RefreshCw, ShieldCheck, Sparkles, Terminal } from 'lucide-react';
 
 export default function WebPreviewModal({ website, isOpen, onClose }) {
@@ -18,10 +19,10 @@ export default function WebPreviewModal({ website, isOpen, onClose }) {
 
   if (!isOpen || !website) return null;
 
-  return (
+  return createPortal(
     <div 
       onClick={onClose}
-      className="fixed inset-0 z-[9999] grid place-items-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
@@ -119,6 +120,7 @@ export default function WebPreviewModal({ website, isOpen, onClose }) {
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
