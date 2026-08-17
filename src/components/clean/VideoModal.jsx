@@ -19,11 +19,11 @@ export default function VideoModal({ project, isOpen, onClose }) {
   return (
     <div 
       onClick={onClose}
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[9999] grid place-items-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[96vw] sm:max-w-4xl max-h-[90vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto"
+        className="relative w-full max-w-[94vw] sm:max-w-4xl max-h-[85vh] sm:max-h-[88vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between"
       >
         
         {/* Modal Header */}
@@ -50,7 +50,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
         </div>
 
         {/* Video Player Container */}
-        <div className="relative w-full h-[50vh] sm:h-auto sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
+        <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[320px] sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
           <iframe
             src={project.embedUrl}
             title={project.title}

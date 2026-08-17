@@ -37,6 +37,12 @@ export default function App() {
     currentPath === '' || 
     currentPath === '/index.html';
 
+  useEffect(() => {
+    if (isHomeRoute) {
+      document.title = "A M Pabel — Best Video Editor in Bangladesh";
+    }
+  }, [isHomeRoute]);
+
   if (isResumeRoute) {
     return <ResumePage />;
   }

@@ -22,11 +22,11 @@ export default function BehanceModal({ project, isOpen, onClose }) {
   return (
     <div 
       onClick={onClose}
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[9999] grid place-items-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[92vw] sm:max-w-3xl max-h-[90vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto"
+        className="relative w-full max-w-[92vw] sm:max-w-3xl max-h-[85vh] sm:max-h-[88vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between"
       >
         
         {/* Header */}
@@ -53,7 +53,7 @@ export default function BehanceModal({ project, isOpen, onClose }) {
         </div>
 
         {/* Clean Responsive Behance Embed Container */}
-        <div className="relative w-full h-[280px] sm:h-[340px] bg-slate-950 overflow-hidden p-1.5 sm:p-2 flex items-center justify-center">
+        <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[300px] bg-slate-950 overflow-hidden p-1.5 sm:p-2 flex items-center justify-center">
           <iframe
             src={iframeSrc}
             title={project.title}

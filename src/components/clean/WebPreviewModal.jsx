@@ -21,11 +21,11 @@ export default function WebPreviewModal({ website, isOpen, onClose }) {
   return (
     <div 
       onClick={onClose}
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-[9999] grid place-items-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-2xl animate-fade-in"
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-5xl h-[88vh] rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto"
+        className="relative w-full max-w-5xl max-h-[85vh] sm:max-h-[88vh] rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between"
       >
         
         {/* Browser Top Bar */}
