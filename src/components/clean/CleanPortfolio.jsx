@@ -13,7 +13,8 @@ export default function CleanPortfolio({ isRevealed = true }) {
   const [selectedBehance, setSelectedBehance] = useState(null);
 
   const motionProjects = portfolioProjects.filter(p => p.category === 'motion-graphics');
-  const videoProjects = portfolioProjects.filter(p => p.category === 'video-editing');
+  const shortFormProjects = portfolioProjects.filter(p => p.subCategory === 'short-form');
+  const edTechVideoProjects = portfolioProjects.filter(p => p.category === 'video-editing' && p.subCategory !== 'short-form');
   const graphicProjects = portfolioProjects.filter(p => p.category === 'graphic-design');
 
   // Compute displayed projects
@@ -22,10 +23,10 @@ export default function CleanPortfolio({ isRevealed = true }) {
     if (showAll) {
       filteredProjects = portfolioProjects;
     } else {
-      // Top items per category
       filteredProjects = [
         ...motionProjects.slice(0, 3),
-        ...videoProjects.slice(0, 3),
+        ...shortFormProjects,
+        ...edTechVideoProjects.slice(0, 3),
         ...graphicProjects.slice(0, 3)
       ];
     }
@@ -58,6 +59,7 @@ export default function CleanPortfolio({ isRevealed = true }) {
   const renderProjectCard = (project) => {
     const isBehance = project.category === 'graphic-design';
     const isMotion = project.category === 'motion-graphics';
+    const isShortForm = project.subCategory === 'short-form';
 
     return (
       <div
@@ -100,7 +102,7 @@ export default function CleanPortfolio({ isRevealed = true }) {
 
           {/* Top Category Badge */}
           <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 border border-slate-800 text-[10px] font-mono text-cyan-400 backdrop-blur-md">
-            <span>{isBehance ? 'Behance Design' : isMotion ? '3D Motion' : 'Ed-Tech Video'}</span>
+            <span>{isBehance ? 'Behance Design' : isMotion ? '3D Motion' : isShortForm ? 'Short-Form Video' : 'Ed-Tech Video'}</span>
           </div>
 
           {/* Client Tag */}
@@ -151,19 +153,24 @@ export default function CleanPortfolio({ isRevealed = true }) {
       
       {/* Header & Filter Controls */}
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-8 sm:mb-10 md:mb-12">
-        <div className="space-y-1.5 sm:space-y-2">
-          <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-            Selected Work Gallery
+        <div className="space-y-3">
+          <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono font-medium">
+            Featured Creative Work
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-            Featured <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Client Projects</span>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight font-['Creato_Display',sans-serif]">
+            Selected <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">Projects</span>
           </h2>
+
+          <p className="text-slate-400 text-sm sm:text-base max-w-xl font-light leading-relaxed">
+            Commercial Video Edits, Short-Form Reels, 3D Motion Graphics, Graphic Design Systems, and Vibe Coded Web Applications.
+          </p>
         </div>
 
-        {/* Top Main Category Filter Buttons */}
-        <div className="w-full md:w-auto flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none flex-nowrap">
+        {/* Filter Pills */}
+        <div className="flex flex-wrap gap-2 p-1.5 bg-slate-900/90 rounded-2xl border border-slate-800 backdrop-blur-md">
           {[
-            { id: 'all', label: 'All Works' },
+            { id: 'all', label: 'All Projects' },
             { id: 'motion-graphics', label: '3D Motion' },
             { id: 'video-editing', label: 'Video Editing' },
             { id: 'graphic-design', label: 'Graphic Design' }
@@ -171,10 +178,10 @@ export default function CleanPortfolio({ isRevealed = true }) {
             <button
               key={cat.id}
               onClick={() => handleFilterChange(cat.id)}
-              className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 filter === cat.id
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-[0_0_15px_rgba(0,243,255,0.3)]'
-                  : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_15px_rgba(0,243,255,0.4)]'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
               }`}
             >
               {cat.label}
@@ -212,8 +219,36 @@ export default function CleanPortfolio({ isRevealed = true }) {
             </div>
           )}
 
-          {/* Section 2: Video Editing */}
-          <div className="space-y-5 sm:space-y-6 pt-2">
+          {/* Section 2: Short-Form Video */}
+          {shortFormProjects.length > 0 && (
+            <div className="space-y-5 sm:space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <Film className="w-4 h-4 text-cyan-400" />
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                    Short-Form Video
+                  </h3>
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-400 font-bold">
+                    Short-Form Video
+                  </span>
+                </div>
+                <button
+                  onClick={() => handleFilterChange('video-editing')}
+                  className="text-xs font-mono text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 cursor-pointer group"
+                >
+                  <span>See more</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-stretch">
+                {shortFormProjects.map((project) => renderProjectCard(project))}
+              </div>
+            </div>
+          )}
+
+          {/* Section 3: Video Editing */}
+          <div className="space-y-5 sm:space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Film className="w-4 h-4 text-cyan-400" />
@@ -231,12 +266,12 @@ export default function CleanPortfolio({ isRevealed = true }) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-stretch">
-              {videoProjects.slice(0, 3).map((project) => renderProjectCard(project))}
+              {edTechVideoProjects.slice(0, 3).map((project) => renderProjectCard(project))}
             </div>
           </div>
 
-          {/* Section 3: Graphic Design */}
-          <div className="space-y-5 sm:space-y-6 pt-2">
+          {/* Section 4: Graphic Design */}
+          <div className="space-y-5 sm:space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <div className="flex items-center gap-2">
                 <Palette className="w-4 h-4 text-cyan-400" />
@@ -276,7 +311,7 @@ export default function CleanPortfolio({ isRevealed = true }) {
             className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-[0_0_25px_rgba(0,243,255,0.3)] transition-all flex items-center gap-2 cursor-pointer group"
           >
             <Layers className="w-4 h-4 text-cyan-400" />
-            <span>See More Projects ({portfolioProjects.length - 7} More)</span>
+            <span>See More Projects ({portfolioProjects.length - 8} More)</span>
             <ChevronDown className="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform" />
           </button>
         </div>

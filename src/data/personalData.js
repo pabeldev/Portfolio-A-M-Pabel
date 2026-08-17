@@ -334,25 +334,41 @@ export const servicesList = [
   }
 ];
 
-export const motionGraphicsVideos = [
+export const shortFormVideos = [
   {
-    id: "m-1",
-    fileId: "1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX",
-    title: "SSC Target A+ CQ MCQ Live Class Motion-01",
-    subjectTag: "reThink.ac • SSC Motion",
-    category: "motion-graphics",
-    thumbnail: "https://drive.google.com/thumbnail?id=1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX&sz=w1000",
-    embedUrl: "https://drive.google.com/file/d/1QU2-qmG3S6mk07E_A3xF9dV7LM6aJ5hX/preview",
-    description: "High-impact Motion Graphics animation engineered for reThink.ac SSC Target A+ CQ MCQ Live Class.",
-    tags: ["3D Motion", "After Effects", "Ed-Tech"],
+    id: "sf-1",
+    fileId: "17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI",
+    title: "Target A+ Course Promo Reel (Arts)",
+    subjectTag: "reThink.ac • Arts Reel",
+    category: "video-editing",
+    subCategory: "short-form",
+    thumbnail: "https://drive.google.com/thumbnail?id=17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI/preview",
+    description: "High-energy short-form promo reel designed for SSC Target A+ Arts batch.",
+    tags: ["Short-Form Video", "Arts Reel", "Course Promo"],
+    client: "reThink.ac",
+    year: "2026"
+  },
+  {
+    id: "sf-2",
+    fileId: "1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2",
+    title: "Target A+ Course Promo Reel (Commerce)",
+    subjectTag: "reThink.ac • Commerce Reel",
+    category: "video-editing",
+    subCategory: "short-form",
+    thumbnail: "https://drive.google.com/thumbnail?id=1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2/preview",
+    description: "Dynamic short-form commercial reel for SSC Target A+ Commerce batch.",
+    tags: ["Short-Form Video", "Commerce Reel", "Course Promo"],
     client: "reThink.ac",
     year: "2026"
   }
 ];
 
-// Clean Portfolio Projects (3D Motion + Ed-Tech Videos + Behance Graphic Design Projects)
+// Clean Portfolio Projects (3D Motion + Short-Form Videos + Ed-Tech Videos + Behance Graphic Design Projects)
 export const portfolioProjects = [
   ...motionGraphicsVideos,
+  ...shortFormVideos,
   ...edTechVideos,
   ...graphicDesignProjects
 ];
