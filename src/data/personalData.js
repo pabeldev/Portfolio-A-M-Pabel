@@ -265,29 +265,29 @@ export const shortFormVideos = [
     id: "sf-1",
     fileId: "17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI",
     title: "Target A+ Course Promo Reel (Arts)",
-    subjectTag: "reThink.ac • Arts Reel",
+    subjectTag: "reThink.ac • SSC 27 Arts Reel",
     category: "video-editing",
     subCategory: "short-form",
     thumbnail: "https://drive.google.com/thumbnail?id=17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI/preview",
-    description: "High-energy short-form promo reel designed for SSC Target A+ Arts batch.",
-    tags: ["Short-Form Video", "Arts Reel", "Course Promo"],
+    description: "High-energy short-form promo reel designed for SSC 27 Target A+ Arts batch.",
+    tags: ["Short-Form Video", "SSC 27 Reel", "Course Promo"],
     client: "reThink.ac",
-    year: "2026"
+    year: "2027"
   },
   {
     id: "sf-2",
     fileId: "1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2",
     title: "Target A+ Course Promo Reel (Commerce)",
-    subjectTag: "reThink.ac • Commerce Reel",
+    subjectTag: "reThink.ac • SSC 27 Commerce Reel",
     category: "video-editing",
     subCategory: "short-form",
     thumbnail: "https://drive.google.com/thumbnail?id=1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2&sz=w1000",
     embedUrl: "https://drive.google.com/file/d/1kx6svj35ecvgaHhoaUXpQYQpS2FrZlv2/preview",
-    description: "Dynamic short-form commercial reel for SSC Target A+ Commerce batch.",
-    tags: ["Short-Form Video", "Commerce Reel", "Course Promo"],
+    description: "Dynamic short-form commercial reel for SSC 27 Target A+ Commerce batch.",
+    tags: ["Short-Form Video", "SSC 27 Reel", "Course Promo"],
     client: "reThink.ac",
-    year: "2026"
+    year: "2027"
   }
 ];
 
