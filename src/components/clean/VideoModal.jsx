@@ -28,7 +28,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className={`relative w-full ${
           isShortForm ? 'max-w-[92vw] sm:max-w-md' : 'max-w-[94vw] sm:max-w-4xl'
-        } max-h-[92vh] sm:max-h-[90vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto`}
+        } h-[95vh] max-h-[98vh] rounded-2xl sm:rounded-3xl bg-slate-950 border border-cyan-500/40 overflow-hidden shadow-2xl flex flex-col justify-between my-auto`}
       >
         
         {/* Modal Header */}
