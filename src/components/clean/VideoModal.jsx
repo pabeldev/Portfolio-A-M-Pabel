@@ -75,7 +75,7 @@ export default function VideoModal({ project, isOpen, onClose }) {
             className="w-full bg-black border-0"
             style={{
               width: '100%',
-              height: isShortForm ? '58vh' : 'auto',
+              height: '100%', minHeight: '360px',
               maxHeight: '100%',
               aspectRatio: isShortForm ? '9/16' : '16/9',
               objectFit: 'contain',
