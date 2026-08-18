@@ -257,6 +257,19 @@ export const motionGraphicsVideos = [
     tags: ["3D Motion", "After Effects", "Ed-Tech"],
     client: "reThink.ac",
     year: "2026"
+  },
+  {
+    id: "m-2",
+    fileId: "1NofgpA5-N96ij_1AN5NKP2x7YAd8fzak",
+    title: "Target A+ Motion-02",
+    subjectTag: "reThink.ac • SSC 27 Motion",
+    category: "motion-graphics",
+    thumbnail: "https://drive.google.com/thumbnail?id=1NofgpA5-N96ij_1AN5NKP2x7YAd8fzak&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1NofgpA5-N96ij_1AN5NKP2x7YAd8fzak/preview",
+    description: "High-energy 3D motion graphics animation for reThink.ac SSC 27 Target A+ batch.",
+    tags: ["3D Motion", "SSC 27 Motion", "After Effects"],
+    client: "reThink.ac",
+    year: "2027"
   }
 ];
 
