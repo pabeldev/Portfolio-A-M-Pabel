@@ -20,6 +20,32 @@ export const personalProfile = {
 
 export const edTechVideos = [
   {
+    id: "v-edubd-1",
+    fileId: "14QRpIKj6x-TLc6Ak_AEe_cYMKm_7tGhd",
+    title: "Study in Finland Video-01",
+    subjectTag: "Education BD • Study in Finland",
+    category: "video-editing",
+    thumbnail: "https://drive.google.com/thumbnail?id=14QRpIKj6x-TLc6Ak_AEe_cYMKm_7tGhd&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/14QRpIKj6x-TLc6Ak_AEe_cYMKm_7tGhd/preview",
+    description: "Commercial promotional video for Study in Finland by Education BD.",
+    tags: ["Study in Finland", "Education BD", "Commercial Video"],
+    client: "Education BD",
+    year: "2026"
+  },
+  {
+    id: "v-rethink-cq",
+    fileId: "1l4HGzNSrJkWN0XhShmC5ZAtmFwmyYx3w",
+    title: "SSC 27/28 G. Science CQ Class",
+    subjectTag: "reThink.ac • General Science",
+    category: "video-editing",
+    thumbnail: "https://drive.google.com/thumbnail?id=1l4HGzNSrJkWN0XhShmC5ZAtmFwmyYx3w&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1l4HGzNSrJkWN0XhShmC5ZAtmFwmyYx3w/preview",
+    description: "Ed-Tech class hook video edit for SSC 27/28 General Science CQ Class by reThink.",
+    tags: ["Class Hook", "SSC 27/28 G. Science", "Ed-Tech"],
+    client: "reThink",
+    year: "2026"
+  },
+  {
     id: "v-0",
     fileId: "19MA2UKfcAHYnhmPFdPKclq7BdQLe8Weg",
     title: "States of Matter and Pressure",
@@ -274,6 +300,34 @@ export const motionGraphicsVideos = [
 ];
 
 export const shortFormVideos = [
+  {
+    id: "sf-ielts-1",
+    fileId: "1twSH160f441S1OFDB-ifHTzO5b4ms3Fb",
+    title: "PTE Writing Short Video",
+    subjectTag: "Banglay IELTS • PTE Writing",
+    category: "video-editing",
+    subCategory: "short-form",
+    thumbnail: "https://drive.google.com/thumbnail?id=1twSH160f441S1OFDB-ifHTzO5b4ms3Fb&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1twSH160f441S1OFDB-ifHTzO5b4ms3Fb/preview",
+    description: "High-retention short-form video for PTE Writing by Banglay IELTS.",
+    tags: ["Short-Form Video", "PTE Writing", "Banglay IELTS"],
+    client: "Banglay IELTS",
+    year: "2026"
+  },
+  {
+    id: "sf-ielts-2",
+    fileId: "1rveCJX46g_dZ6lvn_h7QwFs5EQOjImfR",
+    title: "Summerize Group Discussion Short Video",
+    subjectTag: "Banglay IELTS • Group Discussion",
+    category: "video-editing",
+    subCategory: "short-form",
+    thumbnail: "https://drive.google.com/thumbnail?id=1rveCJX46g_dZ6lvn_h7QwFs5EQOjImfR&sz=w1000",
+    embedUrl: "https://drive.google.com/file/d/1rveCJX46g_dZ6lvn_h7QwFs5EQOjImfR/preview",
+    description: "Engaging short-form video explaining Summarize Group Discussion by Banglay IELTS.",
+    tags: ["Short-Form Video", "Group Discussion", "Banglay IELTS"],
+    client: "Banglay IELTS",
+    year: "2026"
+  },
   {
     id: "sf-1",
     fileId: "17wPpb-HrK8vYUN92dCqWyzahGc9VA6FI",
