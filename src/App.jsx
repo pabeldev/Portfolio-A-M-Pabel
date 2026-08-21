@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import CleanNavbar from './components/clean/CleanNavbar';
 import CleanHero from './components/clean/CleanHero';
 import CleanServices from './components/clean/CleanServices';
@@ -89,6 +90,8 @@ export default function App() {
       {/* Professional Agency Studio Footer */}
       <CleanFooter />
 
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
