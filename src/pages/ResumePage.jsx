@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Sparkles, Film, PenTool, Image, Zap, Cpu, Building2, MapPin, Phone, Mail, Globe, Linkedin, Award, GraduationCap, Trophy } from 'lucide-react';
 import CleanFooter from '../components/clean/CleanFooter';
 
@@ -397,6 +398,8 @@ export default function ResumePage() {
       {/* Standalone Page Footer */}
       <CleanFooter />
 
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }

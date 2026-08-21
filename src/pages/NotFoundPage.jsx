@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { ArrowLeft, Sparkles, AlertCircle } from 'lucide-react';
 
 export default function NotFoundPage() {
@@ -52,6 +53,8 @@ export default function NotFoundPage() {
 
       </div>
 
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
